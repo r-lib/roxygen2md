@@ -46,6 +46,7 @@ add_roxygen_field <- function() {
 
 is_roxygen_field_markdown <- function() {
   roxygen_field <- desc::desc_get("Roxygen")
+  if (is.na(roxygen_field)) return(FALSE)
   roxygen_field_new <- "list(markdown = TRUE)"
   if (identical(unname(roxygen_field), roxygen_field_new)) return(TRUE)
 
