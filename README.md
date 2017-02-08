@@ -24,9 +24,9 @@ Let me know if this works with your documentation.
 Install from GitHub using
 
 ```r
+# install.packages("roxygen2")
 # install.packages("remotes")
-# remotes::install_packages("klutometis/roxygen")
-remotes::install_packages("r-pkgs/roxygen2md")
+remotes::install_github("r-pkgs/roxygen2md")
 ```
 
 
