@@ -19,4 +19,4 @@ Date: 2017-02-03
 BugReports: https://github.com/krlmlr/roxygen2md/issues
 URL: https://github.com/krlmlr/roxygen2md, http://krlmlr.github.io/roxygen2md
 Roxygen: list(markdown = TRUE, roclets = c("rd", "namespace", "pkgapi::api_roclet"))
-RoxygenNote: 6.0.0
+RoxygenNote: 6.0.1
