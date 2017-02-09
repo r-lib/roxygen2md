@@ -67,7 +67,7 @@ convert_local_links <- function(text) {
     text,
     rex::rex(
       "\\code{\\link{",
-      capture(one_or_more(none_of("}"))),
+      capture(one_or_more(none_of("}[%"))),
       "}",
       maybe("()"),
       "}"
@@ -81,9 +81,9 @@ convert_alien_links <- function(text) {
     text,
     rex::rex(
       "\\code{\\link[",
-      capture(one_or_more(none_of("]"))),
+      capture(one_or_more(none_of("][%"))),
       "]{",
-      capture(one_or_more(none_of("}"))),
+      capture(one_or_more(none_of("}[%"))),
       "}",
       maybe("()"),
       "}"
@@ -97,7 +97,7 @@ convert_code <- function(text) {
     text,
     rex::rex(
       "\\code{",
-      capture(one_or_more(none_of("{}"))),
+      capture(one_or_more(none_of("{}%"))),
       "}"
     ),
     "`\\1`")
