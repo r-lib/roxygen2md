@@ -22,6 +22,8 @@ roxygen2md_local <- function() {
   transformers <- c(
     convert_local_links,
     convert_alien_links,
+    convert_S4_code_links,
+    convert_S4_links,
     convert_code,
     NULL)
 
@@ -89,6 +91,30 @@ convert_alien_links <- function(text) {
       "}"
     ),
     "[\\1::\\2()]")
+}
+
+convert_S4_code_links <- function(text) {
+  rex::re_substitutes(
+    global = TRUE,
+    text,
+    rex::rex(
+      "\\code{\\linkS4class{",
+      capture(one_or_more(none_of("}%"))),
+      "}}"
+    ),
+    "[\\1-class]")
+}
+
+convert_S4_links <- function(text) {
+  rex::re_substitutes(
+    global = TRUE,
+    text,
+    rex::rex(
+      "\\linkS4class{",
+      capture(one_or_more(none_of("}%"))),
+      "}"
+    ),
+    "[\\1-class]")
 }
 
 convert_code <- function(text) {
