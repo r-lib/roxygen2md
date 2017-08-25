@@ -3,10 +3,11 @@ transform_files <- function(files, transformers) {
     roxy_lines <- get_roxy_lines(text)
 
     new_text <- text
-    new_text[roxy_lines] <- Reduce(
+    text <- paste(text[roxy_lines], collapse = "\n")
+    new_text[roxy_lines] <- split(Reduce(
       function(text, transformer) transformer(text),
       transformers,
-      init = text[roxy_lines])
+      init = text), "\n")[[1]]
 
     new_text
   }

@@ -25,6 +25,9 @@ roxygen2md_local <- function() {
     convert_S4_code_links,
     convert_S4_links,
     convert_code,
+    convert_emph,
+    convert_bold,
+    convert_url,
     NULL)
 
   add_roxygen_field()
@@ -69,7 +72,7 @@ convert_local_links <- function(text) {
     text,
     rex::rex(
       "\\code{\\link{",
-      capture(one_or_more(none_of("}[%"))),
+      capture(one_or_more(none_of("}["))),
       "}",
       maybe("()"),
       "}"
@@ -83,9 +86,9 @@ convert_alien_links <- function(text) {
     text,
     rex::rex(
       "\\code{\\link[",
-      capture(one_or_more(none_of("][%"))),
+      capture(one_or_more(none_of("]["))),
       "]{",
-      capture(one_or_more(none_of("}[%"))),
+      capture(one_or_more(none_of("}["))),
       "}",
       maybe("()"),
       "}"
@@ -99,7 +102,7 @@ convert_S4_code_links <- function(text) {
     text,
     rex::rex(
       "\\code{\\linkS4class{",
-      capture(one_or_more(none_of("}%"))),
+      capture(one_or_more(none_of("}"))),
       "}}"
     ),
     "[\\1-class]")
@@ -111,7 +114,7 @@ convert_S4_links <- function(text) {
     text,
     rex::rex(
       "\\linkS4class{",
-      capture(one_or_more(none_of("}%"))),
+      capture(one_or_more(none_of("}"))),
       "}"
     ),
     "[\\1-class]")
@@ -123,8 +126,44 @@ convert_code <- function(text) {
     text,
     rex::rex(
       "\\code{",
-      capture(one_or_more(none_of("{}%"))),
+      capture(one_or_more(none_of("{}"))),
       "}"
     ),
     "`\\1`")
+}
+
+convert_emph <- function(text) {
+  rex::re_substitutes(
+    global = TRUE,
+    text,
+    rex::rex(
+      "\\emph{",
+      capture(one_or_more(none_of("{}"))),
+      "}"
+    ),
+    "*\\1*")
+}
+
+convert_bold <- function(text) {
+  rex::re_substitutes(
+    global = TRUE,
+    text,
+    rex::rex(
+      "\\bold{",
+      capture(one_or_more(none_of("{}"))),
+      "}"
+    ),
+    "**\\1**")
+}
+
+convert_url <- function(text) {
+  rex::re_substitutes(
+    global = TRUE,
+    text,
+    rex::rex(
+      "\\url{",
+      capture(one_or_more(none_of("{}"))),
+      "}"
+    ),
+    "\\1")
 }
