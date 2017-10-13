@@ -7,14 +7,15 @@ transform_files <- function(files, transformers) {
     new_text[roxy_lines] <- strsplit(Reduce(
       function(text, transformer) transformer(text),
       transformers,
-      init = collapsed_text), "\n")[[1]]
+      init = collapsed_text
+    ), "\n")[[1]]
 
     new_text
   }
 
   changed <- utf8::transform_lines_enc(files, transformer)
   if (any(changed)) {
-      message("Please review the changes carefully!")
+    message("Please review the changes carefully!")
   }
   invisible(changed)
 }

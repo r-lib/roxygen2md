@@ -28,7 +28,8 @@ roxygen2md_local <- function() {
     convert_emph,
     convert_bold,
     convert_url,
-    NULL)
+    NULL
+  )
 
   add_roxygen_field()
   transform_files(files, transformers)
@@ -43,7 +44,8 @@ add_roxygen_field <- function() {
     } else {
       message(
         "If necessary, please update the Roxygen field in DESCRIPTION to include ",
-        roxygen_field_new, "\nCurrent value: ", roxygen_field)
+        roxygen_field_new, "\nCurrent value: ", roxygen_field
+      )
     }
   }
   invisible()
@@ -77,7 +79,8 @@ convert_local_links <- function(text) {
       maybe("()"),
       "}"
     ),
-    "[\\1()]")
+    "[\\1()]"
+  )
 }
 
 convert_alien_links <- function(text) {
@@ -93,7 +96,8 @@ convert_alien_links <- function(text) {
       maybe("()"),
       "}"
     ),
-    "[\\1::\\2()]")
+    "[\\1::\\2()]"
+  )
 }
 
 convert_S4_code_links <- function(text) {
@@ -105,7 +109,8 @@ convert_S4_code_links <- function(text) {
       capture(one_or_more(none_of("}"))),
       "}}"
     ),
-    "[\\1-class]")
+    "[\\1-class]"
+  )
 }
 
 convert_S4_links <- function(text) {
@@ -117,7 +122,8 @@ convert_S4_links <- function(text) {
       capture(one_or_more(none_of("}"))),
       "}"
     ),
-    "[\\1-class]")
+    "[\\1-class]"
+  )
 }
 
 convert_code <- function(text) {
@@ -129,7 +135,8 @@ convert_code <- function(text) {
       capture(one_or_more(none_of("{}"))),
       "}"
     ),
-    "`\\1`")
+    "`\\1`"
+  )
 }
 
 convert_emph <- function(text) {
@@ -141,7 +148,8 @@ convert_emph <- function(text) {
       capture(one_or_more(none_of("{}"))),
       "}"
     ),
-    "*\\1*")
+    "*\\1*"
+  )
 }
 
 convert_bold <- function(text) {
@@ -153,7 +161,8 @@ convert_bold <- function(text) {
       capture(one_or_more(none_of("{}"))),
       "}"
     ),
-    "**\\1**")
+    "**\\1**"
+  )
 }
 
 convert_url <- function(text) {
@@ -165,5 +174,6 @@ convert_url <- function(text) {
       capture(one_or_more(none_of("{}"))),
       "}"
     ),
-    "\\1")
+    "\\1"
+  )
 }
