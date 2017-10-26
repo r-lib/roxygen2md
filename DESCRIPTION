@@ -9,10 +9,10 @@ Imports:
     desc,
     rex,
     rprojroot,
-    utf8,
+    enc,
     withr
 Remotes:
-    krlmlr/utf8
+    krlmlr/enc
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
