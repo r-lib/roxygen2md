@@ -7,9 +7,9 @@ Description: Converts elements of 'roxygen' documentation to 'markdown'.
 Imports:
     BBmisc,
     desc,
+    enc,
     rex,
     rprojroot,
-    enc,
     withr
 Remotes:
     krlmlr/enc
