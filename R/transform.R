@@ -12,7 +12,7 @@ transform_files <- function(files, transformers) {
     new_text
   }
 
-  changed <- utf8::transform_lines_enc(files, transformer)
+  changed <- enc::transform_lines_enc(files, transformer)
   if (any(changed)) {
       message("Please review the changes carefully!")
   }
