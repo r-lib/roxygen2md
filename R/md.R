@@ -165,5 +165,5 @@ convert_url <- function(text) {
       capture(one_or_more(none_of("{}"))),
       "}"
     ),
-    "\\1")
+    "<\\1>")
 }
