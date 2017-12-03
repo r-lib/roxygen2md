@@ -1,3 +1,9 @@
+## roxygen2md 0.0-4 (2017-12-03)
+
+- Replacing utf8 by enc, package renamed (#8, @Kamsonka).
+- Handle `\bold{}`, `\emph{}` and `\url{}`, and markup spanning over multiple lines (#6, @hturner).
+
+
 ## roxygen2md 0.0-3 (2017-08-25)
 
 - Now replaces `\emph`, `\bold` and `\url` with corresponding markdown.
