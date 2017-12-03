@@ -11,8 +11,6 @@ Imports:
     rex,
     rprojroot,
     withr
-Remotes:
-    krlmlr/enc
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
