@@ -1,13 +1,10 @@
-transform_files <- function(files, transformers) {
+transform_files <- function(files) {
   transformer <- function(text) {
     roxy_lines <- get_roxy_lines(text)
 
     new_text <- text
     collapsed_text <- paste(text[roxy_lines], collapse = "\n")
-    new_text[roxy_lines] <- strsplit(Reduce(
-      function(text, transformer) transformer(text),
-      transformers,
-      init = collapsed_text), "\n")[[1]]
+    new_text[roxy_lines] <- strsplit(transform_text(collapsed_text), "\n")[[1]]
 
     new_text
   }
@@ -24,12 +21,12 @@ transform_files <- function(files, transformers) {
 #' @param text A character vector containing `.Rd` style annotations.
 #'
 #' @return The same vector with `.Rd` style annotations converted to Markdown
-#'   style annotation.
+#'   style annotations.
 #' @export
 #'
 #' @examples
 #'
-#' text <- c(
+#' text <-
 #'   "Both \\emph{italics} and \\bold{bold} text.",
 #'   "And here we have \\emph{italics} in some text.",
 #'   "This is \\bold{bold} text."

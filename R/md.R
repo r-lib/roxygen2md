@@ -19,19 +19,8 @@ roxygen2md <- function(pkg = ".") {
 
 roxygen2md_local <- function() {
   files <- dir(path = "R", pattern = "[.][rR]$", recursive = TRUE, full.names = TRUE)
-  transformers <- c(
-    convert_local_links,
-    convert_alien_links,
-    convert_S4_code_links,
-    convert_S4_links,
-    convert_code,
-    convert_emph,
-    convert_bold,
-    convert_url,
-    NULL)
-
   add_roxygen_field()
-  transform_files(files, transformers)
+  transform_files(files)
 }
 
 add_roxygen_field <- function() {
