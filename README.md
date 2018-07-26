@@ -26,7 +26,7 @@ Install from GitHub using
 ```r
 # install.packages("roxygen2")
 # install.packages("remotes")
-remotes::install_github("r-pkgs/roxygen2md")
+remotes::install_github("r-lib/roxygen2md")
 ```
 
 
