@@ -4,7 +4,7 @@ transform_files <- function(files) {
 
     new_text <- text
     collapsed_text <- paste(text[roxy_lines], collapse = "\n")
-    new_text[roxy_lines] <- strsplit(transform_text(collapsed_text), "\n")[[1]]
+    new_text[roxy_lines] <- strsplit(markdownify(collapsed_text), "\n")[[1]]
 
     new_text
   }
@@ -26,15 +26,15 @@ transform_files <- function(files) {
 #'
 #' @examples
 #'
-#' text <-
+#' text <- c(
 #'   "Both \\emph{italics} and \\bold{bold} text.",
 #'   "And here we have \\emph{italics} in some text.",
 #'   "This is \\bold{bold} text."
 #' )
 #'
-#' transform_text(text)
+#' markdownify(text)
 #'
-transform_text <- function(text) {
+markdownify <- function(text) {
   transformers <- c(
     convert_local_links,
     convert_alien_links,
