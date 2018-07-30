@@ -5,7 +5,6 @@ Authors@R: c(person("Kirill", "Müller", role = c("aut", "cre"), email = "krlmlr
     person("Heather", "Turner", role = c("ctb")))
 Description: Converts elements of 'roxygen' documentation to 'markdown'.
 Imports:
-    BBmisc,
     desc,
     enc,
     rex,
