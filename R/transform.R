@@ -11,7 +11,7 @@ transform_files <- function(files) {
 
   changed <- enc::transform_lines_enc(files, transformer)
   if (any(changed)) {
-      message("Please review the changes carefully!")
+    message("Please review the changes carefully!")
   }
   invisible(changed)
 }
@@ -46,7 +46,8 @@ markdownify <- function(text) {
     convert_bold,
     convert_bold,
     convert_url,
-    NULL)
+    NULL
+  )
 
   transform_element <- function(elem) {
     Reduce(
