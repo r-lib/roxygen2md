@@ -17,9 +17,9 @@ transform_files <- function(files) {
 }
 
 get_roxy_lines <- function(text) {
-  rex::re_matches(
+  re_matches(
     text,
-    rex::rex(
+    rex(
       start,
       any_blanks,
       some_of("#"),

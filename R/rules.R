@@ -44,10 +44,10 @@ markdownify <- function(text) {
 }
 
 convert_local_links <- function(text) {
-  rex::re_substitutes(
+  re_substitutes(
     global = TRUE,
     text,
-    rex::rex(
+    rex(
       "\\code{\\link{",
       capture(one_or_more(none_of("}["))),
       "}",
@@ -59,10 +59,10 @@ convert_local_links <- function(text) {
 }
 
 convert_special_alien_links <- function(text) {
-  rex::re_substitutes(
+  re_substitutes(
     global = TRUE,
     text,
-    rex::rex(
+    rex(
       "\\code{\\link[",
       capture(one_or_more(none_of("][:"))),
       ":",
@@ -83,10 +83,10 @@ convert_special_alien_links <- function(text) {
 }
 
 convert_alien_links <- function(text) {
-  rex::re_substitutes(
+  re_substitutes(
     global = TRUE,
     text,
-    rex::rex(
+    rex(
       "\\code{\\link[",
       capture(one_or_more(none_of("]["))),
       "]{",
@@ -100,10 +100,10 @@ convert_alien_links <- function(text) {
 }
 
 convert_S4_code_links <- function(text) {
-  rex::re_substitutes(
+  re_substitutes(
     global = TRUE,
     text,
-    rex::rex(
+    rex(
       "\\code{\\linkS4class{",
       capture(one_or_more(none_of("}"))),
       "}}"
@@ -113,10 +113,10 @@ convert_S4_code_links <- function(text) {
 }
 
 convert_S4_links <- function(text) {
-  rex::re_substitutes(
+  re_substitutes(
     global = TRUE,
     text,
-    rex::rex(
+    rex(
       "\\linkS4class{",
       capture(one_or_more(none_of("}"))),
       "}"
@@ -126,10 +126,10 @@ convert_S4_links <- function(text) {
 }
 
 convert_code <- function(text) {
-  rex::re_substitutes(
+  re_substitutes(
     global = TRUE,
     text,
-    rex::rex(
+    rex(
       "\\code{",
       capture(one_or_more(none_of("{}"))),
       "}"
@@ -139,10 +139,10 @@ convert_code <- function(text) {
 }
 
 convert_emph <- function(text) {
-  rex::re_substitutes(
+  re_substitutes(
     global = TRUE,
     text,
-    rex::rex(
+    rex(
       "\\emph{",
       capture(one_or_more(none_of("{}"))),
       "}"
@@ -152,10 +152,10 @@ convert_emph <- function(text) {
 }
 
 convert_bold <- function(text) {
-  rex::re_substitutes(
+  re_substitutes(
     global = TRUE,
     text,
-    rex::rex(
+    rex(
       "\\bold{",
       capture(one_or_more(none_of("{}"))),
       "}"
@@ -165,10 +165,10 @@ convert_bold <- function(text) {
 }
 
 convert_url <- function(text) {
-  rex::re_substitutes(
+  re_substitutes(
     global = TRUE,
     text,
-    rex::rex(
+    rex(
       "\\url{",
       capture(one_or_more(none_of("{}"))),
       "}"
