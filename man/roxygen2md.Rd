@@ -6,14 +6,13 @@
 \usage{
 roxygen2md()
 }
-\arguments{
-\item{pkg}{Path to a (subdirectory of an) R package}
-}
 \value{
 List of changed files, invisibly
 }
 \description{
-Performs various substitutions in all \code{.R} files in a package.
+Performs various substitutions in all \code{.R} files in a package
+to make use of the Markdown functionality in \code{roxygen2}.
+See \code{\link[=markdownify]{markdownify()}} for details.
 Also attempts to enable Markdown support in \code{roxygen2} by adding a field to
 \code{DESCRIPTION}.
 Carefully examine the results after running this function!
