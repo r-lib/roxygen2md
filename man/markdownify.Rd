@@ -2,7 +2,7 @@
 % Please edit documentation in R/rules.R
 \name{markdownify}
 \alias{markdownify}
-\title{Convert a character vector from Rd to Markdown}
+\title{Convert text to Markdown}
 \usage{
 markdownify(text, scope = c("full", "simple", "none"))
 }
@@ -19,7 +19,7 @@ The same vector with \code{.Rd} style annotations converted to Markdown
 style annotations.
 }
 \description{
-Convert a character vector from Rd to Markdown
+Converts a character vector from Rd to Markdown.
 }
 \examples{
 

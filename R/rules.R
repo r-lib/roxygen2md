@@ -1,4 +1,6 @@
-#' Convert a character vector from Rd to Markdown
+#' Convert text to Markdown
+#'
+#' Converts a character vector from Rd to Markdown.
 #'
 #' @param text A character vector containing `.Rd` style annotations.
 #' @inheritParams roxygen2md
