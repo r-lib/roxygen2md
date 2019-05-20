@@ -24,6 +24,9 @@ markdownify <- function(text) {
     convert_S4_code_links,
     convert_S4_code_links,
     convert_S4_links,
+    convert_non_code_links,
+    convert_non_code_special_alien_links,
+    convert_non_code_alien_links,
     convert_code,
     convert_emph,
     convert_bold,
@@ -122,6 +125,57 @@ convert_S4_links <- function(text) {
       "}"
     ),
     "[\\1-class]"
+  )
+}
+
+convert_non_code_links <- function(text) {
+  re_substitutes(
+    global = TRUE,
+    text,
+    rex(
+      "\\link{",
+      capture(one_or_more(none_of("}[:"))),
+      "}"
+    ),
+    "[\\1]"
+  )
+}
+
+convert_non_code_special_alien_links <- function(text) {
+  re_substitutes(
+    global = TRUE,
+    text,
+    rex(
+      "\\link[",
+      capture(one_or_more(none_of("][:"))),
+      ":",
+      capture(one_or_more(none_of("]["))),
+      "]{",
+      capture_group(1),
+      "::",
+      capture_group(2),
+      or(
+        "}",
+        "()}",
+        "}()"
+      )
+    ),
+    "[\\1::\\2]"
+  )
+}
+
+convert_non_code_alien_links <- function(text) {
+  re_substitutes(
+    global = TRUE,
+    text,
+    rex(
+      "\\link[",
+      capture(one_or_more(none_of("]["))),
+      "]{",
+      capture(one_or_more(none_of("}[:"))),
+      "}"
+    ),
+    "[\\1::\\2]"
   )
 }
 

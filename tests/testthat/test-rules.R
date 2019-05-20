@@ -22,6 +22,18 @@ test_that("convert_S4_links", {
   expect_equal(convert_S4_links("\\linkS4class{b}"), "[b-class]")
 })
 
+test_that("convert_non_code_links", {
+  expect_equal(convert_non_code_links("\\link{b}"), "[b]")
+})
+
+test_that("convert_non_code_special_alien_links", {
+  expect_equal(convert_non_code_special_alien_links("\\link[a:b]{a::b}"), "[a::b]")
+})
+
+test_that("convert_non_code_alien_links", {
+  expect_equal(convert_non_code_alien_links("\\link[a]{b}"), "[a::b]")
+})
+
 test_that("convert_code", {
   expect_equal(convert_code("\\code{x}"), "`x`")
 })
