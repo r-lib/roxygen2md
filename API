@@ -3,4 +3,4 @@
 ## Exported functions
 
 markdownify(text)
-roxygen2md(pkg = ".")
+roxygen2md()
