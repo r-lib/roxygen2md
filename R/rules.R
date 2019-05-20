@@ -17,7 +17,7 @@
 #'
 #' markdownify(text)
 #'
-markdownify <- function(text, scope = c("full", "simple")) {
+markdownify <- function(text, scope = c("full", "simple", "none")) {
   full_transformers <- c(
     convert_local_links,
     convert_special_alien_links,
@@ -42,8 +42,10 @@ markdownify <- function(text, scope = c("full", "simple")) {
 
   if (scope == "full") {
     transformers <- c(full_transformers, simple_transformers)
-  } else {
+  } else if (scope == "simple") {
     transformers <- c(simple_transformers)
+  } else {
+    transformers <- list()
   }
 
   transform_element <- function(elem) {

@@ -12,13 +12,13 @@ NULL
 #'
 #' @param scope The scope of transformations: `"simple"` runs only transformations
 #'   that shouldn't substantially change the resulting `.Rd` files, `"full"` runs
-#'   all transformations. In larger packages, run `"simple"`, double-check and track
-#'   the changes, and then run `"full"`.
+#'   all transformations. In larger packages, run `"none"`, double-check and track
+#'   the changes, and then run `"simple"` and then `"full"`.
 #'
 #' @return List of changed files, invisibly
 #'
 #' @export
-roxygen2md <- function(scope = c("full", "simple")) {
+roxygen2md <- function(scope = c("full", "simple", "none")) {
   scope <- match.arg(scope)
   with_project(code = roxygen2md_local(scope))
 }

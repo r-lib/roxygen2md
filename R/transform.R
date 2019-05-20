@@ -13,7 +13,12 @@ transform_files <- function(files, scope) {
 
   changed <- enc::transform_lines_enc(files, transformer)
   if (any(changed)) {
-    ui_todo("Please review the changes carefully!")
+    ui_todo("Run {ui_code('devtools::document()')}")
+    ui_todo("Review the changes carefully")
+    ui_todo("Commit the changes to version control")
+    if (scope != "full") {
+      ui_todo("Run {ui_code('roxygen2md::roxygen2md()')} with a stricter {ui_code('scope')} argument")
+    }
   }
   invisible(changed)
 }

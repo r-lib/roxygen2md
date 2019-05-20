@@ -4,13 +4,13 @@
 \alias{roxygen2md}
 \title{Convert from Rd to Markdown in roxygen2 comments}
 \usage{
-roxygen2md(scope = c("full", "simple"))
+roxygen2md(scope = c("full", "simple", "none"))
 }
 \arguments{
 \item{scope}{The scope of transformations: \code{"simple"} runs only transformations
 that shouldn't substantially change the resulting \code{.Rd} files, \code{"full"} runs
-all transformations. In larger packages, run \code{"simple"}, double-check and track
-the changes, and then run \code{"full"}.}
+all transformations. In larger packages, run \code{"none"}, double-check and track
+the changes, and then run \code{"simple"} and then \code{"full"}.}
 }
 \value{
 List of changed files, invisibly
