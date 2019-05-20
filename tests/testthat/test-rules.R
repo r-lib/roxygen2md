@@ -36,7 +36,7 @@ test_that("convert_non_code_special_alien_links", {
 })
 
 test_that("convert_non_code_alien_links", {
-  expect_convert(convert_non_code_alien_links, "\\link[a]{b}", "[a::b]")
+  expect_convert(convert_non_code_alien_links, "\\link[=a]{b}", "[a][b]")
 })
 
 test_that("convert_code", {

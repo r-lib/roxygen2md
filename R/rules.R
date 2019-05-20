@@ -184,13 +184,13 @@ convert_non_code_alien_links <- function(text) {
     global = TRUE,
     text,
     rex(
-      "\\link[",
+      "\\link[=",
       capture(one_or_more(none_of("]["))),
       "]{",
       capture(one_or_more(none_of("}[:"))),
       "}"
     ),
-    "[\\1::\\2]"
+    "[\\1][\\2]"
   )
 }
 
