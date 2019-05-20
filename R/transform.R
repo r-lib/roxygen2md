@@ -37,6 +37,7 @@ transform_files <- function(files) {
 markdownify <- function(text) {
   transformers <- c(
     convert_local_links,
+    convert_special_alien_links,
     convert_alien_links,
     convert_S4_code_links,
     convert_S4_code_links,

@@ -71,6 +71,30 @@ convert_local_links <- function(text) {
   )
 }
 
+convert_special_alien_links <- function(text) {
+  rex::re_substitutes(
+    global = TRUE,
+    text,
+    rex::rex(
+      "\\code{\\link[",
+      capture(one_or_more(none_of("][:"))),
+      ":",
+      capture(one_or_more(none_of("]["))),
+      "]{",
+      capture_group(1),
+      "::",
+      capture_group(2),
+      or(
+        "}",
+        "()}",
+        "}()"
+      ),
+      "}"
+    ),
+    "[\\1::\\2()]"
+  )
+}
+
 convert_alien_links <- function(text) {
   rex::re_substitutes(
     global = TRUE,
@@ -79,7 +103,7 @@ convert_alien_links <- function(text) {
       "\\code{\\link[",
       capture(one_or_more(none_of("]["))),
       "]{",
-      capture(one_or_more(none_of("}["))),
+      capture(one_or_more(none_of("}[:"))),
       "}",
       maybe("()"),
       "}"
