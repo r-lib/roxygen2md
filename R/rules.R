@@ -18,6 +18,8 @@
 #' markdownify(text)
 #'
 markdownify <- function(text, scope = c("full", "simple", "none")) {
+  scope <- match.arg(scope)
+
   full_transformers <- c(
     convert_local_links,
     convert_special_alien_links,
