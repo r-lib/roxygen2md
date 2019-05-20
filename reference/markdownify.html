@@ -63,7 +63,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">roxygen2md</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.4.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.4.9001</span>
       </span>
     </div>
 
@@ -113,7 +113,7 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>markdownify</span>(<span class='no'>text</span>, <span class='kw'>scope</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"full"</span>, <span class='st'>"simple"</span>))</pre>
+    <pre class="usage"><span class='fu'>markdownify</span>(<span class='no'>text</span>, <span class='kw'>scope</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"full"</span>, <span class='st'>"simple"</span>, <span class='st'>"none"</span>))</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -126,8 +126,8 @@
       <th>scope</th>
       <td><p>The scope of transformations: <code>"simple"</code> runs only transformations
 that shouldn't substantially change the resulting <code>.Rd</code> files, <code>"full"</code> runs
-all transformations. In larger packages, run <code>"simple"</code>, double-check and track
-the changes, and then run <code>"full"</code>.</p></td>
+all transformations. In larger packages, run <code>"none"</code>, double-check and track
+the changes, and then run <code>"simple"</code> and then <code>"full"</code>.</p></td>
     </tr>
     </table>
     
