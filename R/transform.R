@@ -12,7 +12,10 @@ transform_files <- function(files, scope) {
   }
 
   changed <- enc::transform_lines_enc(files, transformer)
-  if (any(changed)) {
+  n_changed <- sum(changed, na.rm = TRUE)
+
+  ui_done("{ui_value(n_changed)} source files changed")
+  if (n_changed) {
     ui_todo("Run {ui_code('devtools::document()')}")
     ui_todo("Review the changes carefully")
     ui_todo("Commit the changes to version control")
