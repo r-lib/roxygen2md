@@ -13,7 +13,7 @@ transform_files <- function(files, scope) {
 
   changed <- enc::transform_lines_enc(files, transformer)
   if (any(changed)) {
-    message("Please review the changes carefully!")
+    ui_todo("Please review the changes carefully!")
   }
   invisible(changed)
 }
