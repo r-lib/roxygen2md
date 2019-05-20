@@ -4,7 +4,7 @@
 \alias{roxygen2md}
 \title{Convert from Rd to Markdown in roxygen2 comments}
 \usage{
-roxygen2md(pkg = ".")
+roxygen2md()
 }
 \arguments{
 \item{pkg}{Path to a (subdirectory of an) R package}
