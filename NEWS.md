@@ -1,3 +1,14 @@
+# roxygen2md 0.0.4.9001
+
+- New `scope` argument to `roxygen2md()` and `markdownify()`.
+- Tests make sure that transform works also when applying all rules.
+- Convert `\link{}` expressions outside `\code{}`.
+- Get rid of NOTEs.
+- Aborts if `DESCRIPTION` doesn't have `Encoding: UTF-8` or `ASCII` set.
+- `roxygen2md()` loses `pkg` argument, fully embraces `usethis::proj_get()` instead.
+- New `convert_special_alien_links()` for converting code-link combinations that refer to functions in other packages.
+
+
 # roxygen2md 0.0.4.9000
 
 - New `markdownify()` function converts Rd to Markdown in character vectors (#10, @alexpghayes).
