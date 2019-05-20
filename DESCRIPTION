@@ -19,4 +19,5 @@ URL: https://github.com/krlmlr/roxygen2md, http://krlmlr.github.io/roxygen2md
 Roxygen: list(markdown = TRUE, roclets = c("rd", "namespace", "pkgapi::api_roclet"))
 RoxygenNote: 6.1.1
 Suggests: 
-    testthat (>= 2.1.0)
+    testthat (>= 2.1.0),
+    covr

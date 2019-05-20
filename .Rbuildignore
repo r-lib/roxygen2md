@@ -1,3 +1,6 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^API$
+^\.travis\.yml$
+^appveyor\.yml$
+^codecov\.yml$
