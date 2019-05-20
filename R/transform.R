@@ -1,10 +1,12 @@
-transform_files <- function(files) {
+transform_files <- function(files, scope) {
+  force(scope)
+
   transformer <- function(text) {
     roxy_lines <- get_roxy_lines(text)
 
     new_text <- text
     collapsed_text <- paste(text[roxy_lines], collapse = "\n")
-    new_text[roxy_lines] <- strsplit(markdownify(collapsed_text), "\n")[[1]]
+    new_text[roxy_lines] <- strsplit(markdownify(collapsed_text, scope), "\n")[[1]]
 
     new_text
   }

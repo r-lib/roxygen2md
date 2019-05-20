@@ -4,10 +4,15 @@
 \alias{markdownify}
 \title{Convert a character vector from Rd to Markdown}
 \usage{
-markdownify(text)
+markdownify(text, scope = c("full", "simple"))
 }
 \arguments{
 \item{text}{A character vector containing \code{.Rd} style annotations.}
+
+\item{scope}{The scope of transformations: \code{"simple"} runs only transformations
+that shouldn't substantially change the resulting \code{.Rd} files, \code{"full"} runs
+all transformations. In larger packages, run \code{"simple"}, double-check and track
+the changes, and then run \code{"full"}.}
 }
 \value{
 The same vector with \code{.Rd} style annotations converted to Markdown

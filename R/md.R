@@ -10,18 +10,24 @@ NULL
 #' `DESCRIPTION`.
 #' Carefully examine the results after running this function!
 #'
+#' @param scope The scope of transformations: `"simple"` runs only transformations
+#'   that shouldn't substantially change the resulting `.Rd` files, `"full"` runs
+#'   all transformations. In larger packages, run `"simple"`, double-check and track
+#'   the changes, and then run `"full"`.
+#'
 #' @return List of changed files, invisibly
 #'
 #' @export
-roxygen2md <- function() {
-  usethis::with_project(code = roxygen2md_local())
+roxygen2md <- function(scope = c("full", "simple")) {
+  scope <- match.arg(scope)
+  usethis::with_project(code = roxygen2md_local(scope))
 }
 
-roxygen2md_local <- function() {
+roxygen2md_local <- function(scope) {
   files <- dir(path = "R", pattern = "[.][rR]$", recursive = TRUE, full.names = TRUE)
   check_utf8()
   add_roxygen_field()
-  transform_files(files)
+  transform_files(files, scope)
 }
 
 check_utf8 <- function() {

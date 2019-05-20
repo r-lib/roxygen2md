@@ -1,6 +1,7 @@
 #' Convert a character vector from Rd to Markdown
 #'
 #' @param text A character vector containing `.Rd` style annotations.
+#' @inheritParams roxygen2md
 #'
 #' @return The same vector with `.Rd` style annotations converted to Markdown
 #'   style annotations.
@@ -16,8 +17,8 @@
 #'
 #' markdownify(text)
 #'
-markdownify <- function(text) {
-  transformers <- c(
+markdownify <- function(text, scope = c("full", "simple")) {
+  full_transformers <- c(
     convert_local_links,
     convert_special_alien_links,
     convert_alien_links,
@@ -27,6 +28,10 @@ markdownify <- function(text) {
     convert_non_code_links,
     convert_non_code_special_alien_links,
     convert_non_code_alien_links,
+    NULL
+  )
+
+  simple_transformers <- c(
     convert_code,
     convert_emph,
     convert_bold,
@@ -34,6 +39,12 @@ markdownify <- function(text) {
     convert_url,
     NULL
   )
+
+  if (scope == "full") {
+    transformers <- c(full_transformers, simple_transformers)
+  } else {
+    transformers <- c(simple_transformers)
+  }
 
   transform_element <- function(elem) {
     Reduce(
