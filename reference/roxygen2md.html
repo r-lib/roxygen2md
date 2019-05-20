@@ -123,8 +123,20 @@ Carefully examine the results after running this function!</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>roxygen2md</span>()</pre>
-        
+    <pre class="usage"><span class='fu'>roxygen2md</span>(<span class='kw'>scope</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"full"</span>, <span class='st'>"simple"</span>))</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>scope</th>
+      <td><p>The scope of transformations: <code>"simple"</code> runs only transformations
+that shouldn't substantially change the resulting <code>.Rd</code> files, <code>"full"</code> runs
+all transformations. In larger packages, run <code>"simple"</code>, double-check and track
+the changes, and then run <code>"full"</code>.</p></td>
+    </tr>
+    </table>
+    
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>List of changed files, invisibly</p>
@@ -134,6 +146,7 @@ Carefully examine the results after running this function!</p>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
           </ul>
@@ -143,7 +156,7 @@ Carefully examine the results after running this function!</p>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Kirill Müller.</p>
+  <p>Developed by <a href='http://krlmlr.info'>Kirill Müller</a>.</p>
 </div>
 
 <div class="pkgdown">
