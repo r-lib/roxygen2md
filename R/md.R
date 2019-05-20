@@ -12,9 +12,8 @@ NULL
 #' @return List of changed files, invisibly
 #'
 #' @export
-roxygen2md <- function(pkg = ".") {
-  pkg_root <- rprojroot::find_package_root_file(path = pkg)
-  withr::with_dir(pkg_root, roxygen2md_local())
+roxygen2md <- function() {
+  usethis::with_project(code = roxygen2md_local())
 }
 
 roxygen2md_local <- function() {

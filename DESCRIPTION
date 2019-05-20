@@ -8,7 +8,7 @@ Imports:
     desc,
     enc,
     rex,
-    rprojroot,
+    usethis,
     withr
 License: GPL-3
 Encoding: UTF-8
