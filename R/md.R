@@ -18,8 +18,16 @@ roxygen2md <- function() {
 
 roxygen2md_local <- function() {
   files <- dir(path = "R", pattern = "[.][rR]$", recursive = TRUE, full.names = TRUE)
+  check_utf8()
   add_roxygen_field()
   transform_files(files)
+}
+
+check_utf8 <- function() {
+  encoding <- desc::desc_get("Encoding")
+  if (is.null(encoding) || is.na(encoding) || encoding %in% c("UTF-8", "ASCII")) {
+    stop("roxygen2md requires UTF-8 encoding. Please make sure that the DESCRIPTION file contains a field `Encoding: UTF-8`.", abort = FALSE)
+  }
 }
 
 add_roxygen_field <- function() {

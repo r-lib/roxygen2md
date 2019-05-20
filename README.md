@@ -48,6 +48,22 @@ roxygen2md::roxygen2md()
 
 If you are using RStudio, simply choose the item "Rd to Markdown" from your "Addins" menu.
 
+
+
+## Limitations
+
+The package's `DESCRIPTION` must have its `Encoding` field set to `UTF-8` or `ASCII`:
+
+```
+Encoding: UTF-8
+```
+
+If you use a different encoding, please recode your files with [`recode`](http://manpages.ubuntu.com/manpages/xenial/man1/recode.1.html) or a similar tool and update the `Encoding` field before proceeding. Example:
+
+```sh
+recode latin1..utf8 R/*
+```
+
 -----
 
 GPL-3 © Kirill Müller
