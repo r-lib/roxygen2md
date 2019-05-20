@@ -20,7 +20,7 @@ NULL
 #' @export
 roxygen2md <- function(scope = c("full", "simple")) {
   scope <- match.arg(scope)
-  usethis::with_project(code = roxygen2md_local(scope))
+  with_project(code = roxygen2md_local(scope))
 }
 
 roxygen2md_local <- function(scope) {

@@ -3,3 +3,4 @@
 export(markdownify)
 export(roxygen2md)
 import(rex)
+import(usethis)
