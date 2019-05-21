@@ -25,12 +25,14 @@ markdownify <- function(text, scope = c("full", "simple", "none")) {
   full_transformers <- c(
     convert_local_links,
     convert_special_alien_links,
+    convert_package_alien_links,
     convert_alien_links,
     convert_S4_code_links,
     convert_S4_code_links,
     convert_S4_links,
     convert_non_code_links,
     convert_non_code_special_alien_links,
+    convert_non_code_package_alien_links,
     convert_non_code_alien_links,
     NULL
   )
@@ -88,12 +90,38 @@ convert_special_alien_links <- function(text) {
       ":",
       capture(one_or_more(none_of("]["))),
       "]{",
-      capture(one_or_more(none_of("}["))),
+      maybe(
+        capture_group(1),
+        "::"
+      ),
+      capture_group(2),
+      maybe("()"),
       "}",
-      capture(zero_or_more(none_of("}["))),
+      maybe("()"),
       "}"
     ),
-    "[`\\3\\4`][\\1::\\2]"
+    "[\\1::\\2()]"
+  )
+}
+
+convert_package_alien_links <- function(text) {
+  re_substitutes(
+    global = TRUE,
+    text,
+    rex(
+      "\\code{\\link[",
+      capture(one_or_more(none_of("][:"))),
+      ":",
+      capture(one_or_more(none_of("]["))),
+      "]{",
+      capture(one_or_more(none_of("}["), type = "lazy")),
+      maybe("()"),
+      "}",
+      capture(zero_or_more(none_of("}["), type = "lazy")),
+      maybe("()"),
+      "}"
+    ),
+    "[`\\3\\4()`][\\1::\\2]"
   )
 }
 
@@ -105,12 +133,15 @@ convert_alien_links <- function(text) {
       "\\code{\\link[=",
       capture(one_or_more(none_of("][:"))),
       "]{",
-      capture(one_or_more(none_of("}[:"))),
-      "}",
-      maybe("()"),
+      capture(one_or_more(none_of("}[:"), type = "lazy")),
+      or(
+        "}",
+        "}()",
+        "()}"
+      ),
       "}"
     ),
-    "[\\2()][\\1]"
+    "[`\\2()`][\\1]"
   )
 }
 
@@ -154,6 +185,25 @@ convert_non_code_links <- function(text) {
 }
 
 convert_non_code_special_alien_links <- function(text) {
+  re_substitutes(
+    global = TRUE,
+    text,
+    rex(
+      "\\link[",
+      capture(one_or_more(none_of("][:"))),
+      ":",
+      capture(one_or_more(none_of("]["))),
+      "]{",
+      capture_group(1),
+      "::",
+      capture_group(2),
+      "}"
+    ),
+    "[\\1::\\2]"
+  )
+}
+
+convert_non_code_package_alien_links <- function(text) {
   re_substitutes(
     global = TRUE,
     text,
