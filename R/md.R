@@ -1,6 +1,3 @@
-#' @api
-NULL
-
 #' Convert from Rd to Markdown in roxygen2 comments
 #'
 #' Performs various substitutions in all `.R` files in a package
