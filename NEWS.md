@@ -1,3 +1,9 @@
+# roxygen2md 0.0.4.9002
+
+- Document staged approach.
+- Run `document()` automatically if `markdown = TRUE` in `DESCRIPTION`.
+
+
 # roxygen2md 0.0.4.9001
 
 - New `scope` argument to `roxygen2md()` and `markdownify()`.
