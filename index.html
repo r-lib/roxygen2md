@@ -30,7 +30,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">roxygen2md</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.4.9001</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.4.9002</span>
       </span>
     </div>
 
@@ -101,7 +101,39 @@
 <a href="#usage" class="anchor"></a>Usage</h2>
 <p>In your package directory, run</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">roxygen2md<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/roxygen2md/topics/roxygen2md">roxygen2md</a></span>()</a></code></pre></div>
-<p>If you are using RStudio, simply choose the item “Rd to Markdown” from your “Addins” menu.</p>
+<p>If you are using RStudio, choose the item “Rd to Markdown” from your “Addins” menu.</p>
+<p>You will be guided through the process.</p>
+</div>
+<div id="converting-large-packages" class="section level2">
+<h2 class="hasAnchor">
+<a href="#converting-large-packages" class="anchor"></a>Converting large packages</h2>
+<p>For larger existing packages, a three-stage workflow is recommended, using <code><a href="reference/roxygen2md.html">roxygen2md(scope = "none")</a></code>, <code>"simple"</code> and <code>"full"</code> in sequence:</p>
+<ul>
+<li>
+<code>"none"</code> only adds <code><a href="https://www.rdocumentation.org/packages/base/topics/list">list(markdown = TRUE)</a></code> to the <code>Roxygen</code> field in <code>DESCRIPTION</code>
+</li>
+<li>
+<code>"simple"</code> only converts elements like <code>\code{}</code> and <code>\emph{}</code>
+</li>
+<li>
+<code>"full"</code> runs all conversions</li>
+</ul>
+<p>This helps isolating mostly automated changes from changes that require review. See <a href="https://github.com/rstudio/rmarkdown/pull/1583" class="uri">https://github.com/rstudio/rmarkdown/pull/1583</a> for an example conversion.</p>
+<div id="baseline" class="section level3">
+<h3 class="hasAnchor">
+<a href="#baseline" class="anchor"></a>Baseline</h3>
+<p>After <code><a href="reference/roxygen2md.html">roxygen2md(scope = "none")</a></code>, interpretation of Markdown elements is enabled. Running <code><a href="https://www.rdocumentation.org/packages/devtools/topics/document">devtools::document()</a></code> should ideally lead to whitespace-only changes in the <code>.Rd</code> files, this can be verified with <code>git diff -w -- man</code> or with a visual diff tool like Meld or diffuse. Make sure that enabling of Markdown doesn’t add unwanted artifacts. (The second commit in the example PR was necessary due to such artifacts – the underscore has a special meaning in Markdown.)</p>
+</div>
+<div id="simple-conversion" class="section level3">
+<h3 class="hasAnchor">
+<a href="#simple-conversion" class="anchor"></a>Simple conversion</h3>
+<p>Running <code><a href="reference/roxygen2md.html">roxygen2md(scope = "simple")</a></code> after <code>"none"</code> (and running <code><a href="https://www.rdocumentation.org/packages/devtools/topics/document">devtools::document()</a></code>) should lead to changes in R files mostly, only very few <code>.Rd</code> files should be changed. Again, make sure this doesn’t add unwanted artifacts.</p>
+</div>
+<div id="full-conversion" class="section level3">
+<h3 class="hasAnchor">
+<a href="#full-conversion" class="anchor"></a>Full conversion</h3>
+<p>Running <code><a href="reference/roxygen2md.html">roxygen2md()</a></code> after <code>scope = "simple"</code> (and running <code><a href="https://www.rdocumentation.org/packages/devtools/topics/document">devtools::document()</a></code>) converts all <code>\link{}</code> expressions. This is the trickiest part of the entire conversion. Due to the staged approach, the changeset is reduced to a minimum. Review carefully, luckily <code>R CMD check</code> <a href="https://travis-ci.org/rstudio/rmarkdown/jobs/535140289#L1121">catches bad links introduced in this stage</a>.</p>
+</div>
 </div>
 <div id="limitations" class="section level2">
 <h2 class="hasAnchor">
