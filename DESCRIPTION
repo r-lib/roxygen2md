@@ -1,25 +1,33 @@
 Package: roxygen2md
 Title: 'Roxygen' to 'Markdown'
 Version: 0.0.4.9002
-Authors@R: c(person("Kirill", "Müller", role = c("aut", "cre"), email = "krlmlr+r@mailbox.org"),
-    person("Heather", "Turner", role = c("ctb")))
-Description: Converts elements of 'roxygen' documentation to 'markdown'.
-Imports:
-    desc,
-    devtools,
-    enc,
-    rex,
-    rlang,
-    usethis,
-    withr
+Date: 2019-05-21
+Authors@R: 
+    c(person(given = "Kirill",
+             family = "Müller",
+             role = c("aut", "cre"),
+             email = "krlmlr+r@mailbox.org"),
+      person(given = "Heather",
+             family = "Turner",
+             role = "ctb"))
+Description: Converts elements of 'roxygen' documentation to
+    'markdown'.
 License: GPL-3
+URL: https://github.com/krlmlr/roxygen2md,
+    http://krlmlr.github.io/roxygen2md
+BugReports: https://github.com/krlmlr/roxygen2md/issues
+Imports:
+    desc (>= 1.2.0),
+    devtools (>= 2.0.2),
+    enc (>= 0.2.0),
+    rex (>= 1.1.2),
+    rlang (>= 0.3.4),
+    usethis (>= 1.5.0),
+    withr (>= 2.1.2)
+Suggests: 
+    covr (>= 3.2.1),
+    testthat (>= 2.1.1)
 Encoding: UTF-8
 LazyData: true
-Date: 2019-05-21
-BugReports: https://github.com/krlmlr/roxygen2md/issues
-URL: https://github.com/krlmlr/roxygen2md, http://krlmlr.github.io/roxygen2md
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.1.1
-Suggests: 
-    testthat (>= 2.1.0),
-    covr
