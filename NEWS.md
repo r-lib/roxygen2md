@@ -1,3 +1,11 @@
+# roxygen2md 0.0.4.9003
+
+- Also recognize `\strong{}`.
+- New `find_rd()`.
+- Adapt complex link rules and fix tests.
+- Fix rules with alien links.
+
+
 # roxygen2md 0.0.4.9002
 
 - Document staged approach.
