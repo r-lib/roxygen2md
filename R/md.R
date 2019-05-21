@@ -24,7 +24,7 @@ roxygen2md <- function(scope = c("full", "simple", "none")) {
 }
 
 roxygen2md_local <- function(scope) {
-  files <- dir(path = "R", pattern = "[.][rR]$", recursive = TRUE, full.names = TRUE)
+  files <- find_r_files()
   check_utf8()
   add_roxygen_field()
   transform_files(files, scope)

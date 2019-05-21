@@ -50,6 +50,8 @@ If you are using RStudio, choose the item "Rd to Markdown" from your "Addins" me
 
 You will be guided through the process.
 
+At any time, choose the item "Find Rd" from your "Addins" menu, or run `find_rd()`, to enumerate Rd elements in your R scripts.
+
 
 
 ## Converting large packages
@@ -60,7 +62,9 @@ For larger existing packages, a three-stage workflow is recommended, using `roxy
 - `"simple"` only converts elements like `\code{}` and `\emph{}`
 - `"full"` runs all conversions
 
-This helps isolating mostly automated changes from changes that require review.  See https://github.com/rstudio/rmarkdown/pull/1583 for an example conversion.
+This helps isolating mostly automated changes from changes that require review.  After this `find_rd()` shows remaining Rd format artifacts that were not handled by the conversion.
+
+See https://github.com/rstudio/rmarkdown/pull/1583 for an example conversion.
 
 ### Baseline
 
@@ -73,6 +77,10 @@ Running `roxygen2md(scope = "simple")` after `"none"` (and running `devtools::do
 ### Full conversion
 
 Running `roxygen2md()` after `scope = "simple"` (and running `devtools::document()`) converts all `\link{}` expressions.  This is the trickiest part of the entire conversion.  Due to the staged approach, the changeset is reduced to a minimum.  Review carefully, luckily `R CMD check` [catches bad links introduced in this stage](https://travis-ci.org/rstudio/rmarkdown/jobs/535140289#L1121).
+
+### Manual conversion
+
+The `find_rd()` functions shows positions of Rd-like comments that were not handled by the conversion.  In RStudio, a markers pane will open.
 
 
 ## Limitations
