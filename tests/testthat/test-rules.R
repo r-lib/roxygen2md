@@ -67,6 +67,7 @@ test_that("convert_emph", {
 
 test_that("convert_bold", {
   expect_convert(convert_bold("\\bold{x}"), "**x**")
+  expect_convert(convert_bold("\\strong{x}"), "**x**")
 })
 
 test_that("convert_url", {

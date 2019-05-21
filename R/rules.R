@@ -266,7 +266,9 @@ convert_bold <- function(text) {
     global = TRUE,
     text,
     rex(
-      "\\bold{",
+      "\\",
+      or("bold", "strong"),
+      "{",
       capture(one_or_more(none_of("{}"))),
       "}"
     ),
