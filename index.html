@@ -104,6 +104,7 @@
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">roxygen2md<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/roxygen2md/topics/roxygen2md">roxygen2md</a></span>()</a></code></pre></div>
 <p>If you are using RStudio, choose the item “Rd to Markdown” from your “Addins” menu.</p>
 <p>You will be guided through the process.</p>
+<p>At any time, choose the item “Find Rd” from your “Addins” menu, or run <code><a href="reference/find_rd.html">find_rd()</a></code>, to enumerate Rd elements in your R scripts.</p>
 </div>
 <div id="converting-large-packages" class="section level2">
 <h2 class="hasAnchor">
@@ -119,7 +120,8 @@
 <li>
 <code>"full"</code> runs all conversions</li>
 </ul>
-<p>This helps isolating mostly automated changes from changes that require review. See <a href="https://github.com/rstudio/rmarkdown/pull/1583" class="uri">https://github.com/rstudio/rmarkdown/pull/1583</a> for an example conversion.</p>
+<p>This helps isolating mostly automated changes from changes that require review. After this <code><a href="reference/find_rd.html">find_rd()</a></code> shows remaining Rd format artifacts that were not handled by the conversion.</p>
+<p>See <a href="https://github.com/rstudio/rmarkdown/pull/1583" class="uri">https://github.com/rstudio/rmarkdown/pull/1583</a> for an example conversion.</p>
 <div id="baseline" class="section level3">
 <h3 class="hasAnchor">
 <a href="#baseline" class="anchor"></a>Baseline</h3>
@@ -134,6 +136,11 @@
 <h3 class="hasAnchor">
 <a href="#full-conversion" class="anchor"></a>Full conversion</h3>
 <p>Running <code><a href="reference/roxygen2md.html">roxygen2md()</a></code> after <code>scope = "simple"</code> (and running <code><a href="https://www.rdocumentation.org/packages/devtools/topics/document">devtools::document()</a></code>) converts all <code>\link{}</code> expressions. This is the trickiest part of the entire conversion. Due to the staged approach, the changeset is reduced to a minimum. Review carefully, luckily <code>R CMD check</code> <a href="https://travis-ci.org/rstudio/rmarkdown/jobs/535140289#L1121">catches bad links introduced in this stage</a>.</p>
+</div>
+<div id="manual-conversion" class="section level3">
+<h3 class="hasAnchor">
+<a href="#manual-conversion" class="anchor"></a>Manual conversion</h3>
+<p>The <code><a href="reference/find_rd.html">find_rd()</a></code> functions shows positions of Rd-like comments that were not handled by the conversion. In RStudio, a markers pane will open.</p>
 </div>
 </div>
 <div id="limitations" class="section level2">
