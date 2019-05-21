@@ -15,14 +15,20 @@ transform_files <- function(files, scope) {
   n_changed <- sum(changed, na.rm = TRUE)
 
   ui_done("{ui_value(n_changed)} source files changed")
-  if (n_changed) {
+
+  if (is_roxygen_field_markdown()) {
+    ui_info("Running {ui_code('devtools::document()')}")
+    devtools::document(proj_get())
+  } else {
     ui_todo("Run {ui_code('devtools::document()')}")
-    ui_todo("Review the changes carefully")
-    ui_todo("Commit the changes to version control")
-    if (scope != "full") {
-      ui_todo("Run {ui_code('roxygen2md::roxygen2md()')} with a stricter {ui_code('scope')} argument")
-    }
   }
+
+  ui_todo("Review the changes carefully")
+  ui_todo("Commit the changes to version control")
+  if (scope != "full") {
+    ui_todo("Run {ui_code('roxygen2md::roxygen2md()')} with a stricter {ui_code('scope')} argument")
+  }
+
   invisible(changed)
 }
 

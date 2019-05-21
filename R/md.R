@@ -38,23 +38,21 @@ check_utf8 <- function() {
 }
 
 add_roxygen_field <- function() {
-  if (!is_roxygen_field_markdown()) {
-    roxygen_field <- desc::desc_get("Roxygen")
-    roxygen_field_new <- "list(markdown = TRUE)"
-    if (is.na(roxygen_field)) {
-      desc::desc_set("Roxygen" = roxygen_field_new)
-    } else {
-      message(
-        "If necessary, please update the Roxygen field in DESCRIPTION to include ",
-        roxygen_field_new, "\nCurrent value: ", roxygen_field
-      )
-    }
+  roxygen_field <- desc::desc_get("Roxygen")
+  if (is_roxygen_field_markdown(roxygen_field)) return()
+
+  roxygen_field_new <- "list(markdown = TRUE)"
+  if (is.na(roxygen_field)) {
+    desc::desc_set("Roxygen" = roxygen_field_new)
+    ui_done("Updated {ui_path('DESCRIPTION')}")
+  } else {
+    ui_todo("Update the {ui_value('Roxygen')} field in {ui_path('DESCRIPTION')} to include {ui_code(roxygen_field_new)}}. Current value: {ui_code(roxygen_field)}")
   }
+
   invisible()
 }
 
-is_roxygen_field_markdown <- function() {
-  roxygen_field <- desc::desc_get("Roxygen")
+is_roxygen_field_markdown <- function(roxygen_field = desc::desc_get("Roxygen")) {
   if (is.na(roxygen_field)) return(FALSE)
   roxygen_field_new <- "list(markdown = TRUE)"
   if (identical(unname(roxygen_field), roxygen_field_new)) return(TRUE)
