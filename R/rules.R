@@ -88,17 +88,12 @@ convert_special_alien_links <- function(text) {
       ":",
       capture(one_or_more(none_of("]["))),
       "]{",
-      capture_group(1),
-      "::",
-      capture_group(2),
-      or(
-        "}",
-        "()}",
-        "}()"
-      ),
+      capture(one_or_more(none_of("}["))),
+      "}",
+      capture(zero_or_more(none_of("}["))),
       "}"
     ),
-    "[\\1::\\2()]"
+    "[`\\3\\4`][\\1::\\2]"
   )
 }
 
@@ -107,15 +102,15 @@ convert_alien_links <- function(text) {
     global = TRUE,
     text,
     rex(
-      "\\code{\\link[",
-      capture(one_or_more(none_of("]["))),
+      "\\code{\\link[=",
+      capture(one_or_more(none_of("][:"))),
       "]{",
       capture(one_or_more(none_of("}[:"))),
       "}",
       maybe("()"),
       "}"
     ),
-    "[\\1::\\2()]"
+    "[\\2()][\\1]"
   )
 }
 
@@ -168,16 +163,10 @@ convert_non_code_special_alien_links <- function(text) {
       ":",
       capture(one_or_more(none_of("]["))),
       "]{",
-      capture_group(1),
-      "::",
-      capture_group(2),
-      or(
-        "}",
-        "()}",
-        "}()"
-      )
+      capture(one_or_more(none_of("}["))),
+      "}"
     ),
-    "[\\1::\\2]"
+    "[\\3][\\1::\\2]"
   )
 }
 
@@ -192,7 +181,7 @@ convert_non_code_alien_links <- function(text) {
       capture(one_or_more(none_of("}[:"))),
       "}"
     ),
-    "[\\1][\\2]"
+    "[\\2][\\1]"
   )
 }
 
