@@ -1,6 +1,0 @@
-# API for roxygen2md package
-
-## Exported functions
-
-markdownify(text)
-roxygen2md()
