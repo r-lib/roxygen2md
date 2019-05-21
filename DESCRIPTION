@@ -9,6 +9,7 @@ Imports:
     devtools,
     enc,
     rex,
+    rlang,
     usethis,
     withr
 License: GPL-3

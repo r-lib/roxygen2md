@@ -5,3 +5,4 @@
 ^appveyor\.yml$
 ^codecov\.yml$
 ^tic\.R$
+^_pkgdown\.yml$
