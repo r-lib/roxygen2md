@@ -26,6 +26,7 @@ markdownify <- function(text, scope = c("full", "simple", "none")) {
     convert_local_links,
     convert_special_alien_links,
     convert_package_alien_links,
+    convert_alias_links,
     convert_alien_links,
     convert_S4_code_links,
     convert_S4_code_links,
@@ -33,6 +34,7 @@ markdownify <- function(text, scope = c("full", "simple", "none")) {
     convert_non_code_links,
     convert_non_code_special_alien_links,
     convert_non_code_package_alien_links,
+    convert_non_code_alias_links,
     convert_non_code_alien_links,
     NULL
   )
@@ -125,7 +127,7 @@ convert_package_alien_links <- function(text) {
   )
 }
 
-convert_alien_links <- function(text) {
+convert_alias_links <- function(text) {
   re_substitutes(
     global = TRUE,
     text,
@@ -142,6 +144,26 @@ convert_alien_links <- function(text) {
       "}"
     ),
     "[`\\2()`][\\1]"
+  )
+}
+
+convert_alien_links <- function(text) {
+  re_substitutes(
+    global = TRUE,
+    text,
+    rex(
+      "\\code{\\link[",
+      capture(none_of("="), zero_or_more(none_of("][:"))),
+      "]{",
+      capture(one_or_more(none_of("}[:"), type = "lazy")),
+      or(
+        "}",
+        "}()",
+        "()}"
+      ),
+      "}"
+    ),
+    "[\\1::\\2()]"
   )
 }
 
@@ -220,7 +242,7 @@ convert_non_code_package_alien_links <- function(text) {
   )
 }
 
-convert_non_code_alien_links <- function(text) {
+convert_non_code_alias_links <- function(text) {
   re_substitutes(
     global = TRUE,
     text,
@@ -232,6 +254,21 @@ convert_non_code_alien_links <- function(text) {
       "}"
     ),
     "[\\2][\\1]"
+  )
+}
+
+convert_non_code_alien_links <- function(text) {
+  re_substitutes(
+    global = TRUE,
+    text,
+    rex(
+      "\\link[",
+      capture(none_of("="), zero_or_more(none_of("]["))),
+      "]{",
+      capture(one_or_more(none_of("}[:"))),
+      "}"
+    ),
+    "[\\2][\\1::\\2]"
   )
 }
 

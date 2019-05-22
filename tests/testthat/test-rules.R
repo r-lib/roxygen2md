@@ -27,10 +27,16 @@ test_that("convert_package_alien_links", {
   expect_convert(convert_package_alien_links("\\code{\\link[c:d]{a::b}}"), "[`a::b()`][c::d]")
 })
 
+test_that("convert_alias_links", {
+  expect_convert(convert_alias_links("\\code{\\link[=b]{a}}"), "[`a()`][b]")
+  expect_convert(convert_alias_links("\\code{\\link[=b]{a()}}"), "[`a()`][b]")
+  expect_convert(convert_alias_links("\\code{\\link[=b]{a}()}"), "[`a()`][b]")
+})
+
 test_that("convert_alien_links", {
-  expect_convert(convert_alien_links("\\code{\\link[=b]{a}}"), "[`a()`][b]")
-  expect_convert(convert_alien_links("\\code{\\link[=b]{a()}}"), "[`a()`][b]")
-  expect_convert(convert_alien_links("\\code{\\link[=b]{a}()}"), "[`a()`][b]")
+  expect_convert(convert_alien_links("\\code{\\link[a]{b}}"), "[a::b()]")
+  expect_convert(convert_alien_links("\\code{\\link[a]{b()}}"), "[a::b()]")
+  expect_convert(convert_alien_links("\\code{\\link[a]{b}()}"), "[a::b()]")
 })
 
 test_that("convert_S4_code_links", {
@@ -53,8 +59,12 @@ test_that("convert_non_code_package_alien_links", {
   expect_convert(convert_non_code_package_alien_links("\\link[c:d]{a::b}"), "[a::b][c::d]")
 })
 
+test_that("convert_non_code_alias_links", {
+  expect_convert(convert_non_code_alias_links("\\link[=b]{a}"), "[a][b]")
+})
+
 test_that("convert_non_code_alien_links", {
-  expect_convert(convert_non_code_alien_links("\\link[=b]{a}"), "[a][b]")
+  expect_convert(convert_non_code_alien_links("\\link[a]{b}"), "[b][a::b]")
 })
 
 test_that("convert_code", {
