@@ -26,7 +26,7 @@ Imports:
     withr (>= 2.1.2)
 Suggests: 
     covr (>= 3.2.1),
-    rstudioapi,
+    rstudioapi (>= 0.10),
     testthat (>= 2.1.1)
 Encoding: UTF-8
 LazyData: true
