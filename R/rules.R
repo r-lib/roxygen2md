@@ -43,7 +43,7 @@ markdownify <- function(text, scope = c("full", "simple", "none")) {
     convert_code,
     convert_emph,
     convert_bold,
-    convert_bold,
+    convert_href,
     convert_url,
     NULL
   )
@@ -310,6 +310,21 @@ convert_bold <- function(text) {
       "}"
     ),
     "**\\1**"
+  )
+}
+
+convert_href <- function(text) {
+  re_substitutes(
+    global = TRUE,
+    text,
+    rex(
+      "\\href{",
+      capture(one_or_more(none_of("{}"))),
+      "}{",
+      capture(one_or_more(none_of("{}"))),
+      "}"
+    ),
+    "[\\2](\\1)"
   )
 }
 

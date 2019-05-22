@@ -80,6 +80,10 @@ test_that("convert_bold", {
   expect_convert(convert_bold("\\strong{x}"), "**x**")
 })
 
+test_that("convert_href", {
+  expect_convert(convert_href("\\href{x}{y}"), "[y](x)")
+})
+
 test_that("convert_url", {
   expect_convert(convert_url("\\url{x}"), "<x>")
 })
