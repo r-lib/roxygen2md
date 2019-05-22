@@ -13,9 +13,8 @@ Authors@R:
 Description: Converts elements of 'roxygen' documentation to
     'markdown'.
 License: GPL-3
-URL: https://github.com/krlmlr/roxygen2md,
-    http://krlmlr.github.io/roxygen2md
-BugReports: https://github.com/krlmlr/roxygen2md/issues
+URL: https://roxygen2md.r-lib.org, https://github.com/r-lib/roxygen2md
+BugReports: https://github.com/r-lib/roxygen2md/issues
 Imports:
     desc (>= 1.2.0),
     devtools (>= 2.0.2),
