@@ -30,7 +30,7 @@ roxygen2md_local <- function(scope) {
 check_utf8 <- function() {
   encoding <- desc::desc_get("Encoding")
   if (is.null(encoding) || is.na(encoding) || !(encoding %in% c("UTF-8", "ASCII"))) {
-    stop("roxygen2md requires UTF-8 encoding. Please make sure that the DESCRIPTION file contains a field `Encoding: UTF-8`.", abort = FALSE)
+    stop("roxygen2md requires UTF-8 encoding. Please make sure that the DESCRIPTION file contains a field `Encoding: UTF-8`.", call. = FALSE)
   }
 }
 
