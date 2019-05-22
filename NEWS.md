@@ -1,3 +1,10 @@
+# roxygen2md 0.0.4.9004
+
+- Fix corner case for no entries in `print.roxygen2md_find()`.
+- New `convert_href()`.
+- Convert links of the form `\code{\link[package]{target}}` and `\link[package]{target}` again.
+
+
 # roxygen2md 0.0.4.9003
 
 - Also recognize `\strong{}`.
