@@ -17,10 +17,14 @@ find_rd_local <- function() {
 
 #' @export
 print.roxygen2md_find <- function(x, ...) {
-  if (rlang::is_installed("rstudioapi") && rstudioapi::isAvailable()) {
-    rstudioapi::sourceMarkers("roxygen2md", x, autoSelect = "first")
+  if (nrow(x) > 0) {
+    if (rlang::is_installed("rstudioapi") && rstudioapi::isAvailable()) {
+      rstudioapi::sourceMarkers("roxygen2md", x, autoSelect = "first")
+    } else {
+      NextMethod()
+    }
   } else {
-    NextMethod()
+    ui_info("No Rd syntax found")
   }
   invisible(x)
 }
