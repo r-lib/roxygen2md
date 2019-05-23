@@ -32,7 +32,21 @@
 
 <meta property="og:title" content="Convert text to Markdown — markdownify" />
 
-<meta property="og:description" content="Converts a character vector from Rd to Markdown." />
+<meta property="og:description" content="Converts a character vector from Rd to Markdown.
+With scope = &quot;none&quot;, no transformations are carried out.
+With scope = &quot;simple&quot;, the following elements are converted:
+\code{}
+\emph{}
+\bold{} and \strong{}
+\href{}
+\url{}
+" />
+
+<meta property="og:description" content="With scope = &quot;full&quot;, the following elements are converted in addition:
+
+\code{\link{}} and \link{}, with [] options
+\linkS4class{}
+" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -110,6 +124,20 @@
     <div class="ref-description">
     
     <p>Converts a character vector from Rd to Markdown.</p>
+<p>With <code>scope = "none"</code>, no transformations are carried out.</p>
+<p>With <code>scope = "simple"</code>, the following elements are converted:</p><ul>
+<li><p><code>\code{}</code></p></li>
+<li><p><code>\emph{}</code></p></li>
+<li><p><code>\bold{}</code> and <code>\strong{}</code></p></li>
+<li><p><code>\href{}</code></p></li>
+<li><p><code>\url{}</code></p></li>
+</ul>
+
+    <p>With <code>scope = "full"</code>, the following elements are converted in addition:</p>
+<ul>
+<li><p><code>\code{\link{}}</code> and <code>\link{}</code>, with <code>[]</code> options</p></li>
+<li><p><code>\linkS4class{}</code></p></li>
+</ul>
     
     </div>
 
