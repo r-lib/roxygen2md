@@ -29,19 +29,19 @@ markdownify <- function(text, scope = c("full", "simple", "none")) {
   #' With `scope = "simple"`, the following elements are converted:
   simple_transformers <- c(
     #'
-    #' - `\code{}`
+    #' - `\\code{}`
     convert_code,
     #'
-    #' - `\emph{}`
+    #' - `\\emph{}`
     convert_emph,
     #'
-    #' - `\bold{}` and `\strong{}`
+    #' - `\\bold{}` and `\\strong{}`
     convert_bold,
     #'
-    #' - `\href{}`
+    #' - `\\href{}`
     convert_href,
     #'
-    #' - `\url{}`
+    #' - `\\url{}`
     convert_url,
     NULL
   )
@@ -50,7 +50,7 @@ markdownify <- function(text, scope = c("full", "simple", "none")) {
   #' With `scope = "full"`, the following elements are converted in addition:
   full_transformers <- c(
     #' @description
-    #' - `\code{\link{}}` and `\link{}`, with `[]` options
+    #' - `\\code{\\link{}}` and `\\link{}`, with `[]` options
     convert_local_links,
     convert_special_alien_links,
     convert_package_alien_links,
@@ -62,7 +62,7 @@ markdownify <- function(text, scope = c("full", "simple", "none")) {
     convert_non_code_alias_links,
     convert_non_code_alien_links,
     #'
-    #' - `\linkS4class{}`
+    #' - `\\linkS4class{}`
     convert_S4_code_links,
     convert_S4_code_links,
     convert_S4_links,
