@@ -20,6 +20,24 @@ style annotations.
 }
 \description{
 Converts a character vector from Rd to Markdown.
+
+With \code{scope = "none"}, no transformations are carried out.
+
+With \code{scope = "simple"}, the following elements are converted:
+\itemize{
+\item \code{\code{}}
+\item \code{\emph{}}
+\item \code{\bold{}} and \code{\strong{}}
+\item \code{\href{}}
+\item \code{\url{}}
+}
+
+With \code{scope = "full"}, the following elements are converted in addition:
+
+\itemize{
+\item \code{\code{\link{}}} and \code{\link{}}, with \code{[]} options
+\item \code{\linkS4class{}}
+}
 }
 \examples{
 

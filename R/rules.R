@@ -1,5 +1,6 @@
 #' Convert text to Markdown
 #'
+#' @description
 #' Converts a character vector from Rd to Markdown.
 #'
 #' @param text A character vector containing `.Rd` style annotations.
@@ -22,29 +23,49 @@
 markdownify <- function(text, scope = c("full", "simple", "none")) {
   scope <- match.arg(scope)
 
+  #' @description
+  #' With `scope = "none"`, no transformations are carried out.
+  #'
+  #' With `scope = "simple"`, the following elements are converted:
+  simple_transformers <- c(
+    #'
+    #' - `\code{}`
+    convert_code,
+    #'
+    #' - `\emph{}`
+    convert_emph,
+    #'
+    #' - `\bold{}` and `\strong{}`
+    convert_bold,
+    #'
+    #' - `\href{}`
+    convert_href,
+    #'
+    #' - `\url{}`
+    convert_url,
+    NULL
+  )
+
+  #'
+  #' With `scope = "full"`, the following elements are converted in addition:
   full_transformers <- c(
+    #' @description
+    #' - `\code{\link{}}` and `\link{}`, with `[]` options
     convert_local_links,
     convert_special_alien_links,
     convert_package_alien_links,
     convert_alias_links,
     convert_alien_links,
-    convert_S4_code_links,
-    convert_S4_code_links,
-    convert_S4_links,
     convert_non_code_links,
     convert_non_code_special_alien_links,
     convert_non_code_package_alien_links,
     convert_non_code_alias_links,
     convert_non_code_alien_links,
-    NULL
-  )
-
-  simple_transformers <- c(
-    convert_code,
-    convert_emph,
-    convert_bold,
-    convert_href,
-    convert_url,
+    #'
+    #' - `\linkS4class{}`
+    convert_S4_code_links,
+    convert_S4_code_links,
+    convert_S4_links,
     NULL
   )
 
