@@ -60,7 +60,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">roxygen2md</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.4.9004</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
       </span>
     </div>
 
@@ -103,89 +103,22 @@
       <small>Source: <a href='https://github.com/r-lib/roxygen2md/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
-    <div id="roxygen2md-0-0-4-9004" class="section level1">
+    <div id="roxygen2md-1-0-0" class="section level1">
 <h1 class="page-header">
-<a href="#roxygen2md-0-0-4-9004" class="anchor"></a>roxygen2md 0.0.4.9004</h1>
+<a href="#roxygen2md-1-0-0" class="anchor"></a>roxygen2md 1.0.0</h1>
+<p>Initial release.</p>
 <ul>
-<li>Fix corner case for no entries in <code>print.roxygen2md_find()</code>.</li>
-<li>New <code>convert_href()</code>.</li>
-<li>Convert links of the form <code>\code{\link[package]{target}}</code> and <code>\link[package]{target}</code> again.</li>
+<li>Function <code><a href="../reference/roxygen2md.html">roxygen2md()</a></code> that can be run in the package’s directory and converts all roxygen2 comments to Markdown, guiding the user with helpful output.
+<ul>
+<li>The <code>DESCRIPTION</code> is edited if necessary, or a message is given that the user should edit themselves.</li>
+<li>Runs <code>document()</code> automatically if <code>markdown = TRUE</code> in <code>DESCRIPTION</code>.</li>
+<li>Perform only partial conversion by specifying the <code>scope</code> argument.</li>
+<li>Makes use of <code><a href="https://usethis.r-lib.org/reference/proj_utils.html">usethis::proj_get()</a></code>.</li>
 </ul>
-</div>
-    <div id="roxygen2md-0-0-4-9003" class="section level1">
-<h1 class="page-header">
-<a href="#roxygen2md-0-0-4-9003" class="anchor"></a>roxygen2md 0.0.4.9003</h1>
-<ul>
-<li>Also recognize <code>\strong{}</code>.</li>
-<li>New <code><a href="../reference/find_rd.html">find_rd()</a></code>.</li>
-<li>Adapt complex link rules and fix tests.</li>
-<li>Fix rules with alien links.</li>
-</ul>
-</div>
-    <div id="roxygen2md-0-0-4-9002" class="section level1">
-<h1 class="page-header">
-<a href="#roxygen2md-0-0-4-9002" class="anchor"></a>roxygen2md 0.0.4.9002</h1>
-<ul>
-<li>Document staged approach.</li>
-<li>Run <code>document()</code> automatically if <code>markdown = TRUE</code> in <code>DESCRIPTION</code>.</li>
-</ul>
-</div>
-    <div id="roxygen2md-0-0-4-9001" class="section level1">
-<h1 class="page-header">
-<a href="#roxygen2md-0-0-4-9001" class="anchor"></a>roxygen2md 0.0.4.9001</h1>
-<ul>
-<li>New <code>scope</code> argument to <code><a href="../reference/roxygen2md.html">roxygen2md()</a></code> and <code><a href="../reference/markdownify.html">markdownify()</a></code>.</li>
-<li>Tests make sure that transform works also when applying all rules.</li>
-<li>Convert <code>\link{}</code> expressions outside <code>\code{}</code>.</li>
-<li>Get rid of NOTEs.</li>
-<li>Aborts if <code>DESCRIPTION</code> doesn’t have <code>Encoding: UTF-8</code> or <code>ASCII</code> set.</li>
-<li>
-<code><a href="../reference/roxygen2md.html">roxygen2md()</a></code> loses <code>pkg</code> argument, fully embraces <code><a href="https://usethis.r-lib.org/reference/proj_utils.html">usethis::proj_get()</a></code> instead.</li>
-<li>New <code>convert_special_alien_links()</code> for converting code-link combinations that refer to functions in other packages.</li>
-</ul>
-</div>
-    <div id="roxygen2md-0-0-4-9000" class="section level1">
-<h1 class="page-header">
-<a href="#roxygen2md-0-0-4-9000" class="anchor"></a>roxygen2md 0.0.4.9000</h1>
-<ul>
-<li>New <code><a href="../reference/markdownify.html">markdownify()</a></code> function converts Rd to Markdown in character vectors (<a href='https://github.com/r-lib/roxygen2md/issues/10'>#10</a>, <a href='https://github.com/alexpghayes'>@alexpghayes</a>).</li>
-</ul>
-</div>
-    <div id="roxygen2md-0-0-4" class="section level1">
-<h1 class="page-header">
-<a href="#roxygen2md-0-0-4" class="anchor"></a>roxygen2md 0.0-4</h1>
-<ul>
-<li>Replacing utf8 by enc, package renamed (<a href='https://github.com/r-lib/roxygen2md/issues/8'>#8</a>, <a href='https://github.com/Kamsonka'>@Kamsonka</a>).</li>
-<li>Handle <code>\bold{}</code>, <code>\emph{}</code> and <code>\url{}</code>, and markup spanning over multiple lines (<a href='https://github.com/r-lib/roxygen2md/issues/6'>#6</a>, <a href='https://github.com/hturner'>@hturner</a>).</li>
-</ul>
-</div>
-    <div id="roxygen2md-0-0-3" class="section level1">
-<h1 class="page-header">
-<a href="#roxygen2md-0-0-3" class="anchor"></a>roxygen2md 0.0-3</h1>
-<ul>
-<li>Now replaces <code>\emph</code>, <code>\bold</code> and <code>\url</code> with corresponding markdown.</li>
-<li>
-<p>Now handles Rd markup split over multiple lines, e.g.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">    <span class="co">#' Author, A. (2017) An Important Reference. \emph{Journal of </span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2">    <span class="co">#' Critical Research}, \bold{5}(2), 1--10.</span></a></code></pre></div>
 </li>
-</ul>
-</div>
-    <div id="roxygen2md-0-0-2" class="section level1">
-<h1 class="page-header">
-<a href="#roxygen2md-0-0-2" class="anchor"></a>roxygen2md 0.0-2</h1>
-<ul>
-<li>Now uses global replacement again.</li>
-<li>Improve detection for existing <code>markdown = TRUE</code> setting in <code>DESCRIPTION</code>.</li>
-</ul>
-</div>
-    <div id="roxygen2md-0-0-1" class="section level1">
-<h1 class="page-header">
-<a href="#roxygen2md-0-0-1" class="anchor"></a>roxygen2md 0.0-1</h1>
-<p>Initial GitHub release.</p>
-<ul>
-<li>Single function <code><a href="../reference/roxygen2md.html">roxygen2md()</a></code> that can be run in the package’s directory and converts all roxygen2 comments to Markdown. The <code>DESCRIPTION</code> is edited if necessary, or a message is given that the user should edit themselves.</li>
-<li>RStudio add-in with single menu item “Rd to Markdown”.</li>
+<li>Function <code><a href="../reference/find_rd.html">find_rd()</a></code> to find the remaining Rd syntax</li>
+<li>Function <code><a href="../reference/markdownify.html">markdownify()</a></code> converts Rd to Markdown in character vectors (<a href='https://github.com/r-lib/roxygen2md/issues/10'>#10</a>, <a href='https://github.com/alexpghayes'>@alexpghayes</a>).</li>
+<li>RStudio add-in with menu items “Rd to Markdown” and "Find Rd.</li>
 </ul>
 </div>
   </div>
@@ -194,15 +127,7 @@
     <div id="tocnav">
       <h2>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
-        <li><a href="#roxygen2md-0-0-4-9004">0.0.4.9004</a></li>
-        <li><a href="#roxygen2md-0-0-4-9003">0.0.4.9003</a></li>
-        <li><a href="#roxygen2md-0-0-4-9002">0.0.4.9002</a></li>
-        <li><a href="#roxygen2md-0-0-4-9001">0.0.4.9001</a></li>
-        <li><a href="#roxygen2md-0-0-4-9000">0.0.4.9000</a></li>
-        <li><a href="#roxygen2md-0-0-4">0.0-4</a></li>
-        <li><a href="#roxygen2md-0-0-3">0.0-3</a></li>
-        <li><a href="#roxygen2md-0-0-2">0.0-2</a></li>
-        <li><a href="#roxygen2md-0-0-1">0.0-1</a></li>
+        <li><a href="#roxygen2md-1-0-0">1.0.0</a></li>
       </ul>
     </div>
   </div>
