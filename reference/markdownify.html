@@ -166,16 +166,14 @@ style annotations.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='no'>text</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(
+    <pre class="examples"><div class='input'><span class='no'>text</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(
   <span class='st'>"Both \\emph{italics} and \\bold{bold} text."</span>,
-  <span class='st'>"And here we have \\emph{italics} in some text."</span>,
-  <span class='st'>"This is \\bold{bold} text."</span>
+  <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/paste'>paste0</a></span>(<span class='st'>"We can also convert code: \\"</span>, <span class='st'>"code{\\"</span>, <span class='st'>"link{identity}}."</span>)
 )
 
-<span class='fu'>markdownify</span>(<span class='no'>text</span>)</div><div class='output co'>#&gt; [1] "Both *italics* and **bold** text."       
-#&gt; [2] "And here we have *italics* in some text."
-#&gt; [3] "This is **bold** text."                  </div><div class='input'>
+<span class='no'>text</span></div><div class='output co'>#&gt; [1] "Both \\emph{italics} and \\bold{bold} text."        
+#&gt; [2] "We can also convert code: \\code{\\link{identity}}."</div><div class='input'><span class='fu'>markdownify</span>(<span class='no'>text</span>)</div><div class='output co'>#&gt; [1] "Both *italics* and **bold** text."      
+#&gt; [2] "We can also convert code: [identity()]."</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
