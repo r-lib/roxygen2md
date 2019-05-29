@@ -73,35 +73,34 @@
 <a href="#roxygen2md" class="anchor"></a>roxygen2md</h1></div>
 <!-- badges: start -->
 
-<p>The goal of roxygen2md is to replace Rd syntax with Markdown in your package’s <code>roxygen2</code> documentation. Currently, the following substitutions are carried out:</p>
+<p>The goal of roxygen2md is to replace Rd syntax with Markdown in your package’s <code>roxygen2</code> documentation. The following Rd code is converted to the Markdown equivalent:</p>
 <ul>
+<li><code>\emph{}</code></li>
 <li>
-<code>\code{\link{...}}</code> becomes <code>[...()]</code>
+<code>\bold{}</code> and <code>\strong{}</code>
 </li>
-<li>
-<code>\code{\link[...]{...}}</code> becomes <code>[...::...()]</code>
-</li>
-<li>
-<code>\code{...}</code> becomes <code>`...`</code>
-</li>
+<li><code>\href{}</code></li>
+<li><code>\url{}</code></li>
+<li><code>\code{...}</code></li>
+<li>Various variants of <code>\code{\link{...}}</code> and <code>\code{\link[...]{...}}</code> (only with <code>scope = "full"</code>, see below)</li>
 </ul>
 <p>If necessary, <code>DESCRIPTION</code> is edited to enable Markdown in roxygen blocks. You’ll need <code>roxygen2</code> version 6.0.0 or later.</p>
 <p>Call <code><a href="reference/roxygen2md.html">roxygen2md::roxygen2md()</a></code> in your package’s directory, or navigate to “Tools/Addins/Rd to Markdown” in RStudio.</p>
-<p>More to come. The substitutions are not completely safe, please carefully examine the results!</p>
-<p>Let me know if this works with your documentation.</p>
+<p>The substitutions are not completely safe, please carefully examine the results!</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<p>Install from GitHub using</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># install.packages("roxygen2")</span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="co"># install.packages("remotes")</span></a>
-<a class="sourceLine" id="cb1-3" data-line-number="3">remotes<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/remotes/topics/install_github">install_github</a></span>(<span class="st">"r-lib/roxygen2md"</span>)</a></code></pre></div>
+<p>Install from CRAN using</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages</a></span>(<span class="st">"roxygen2md"</span>)</a></code></pre></div>
+<p>Get the latest development version from GitHub with:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co"># install.packages("devtools")</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">devtools<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/devtools/topics/reexports">install_github</a></span>(<span class="st">"r-lib/roxygen2md"</span>)</a></code></pre></div>
 </div>
 <div id="usage" class="section level2">
 <h2 class="hasAnchor">
 <a href="#usage" class="anchor"></a>Usage</h2>
 <p>In your package directory, run</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">roxygen2md<span class="op">::</span><span class="kw"><a href="https://roxygen2md.r-lib.org/reference/roxygen2md.html">roxygen2md</a></span>()</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">roxygen2md<span class="op">::</span><span class="kw"><a href="https://roxygen2md.r-lib.org/reference/roxygen2md.html">roxygen2md</a></span>()</a></code></pre></div>
 <p>If you are using RStudio, choose the item “Rd to Markdown” from your “Addins” menu.</p>
 <p>You will be guided through the process.</p>
 <p>At any time, choose the item “Find Rd” from your “Addins” menu, or run <code><a href="reference/find_rd.html">find_rd()</a></code>, to enumerate Rd elements in your R scripts.</p>
@@ -149,7 +148,7 @@
 <p>The package’s <code>DESCRIPTION</code> must have its <code>Encoding</code> field set to <code>UTF-8</code> or <code>ASCII</code>:</p>
 <pre><code>Encoding: UTF-8</code></pre>
 <p>If you use a different encoding, please recode your files with <a href="http://manpages.ubuntu.com/manpages/xenial/man1/recode.1.html"><code>recode</code></a> or a similar tool and update the <code>Encoding</code> field before proceeding. Example:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="ex">recode</span> latin1..utf8 R/*</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="ex">recode</span> latin1..utf8 R/*</a></code></pre></div>
 <hr>
 <p>GPL-3 © Kirill Müller</p>
 </div>
