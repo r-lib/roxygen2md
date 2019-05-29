@@ -11,12 +11,12 @@
 #' @export
 #'
 #' @examples
-#'
 #' text <- c(
 #'   "Both \\emph{italics} and \\bold{bold} text.",
-#'   "We can also convert code: \\code{\\link{identity}}."
+#'   paste0("We can also convert code: \\", "code{\\", "link{identity}}.")
 #' )
 #'
+#' text
 #' markdownify(text)
 #'
 markdownify <- function(text, scope = c("full", "simple", "none")) {
