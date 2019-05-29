@@ -12,7 +12,7 @@ find_rd <- function() {
 find_rd_local <- function() {
   files <- find_r_files()
   ret <- find_rd_in_files(files)
-  structure(ret, class = c("roxygen2md_find", class(ret)))
+  tibble::new_tibble(ret, nrow = nrow(ret), class = "roxygen2md_find")
 }
 
 #' @export
@@ -56,12 +56,12 @@ find_rd_in_file <- function(path) {
   line <- grep(rx, lines, perl = TRUE)
   column <- nchar(gsub(rx, "\\1", lines[line]), type = "chars") + 1L
   val <- gsub(rx, "\\2", lines[line])
-  data.frame(
-    type = rep("info", length(line)),
-    file = rep(path, length(line)),
+
+  tibble::tibble(
+    type = "info",
+    file = path,
     line,
     column,
-    message = val,
-    stringsAsFactors = FALSE
+    message = val
   )
 }

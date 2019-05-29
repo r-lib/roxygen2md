@@ -21,6 +21,7 @@ Imports:
     enc,
     rex,
     rlang,
+    tibble,
     usethis,
     withr
 Suggests: 
