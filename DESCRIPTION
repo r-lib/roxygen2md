@@ -24,9 +24,8 @@ Imports:
     usethis (>= 1.5.0),
     withr (>= 2.1.2)
 Suggests: 
-    covr (>= 3.2.1),
-    rstudioapi (>= 0.10),
-    testthat (>= 2.1.1)
+    rstudioapi,
+    testthat
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
