@@ -12,4 +12,5 @@ that also interacts with the RStudio API.
 }
 \description{
 Looks for Rd-like code in roxygen2 comments.
+This function is designed for interactive use.
 }

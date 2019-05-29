@@ -18,7 +18,8 @@ List of changed files, invisibly
 \description{
 Performs various substitutions in all \code{.R} files in a package
 to make use of the Markdown functionality in \code{roxygen2}.
-See \code{\link[=markdownify]{markdownify()}} for details.
+This function is designed for interactive use, see \code{\link[=markdownify]{markdownify()}} for details
+on the transformations.
 Also attempts to enable Markdown support in \code{roxygen2} by adding a field to
 \code{DESCRIPTION}.
 Carefully examine the results after running this function!

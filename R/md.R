@@ -2,7 +2,8 @@
 #'
 #' Performs various substitutions in all `.R` files in a package
 #' to make use of the Markdown functionality in `roxygen2`.
-#' See [markdownify()] for details.
+#' This function is designed for interactive use, see [markdownify()] for details
+#' on the transformations.
 #' Also attempts to enable Markdown support in `roxygen2` by adding a field to
 #' `DESCRIPTION`.
 #' Carefully examine the results after running this function!

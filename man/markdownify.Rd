@@ -43,8 +43,7 @@ With \code{scope = "full"}, the following elements are converted in addition:
 
 text <- c(
   "Both \\\\emph{italics} and \\\\bold{bold} text.",
-  "And here we have \\\\emph{italics} in some text.",
-  "This is \\\\bold{bold} text."
+  "We can also convert code: \\\\code{\\\\link{identity}}."
 )
 
 markdownify(text)

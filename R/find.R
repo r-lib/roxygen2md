@@ -1,6 +1,7 @@
 #' Searches plain Rd in R source files
 #'
 #' Looks for Rd-like code in roxygen2 comments.
+#' This function is designed for interactive use.
 #'
 #' @return A tidy data frame that has a [print()] method
 #' that also interacts with the RStudio API.
