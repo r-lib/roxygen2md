@@ -10,31 +10,37 @@
 
 The goal of roxygen2md is to replace Rd syntax with Markdown
 in your package's `roxygen2` documentation.
-Currently, the following substitutions are carried out:
+The following Rd code is converted to the Markdown equivalent:
 
-- `\code{\link{...}}` becomes `[...()]`
-- `\code{\link[...]{...}}` becomes `[...::...()]`
-- `\code{...}` becomes `` `...` ``
+- `\emph{}`
+- `\bold{}` and `\strong{}`
+- `\href{}`
+- `\url{}`
+- `\code{...}`
+- Various variants of `\code{\link{...}}` and `\code{\link[...]{...}}` (only with `scope = "full"`, see below)
 
 If necessary, `DESCRIPTION` is edited to enable Markdown in roxygen blocks.
 You'll need `roxygen2` version 6.0.0 or later.
 
 Call `roxygen2md::roxygen2md()` in your package's directory, or navigate to "Tools/Addins/Rd to Markdown" in RStudio.
 
-More to come. The substitutions are not completely safe,
-please carefully examine the results!
-
-Let me know if this works with your documentation.
+The substitutions are not completely safe, please carefully examine the results!
 
 
 ## Installation
 
-Install from GitHub using
+Install from CRAN using
 
 ```r
-# install.packages("roxygen2")
-# install.packages("remotes")
-remotes::install_github("r-lib/roxygen2md")
+install.packages("roxygen2md")
+```
+
+Get the latest development version from GitHub with:
+
+
+```r
+# install.packages("devtools")
+devtools::install_github("r-lib/roxygen2md")
 ```
 
 
