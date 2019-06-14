@@ -1,3 +1,6 @@
+Added \dontrun examples per CRAN's request. (Can't run example code because it's
+for interactive use.)
+
 ## Test environments
 
 * local OS X install, R 3.6.0

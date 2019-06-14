@@ -14,3 +14,9 @@ that also interacts with the RStudio API.
 Looks for Rd-like code in roxygen2 comments.
 This function is designed for interactive use.
 }
+\examples{
+\dontrun{
+# Show remaining Rd syntax after conversion.
+find_rd()
+}
+}

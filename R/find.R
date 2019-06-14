@@ -6,6 +6,11 @@
 #' @return A tidy data frame that has a [print()] method
 #' that also interacts with the RStudio API.
 #' @export
+#' @examples
+#' \dontrun{
+#' # Show remaining Rd syntax after conversion.
+#' find_rd()
+#' }
 find_rd <- function() {
   with_project(code = find_rd_local())
 }

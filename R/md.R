@@ -16,6 +16,22 @@
 #' @return List of changed files, invisibly
 #'
 #' @export
+#' @examples
+#' \dontrun{
+#' # Convert roxygen to Markdown in one run
+#' roxygen2md()
+#'
+#' # Alternatively, convert in three steps:
+#'
+#' # 1. Enable Markdown processing
+#' roxygen2md("none")
+#'
+#' # 2. Convert simple markup
+#' roxygen2md("simple")
+#'
+#' # 3. Convert everything, including links
+#' roxygen2md("full")
+#' }
 roxygen2md <- function(scope = c("full", "simple", "none")) {
   scope <- match.arg(scope)
   with_project(code = roxygen2md_local(scope))
