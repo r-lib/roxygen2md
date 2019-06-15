@@ -1,5 +1,4 @@
-Added \dontrun examples per CRAN's request. (Can't run example code because it's
-for interactive use.)
+Added interactive() examples per CRAN's request.
 
 ## Test environments
 

@@ -11,12 +11,13 @@ A tidy data frame that has a \code{\link[=print]{print()}} method
 that also interacts with the RStudio API.
 }
 \description{
-Looks for Rd-like code in roxygen2 comments.
+Looks for Rd-like code in roxygen2 comments, especially useful after running
+\code{\link[=roxygen2md]{roxygen2md()}}.
 This function is designed for interactive use.
 }
 \examples{
-\dontrun{
-# Show remaining Rd syntax after conversion.
-find_rd()
+if (interactive()) {
+  # Show remaining Rd syntax after conversion.
+  find_rd()
 }
 }

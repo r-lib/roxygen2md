@@ -25,19 +25,24 @@ Also attempts to enable Markdown support in \code{roxygen2} by adding a field to
 Carefully examine the results after running this function!
 }
 \examples{
-\dontrun{
-# Convert roxygen to Markdown in one run
-roxygen2md()
+if (interactive()) {
+  # Convert roxygen to Markdown in one run
+  roxygen2md()
+}
 
 # Alternatively, convert in three steps:
+if (interactive()) {
+  # 1. Enable Markdown processing
+  roxygen2md("none")
 
-# 1. Enable Markdown processing
-roxygen2md("none")
+  menu("Please examine/commit the changes and press 1 <enter> to continue.")
 
-# 2. Convert simple markup
-roxygen2md("simple")
+  # 2. Convert simple markup
+  roxygen2md("simple")
 
-# 3. Convert everything, including links
-roxygen2md("full")
+  menu("Please examine/commit the changes and press 1 <enter> to continue.")
+
+  # 3. Convert everything, including links
+  roxygen2md("full")
 }
 }
