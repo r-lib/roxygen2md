@@ -32,7 +32,8 @@
 
 <meta property="og:title" content="Searches plain Rd in R source files — find_rd" />
 
-<meta property="og:description" content="Looks for Rd-like code in roxygen2 comments.
+<meta property="og:description" content="Looks for Rd-like code in roxygen2 comments, especially useful after running
+roxygen2md().
 This function is designed for interactive use." />
 <meta name="twitter:card" content="summary" />
 
@@ -110,7 +111,8 @@ This function is designed for interactive use." />
 
     <div class="ref-description">
     
-    <p>Looks for Rd-like code in roxygen2 comments.
+    <p>Looks for Rd-like code in roxygen2 comments, especially useful after running
+<code><a href='roxygen2md.html'>roxygen2md()</a></code>.
 This function is designed for interactive use.</p>
     
     </div>
@@ -124,10 +126,10 @@ that also interacts with the RStudio API.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='co'># NOT RUN {</span>
-<span class='co'># Show remaining Rd syntax after conversion.</span>
-<span class='fu'>find_rd</span>()
-<span class='co'># }</span></pre>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/interactive'>interactive</a></span>()) {
+  <span class='co'># Show remaining Rd syntax after conversion.</span>
+  <span class='fu'>find_rd</span>()
+}</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
