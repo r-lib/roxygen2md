@@ -4,7 +4,7 @@
 \alias{roxygen2md}
 \title{Convert from Rd to Markdown in roxygen2 comments}
 \usage{
-roxygen2md(scope = c("full", "simple", "none"))
+roxygen2md(scope = c("full", "simple", "unlink", "none"))
 }
 \arguments{
 \item{scope}{The scope of transformations: \code{"simple"} runs only transformations
@@ -42,7 +42,12 @@ if (interactive()) {
 
   menu("Please examine/commit the changes and press 1 <enter> to continue.")
 
-  # 3. Convert everything, including links
+  # 3. (Optionally) Remove some of the \\code{} expressions
+  roxygen2md("unlink")
+
+  menu("Please remove all unwanted changes, commit the wanted ones, and press 1 <enter> to continue.")
+
+  # 4. Convert everything, including links
   roxygen2md("full")
 }
 }

@@ -67,22 +67,42 @@ For larger existing packages, a three-stage workflow is recommended, using `roxy
 - `"none"` only adds `list(markdown = TRUE)` to the `Roxygen` field in `DESCRIPTION`
 - `"simple"` only converts elements like `\code{}` and `\emph{}`
 - `"full"` runs all conversions
+- `"unlink"` splits complicated `\code{}` tags with embedded `\link{}`
 
-This helps isolating mostly automated changes from changes that require review.  After this `find_rd()` shows remaining Rd format artifacts that were not handled by the conversion.
+This helps isolating mostly automated changes from changes that require review.
+After this `find_rd()` shows remaining Rd format artifacts that were not handled by the conversion.
 
 See https://github.com/rstudio/rmarkdown/pull/1583 for an example conversion.
 
 ### Baseline
 
-After `roxygen2md(scope = "none")`, interpretation of Markdown elements is enabled.  Running `devtools::document()` should ideally lead to whitespace-only changes in the `.Rd` files, this can be verified with `git diff -w -- man` or with a visual diff tool like Meld or diffuse.  Make sure that enabling of Markdown doesn't add unwanted artifacts.  (The second commit in the example PR was necessary due to such artifacts -- the underscore has a special meaning in Markdown.)
+After `roxygen2md(scope = "none")`, interpretation of Markdown elements is enabled.
+Running `devtools::document()` should ideally lead to whitespace-only changes in the `.Rd` files, this can be verified with `git diff -w -- man` or with a visual diff tool like Meld or diffuse.
+Make sure that enabling of Markdown doesn't add unwanted artifacts.
+(The second commit in the example PR was necessary due to such artifacts -- the underscore has a special meaning in Markdown.)
 
 ### Simple conversion
 
-Running `roxygen2md(scope = "simple")` after `"none"` (and running `devtools::document()`) should lead to changes in R files mostly, only very few `.Rd` files should be changed.  Again, make sure this doesn't add unwanted artifacts.
+Running `roxygen2md(scope = "simple")` after `"none"` (and running `devtools::document()`) should lead to changes in R files mostly, only very few `.Rd` files should be changed.
+Again, make sure this doesn't add unwanted artifacts.
+
+### Removing links
+
+Optionally, run `roxygen2md(scope = "unlink")` after `"simple"` (and running `devtools::document()`).
+This replaces all instances of `\link{...}` with `...`.
+This isn't a valid conversion, but a helper to split up complex instances of `\code{...\link{...}...}` for which no easy-to-read translation to Markdown exists.
+Use a visual diff tool like Meld or diffuse to quickly iterate through all changes and keep only those that are intended.
+Run `devtools::document()` and commit if necessary.
+
+Consider inserting `@seealso` tags to link to functions instead.
+Render the documentation with [pkgdown](https://pkgdown.r-lib.org/) to take advantage of its [auto-link feature](https://pkgdown.r-lib.org/articles/linking.html) -- all functions gain automatic links without the need for further markup.
 
 ### Full conversion
 
-Running `roxygen2md()` after `scope = "simple"` (and running `devtools::document()`) converts all `\link{}` expressions.  This is the trickiest part of the entire conversion.  Due to the staged approach, the changeset is reduced to a minimum.  Review carefully, luckily `R CMD check` [catches bad links introduced in this stage](https://travis-ci.org/rstudio/rmarkdown/jobs/535140289#L1121).
+Running `roxygen2md()` after `scope = "simple"` (and running `devtools::document()`) converts all `\link{}` expressions.
+This is the trickiest part of the entire conversion.
+Due to the staged approach, the changeset is reduced to a minimum.
+Review carefully, luckily `R CMD check` [catches bad links introduced in this stage](https://travis-ci.org/rstudio/rmarkdown/jobs/535140289#L1121).
 
 ### Manual conversion
 
