@@ -37,7 +37,9 @@
 
 <meta property="og:title" content="Convert text to Markdown — markdownify" />
 <meta property="og:description" content="Converts a character vector from Rd to Markdown.
+The scope argument controls the depth of the transformation.
 With scope = &quot;none&quot;, no transformations are carried out.
+The only effect is that Markdown is enabled for this package.
 With scope = &quot;simple&quot;, the following elements are converted:
 \code{}
 \emph{}
@@ -50,6 +52,10 @@ With scope = &quot;full&quot;, the following elements are converted in addition:
 
 \code{\link{}} and \link{}, with [] options
 \linkS4class{}
+
+
+With scope = &quot;unlink&quot;, only the following elements are translated:
+\link{...} to ...
 
 " />
 <meta name="twitter:card" content="summary" />
@@ -130,7 +136,9 @@ With scope = &quot;full&quot;, the following elements are converted in addition:
 
     <div class="ref-description">
     <p>Converts a character vector from Rd to Markdown.</p>
-<p>With <code>scope = "none"</code>, no transformations are carried out.</p>
+<p>The <code>scope</code> argument controls the depth of the transformation.</p>
+<p>With <code>scope = "none"</code>, no transformations are carried out.
+The only effect is that Markdown is enabled for this package.</p>
 <p>With <code>scope = "simple"</code>, the following elements are converted:</p><ul>
 <li><p><code>\code{}</code></p></li>
 <li><p><code>\emph{}</code></p></li>
@@ -145,9 +153,13 @@ With scope = &quot;full&quot;, the following elements are converted in addition:
 <li><p><code>\linkS4class{}</code></p></li>
 </ul>
 
+<p>With <code>scope = "unlink"</code>, <em>only</em> the following elements are translated:</p><ul>
+<li><p><code>\link{...}</code> to <code>...</code></p></li>
+</ul>
+
     </div>
 
-    <pre class="usage"><span class='fu'>markdownify</span>(<span class='no'>text</span>, <span class='kw'>scope</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"full"</span>, <span class='st'>"simple"</span>, <span class='st'>"none"</span>))</pre>
+    <pre class="usage"><span class='fu'>markdownify</span>(<span class='no'>text</span>, <span class='kw'>scope</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"full"</span>, <span class='st'>"simple"</span>, <span class='st'>"unlink"</span>, <span class='st'>"none"</span>))</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">

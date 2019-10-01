@@ -129,7 +129,7 @@ Also attempts to enable Markdown support in <code>roxygen2</code> by adding a fi
 Carefully examine the results after running this function!</p>
     </div>
 
-    <pre class="usage"><span class='fu'>roxygen2md</span>(<span class='kw'>scope</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"full"</span>, <span class='st'>"simple"</span>, <span class='st'>"none"</span>))</pre>
+    <pre class="usage"><span class='fu'>roxygen2md</span>(<span class='kw'>scope</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"full"</span>, <span class='st'>"simple"</span>, <span class='st'>"unlink"</span>, <span class='st'>"none"</span>))</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -165,7 +165,12 @@ the changes, and then run <code>"simple"</code> and then <code>"full"</code>.</p
 
   <span class='fu'><a href='https://rdrr.io/r/utils/menu.html'>menu</a></span>(<span class='st'>"Please examine/commit the changes and press 1 &lt;enter&gt; to continue."</span>)
 
-  <span class='co'># 3. Convert everything, including links</span>
+  <span class='co'># 3. (Optionally) Remove some of the \code{} expressions</span>
+  <span class='fu'>roxygen2md</span>(<span class='st'>"unlink"</span>)
+
+  <span class='fu'><a href='https://rdrr.io/r/utils/menu.html'>menu</a></span>(<span class='st'>"Please remove all unwanted changes, commit the wanted ones, and press 1 &lt;enter&gt; to continue."</span>)
+
+  <span class='co'># 4. Convert everything, including links</span>
   <span class='fu'>roxygen2md</span>(<span class='st'>"full"</span>)
 }</div></pre>
   </div>

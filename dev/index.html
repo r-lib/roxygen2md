@@ -121,6 +121,9 @@
 </li>
 <li>
 <code>"full"</code> runs all conversions</li>
+<li>
+<code>"unlink"</code> splits complicated <code>\code{}</code> tags with embedded <code>\link{}</code>
+</li>
 </ul>
 <p>This helps isolating mostly automated changes from changes that require review. After this <code><a href="reference/find_rd.html">find_rd()</a></code> shows remaining Rd format artifacts that were not handled by the conversion.</p>
 <p>See <a href="https://github.com/rstudio/rmarkdown/pull/1583" class="uri">https://github.com/rstudio/rmarkdown/pull/1583</a> for an example conversion.</p>
@@ -133,6 +136,12 @@
 <h3 class="hasAnchor">
 <a href="#simple-conversion" class="anchor"></a>Simple conversion</h3>
 <p>Running <code><a href="reference/roxygen2md.html">roxygen2md(scope = "simple")</a></code> after <code>"none"</code> (and running <code><a href="https://rdrr.io/pkg/devtools/man/document.html">devtools::document()</a></code>) should lead to changes in R files mostly, only very few <code>.Rd</code> files should be changed. Again, make sure this doesn’t add unwanted artifacts.</p>
+</div>
+<div id="removing-links" class="section level3">
+<h3 class="hasAnchor">
+<a href="#removing-links" class="anchor"></a>Removing links</h3>
+<p>Optionally, run <code><a href="reference/roxygen2md.html">roxygen2md(scope = "unlink")</a></code> after <code>"simple"</code> (and running <code><a href="https://rdrr.io/pkg/devtools/man/document.html">devtools::document()</a></code>). This replaces all instances of <code>\link{...}</code> with <code>...</code>. This isn’t a valid conversion, but a helper to split up complex instances of <code>\code{...\link{...}...}</code> for which no easy-to-read translation to Markdown exists. Use a visual diff tool like Meld or diffuse to quickly iterate through all changes and keep only those that are intended. Run <code><a href="https://rdrr.io/pkg/devtools/man/document.html">devtools::document()</a></code> and commit if necessary.</p>
+<p>Consider inserting <code>@seealso</code> tags to link to functions instead. Render the documentation with <a href="https://pkgdown.r-lib.org/">pkgdown</a> to take advantage of its <a href="https://pkgdown.r-lib.org/articles/linking.html">auto-link feature</a> – all functions gain automatic links without the need for further markup.</p>
 </div>
 <div id="full-conversion" class="section level3">
 <h3 class="hasAnchor">
