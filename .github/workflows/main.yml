@@ -21,7 +21,6 @@ jobs:
           # comment out lines if you do not want to build on certain platforms
           - { os: windows-latest, r: "release" }
           - { os: macOS-latest, r: "release" }
-          - { os: macOS-latest, r: "devel" }
           - { os: ubuntu-latest, r: "release" }
 
     env:
