@@ -1,3 +1,8 @@
+# roxygen2md 1.0.0.9001
+
+- New `scope = "unlink"` to help hunt down unwanted `\link{...}` elements.
+
+
 # roxygen2md 1.0.0.9000
 
 - Same as previous version.
