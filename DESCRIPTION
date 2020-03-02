@@ -22,8 +22,7 @@ Imports:
     rex,
     rlang,
     tibble,
-    usethis,
-    withr
+    usethis
 Suggests: 
     rstudioapi,
     testthat
