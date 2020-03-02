@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">roxygen2md</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">1.0.0.9000</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">1.0.0.9001</span>
       </span>
     </div>
 
@@ -97,7 +97,7 @@
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"roxygen2md"</span>)</a></code></pre></div>
 <p>Get the latest development version from GitHub with:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co"># install.packages("devtools")</span></a>
-<a class="sourceLine" id="cb2-2" data-line-number="2">devtools<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/devtools/man/remote-reexports.html">install_github</a></span>(<span class="st">"r-lib/roxygen2md"</span>)</a></code></pre></div>
+<a class="sourceLine" id="cb2-2" data-line-number="2">devtools<span class="op">::</span><span class="kw"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"r-lib/roxygen2md"</span>)</a></code></pre></div>
 </div>
 <div id="usage" class="section level2">
 <h2 class="hasAnchor">
@@ -130,23 +130,23 @@
 <div id="baseline" class="section level3">
 <h3 class="hasAnchor">
 <a href="#baseline" class="anchor"></a>Baseline</h3>
-<p>After <code><a href="reference/roxygen2md.html">roxygen2md(scope = "none")</a></code>, interpretation of Markdown elements is enabled. Running <code><a href="https://rdrr.io/pkg/devtools/man/document.html">devtools::document()</a></code> should ideally lead to whitespace-only changes in the <code>.Rd</code> files, this can be verified with <code>git diff -w -- man</code> or with a visual diff tool like Meld or diffuse. Make sure that enabling of Markdown doesn’t add unwanted artifacts. (The second commit in the example PR was necessary due to such artifacts – the underscore has a special meaning in Markdown.)</p>
+<p>After <code><a href="reference/roxygen2md.html">roxygen2md(scope = "none")</a></code>, interpretation of Markdown elements is enabled. Running <code><a href="https://devtools.r-lib.org//reference/document.html">devtools::document()</a></code> should ideally lead to whitespace-only changes in the <code>.Rd</code> files, this can be verified with <code>git diff -w -- man</code> or with a visual diff tool like Meld or diffuse. Make sure that enabling of Markdown doesn’t add unwanted artifacts. (The second commit in the example PR was necessary due to such artifacts – the underscore has a special meaning in Markdown.)</p>
 </div>
 <div id="simple-conversion" class="section level3">
 <h3 class="hasAnchor">
 <a href="#simple-conversion" class="anchor"></a>Simple conversion</h3>
-<p>Running <code><a href="reference/roxygen2md.html">roxygen2md(scope = "simple")</a></code> after <code>"none"</code> (and running <code><a href="https://rdrr.io/pkg/devtools/man/document.html">devtools::document()</a></code>) should lead to changes in R files mostly, only very few <code>.Rd</code> files should be changed. Again, make sure this doesn’t add unwanted artifacts.</p>
+<p>Running <code><a href="reference/roxygen2md.html">roxygen2md(scope = "simple")</a></code> after <code>"none"</code> (and running <code><a href="https://devtools.r-lib.org//reference/document.html">devtools::document()</a></code>) should lead to changes in R files mostly, only very few <code>.Rd</code> files should be changed. Again, make sure this doesn’t add unwanted artifacts.</p>
 </div>
 <div id="removing-links" class="section level3">
 <h3 class="hasAnchor">
 <a href="#removing-links" class="anchor"></a>Removing links</h3>
-<p>Optionally, run <code><a href="reference/roxygen2md.html">roxygen2md(scope = "unlink")</a></code> after <code>"simple"</code> (and running <code><a href="https://rdrr.io/pkg/devtools/man/document.html">devtools::document()</a></code>). This replaces all instances of <code>\link{...}</code> with <code>...</code>. This isn’t a valid conversion, but a helper to split up complex instances of <code>\code{...\link{...}...}</code> for which no easy-to-read translation to Markdown exists. Use a visual diff tool like Meld or diffuse to quickly iterate through all changes and keep only those that are intended. Run <code><a href="https://rdrr.io/pkg/devtools/man/document.html">devtools::document()</a></code> and commit if necessary.</p>
+<p>Optionally, run <code><a href="reference/roxygen2md.html">roxygen2md(scope = "unlink")</a></code> after <code>"simple"</code> (and running <code><a href="https://devtools.r-lib.org//reference/document.html">devtools::document()</a></code>). This replaces all instances of <code>\link{...}</code> with <code>...</code>. This isn’t a valid conversion, but a helper to split up complex instances of <code>\code{...\link{...}...}</code> for which no easy-to-read translation to Markdown exists. Use a visual diff tool like Meld or diffuse to quickly iterate through all changes and keep only those that are intended. Run <code><a href="https://devtools.r-lib.org//reference/document.html">devtools::document()</a></code> and commit if necessary.</p>
 <p>Consider inserting <code>@seealso</code> tags to link to functions instead. Render the documentation with <a href="https://pkgdown.r-lib.org/">pkgdown</a> to take advantage of its <a href="https://pkgdown.r-lib.org/articles/linking.html">auto-link feature</a> – all functions gain automatic links without the need for further markup.</p>
 </div>
 <div id="full-conversion" class="section level3">
 <h3 class="hasAnchor">
 <a href="#full-conversion" class="anchor"></a>Full conversion</h3>
-<p>Running <code><a href="reference/roxygen2md.html">roxygen2md()</a></code> after <code>scope = "simple"</code> (and running <code><a href="https://rdrr.io/pkg/devtools/man/document.html">devtools::document()</a></code>) converts all <code>\link{}</code> expressions. This is the trickiest part of the entire conversion. Due to the staged approach, the changeset is reduced to a minimum. Review carefully, luckily <code>R CMD check</code> <a href="https://travis-ci.org/rstudio/rmarkdown/jobs/535140289#L1121">catches bad links introduced in this stage</a>.</p>
+<p>Running <code><a href="reference/roxygen2md.html">roxygen2md()</a></code> after <code>scope = "simple"</code> (and running <code><a href="https://devtools.r-lib.org//reference/document.html">devtools::document()</a></code>) converts all <code>\link{}</code> expressions. This is the trickiest part of the entire conversion. Due to the staged approach, the changeset is reduced to a minimum. Review carefully, luckily <code>R CMD check</code> <a href="https://travis-ci.org/rstudio/rmarkdown/jobs/535140289#L1121">catches bad links introduced in this stage</a>.</p>
 </div>
 <div id="manual-conversion" class="section level3">
 <h3 class="hasAnchor">
