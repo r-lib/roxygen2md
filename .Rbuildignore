@@ -11,3 +11,4 @@
 ^\.ccache$
 ^\.github$
 ^clang-\.*$
+^CODE_OF_CONDUCT\.md$

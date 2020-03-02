@@ -123,6 +123,10 @@ If you use a different encoding, please recode your files with [`recode`](http:/
 recode latin1..utf8 R/*
 ```
 
+GPL-3 © Kirill Müller
+
 -----
 
-GPL-3 © Kirill Müller
+## Code of Conduct
+
+Please note that the roxygen2md project is released with a [Contributor Code of Conduct](https://roxygen2md.r-lib.org/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
