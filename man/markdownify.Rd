@@ -28,23 +28,23 @@ The only effect is that Markdown is enabled for this package.
 
 With \code{scope = "simple"}, the following elements are converted:
 \itemize{
-\item \code{\\code{}}
-\item \code{\\emph{}}
-\item \code{\\bold{}} and \code{\\strong{}}
-\item \code{\\href{}}
-\item \code{\\url{}}
+\item \verb{\\\code{}}
+\item \verb{\\\\emph\{\}}
+\item \verb{\\\\bold\{\}} and \verb{\\\\strong\{\}}
+\item \verb{\\\\href\{\}}
+\item \verb{\\\url{}}
 }
 
 With \code{scope = "full"}, the following elements are converted in addition:
 
 \itemize{
-\item \code{\\code{\\link{}}} and \code{\\link{}}, with \code{[]} options
-\item \code{\\linkS4class{}}
+\item \verb{\\\code{\\link{}}} and \verb{\\\link{}}, with \verb{[]} options
+\item \verb{\\\linkS4class{}}
 }
 
 With \code{scope = "unlink"}, \emph{only} the following elements are translated:
 \itemize{
-\item \code{\\link{...}} to \code{...}
+\item \verb{\\\link{...}} to \code{...}
 }
 }
 \examples{

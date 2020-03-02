@@ -42,7 +42,7 @@ if (interactive()) {
 
   menu("Please examine/commit the changes and press 1 <enter> to continue.")
 
-  # 3. (Optionally) Remove some of the \\code{} expressions
+  # 3. (Optionally) Remove some of the \code{} expressions
   roxygen2md("unlink")
 
   menu("Please remove all unwanted changes, commit the wanted ones, and press 1 <enter> to continue.")
