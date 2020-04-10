@@ -76,7 +76,7 @@
 <a href="#roxygen2md" class="anchor"></a>roxygen2md</h1></div>
 <!-- badges: start -->
 
-<p>The goal of roxygen2md is to replace Rd syntax with Markdown in your packageâs <code>roxygen2</code> documentation. The following Rd code is converted to the Markdown equivalent:</p>
+<p>The goal of roxygen2md is to replace Rd syntax with Markdown in your package’s <code>roxygen2</code> documentation. The following Rd code is converted to the Markdown equivalent:</p>
 <ul>
 <li><code>\emph{}</code></li>
 <li>
@@ -87,8 +87,8 @@
 <li><code>\code{...}</code></li>
 <li>Various variants of <code>\code{\link{...}}</code> and <code>\code{\link[...]{...}}</code> (only with <code>scope = "full"</code>, see below)</li>
 </ul>
-<p>If necessary, <code>DESCRIPTION</code> is edited to enable Markdown in roxygen blocks. Youâll need <code>roxygen2</code> version 6.0.0 or later.</p>
-<p>Call <code><a href="reference/roxygen2md.html">roxygen2md::roxygen2md()</a></code> in your packageâs directory, or navigate to âTools/Addins/Rd to Markdownâ in RStudio.</p>
+<p>If necessary, <code>DESCRIPTION</code> is edited to enable Markdown in roxygen blocks. You’ll need <code>roxygen2</code> version 6.0.0 or later.</p>
+<p>Call <code><a href="reference/roxygen2md.html">roxygen2md::roxygen2md()</a></code> in your package’s directory, or navigate to “Tools/Addins/Rd to Markdown” in RStudio.</p>
 <p>The substitutions are not completely safe, please carefully examine the results!</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
@@ -104,9 +104,9 @@
 <a href="#usage" class="anchor"></a>Usage</h2>
 <p>In your package directory, run</p>
 <div class="sourceCode" id="cb3"><pre class="r"><span class="kw pkg">roxygen2md</span><span class="kw ns">::</span><span class="fu"><a href="reference/roxygen2md.html">roxygen2md</a></span>()</pre></div>
-<p>If you are using RStudio, choose the item âRd to Markdownâ from your âAddinsâ menu.</p>
+<p>If you are using RStudio, choose the item “Rd to Markdown” from your “Addins” menu.</p>
 <p>You will be guided through the process.</p>
-<p>At any time, choose the item âFind Rdâ from your âAddinsâ menu, or run <code><a href="reference/find_rd.html">find_rd()</a></code>, to enumerate Rd elements in your R scripts.</p>
+<p>At any time, choose the item “Find Rd” from your “Addins” menu, or run <code><a href="reference/find_rd.html">find_rd()</a></code>, to enumerate Rd elements in your R scripts.</p>
 </div>
 <div id="converting-large-packages" class="section level2">
 <h2 class="hasAnchor">
@@ -130,18 +130,18 @@
 <div id="baseline" class="section level3">
 <h3 class="hasAnchor">
 <a href="#baseline" class="anchor"></a>Baseline</h3>
-<p>After <code><a href="reference/roxygen2md.html">roxygen2md(scope = "none")</a></code>, interpretation of Markdown elements is enabled. Running <code><a href="https://devtools.r-lib.org//reference/document.html">devtools::document()</a></code> should ideally lead to whitespace-only changes in the <code>.Rd</code> files, this can be verified with <code>git diff -w -- man</code> or with a visual diff tool like Meld or diffuse. Make sure that enabling of Markdown doesnât add unwanted artifacts. (The second commit in the example PR was necessary due to such artifacts â the underscore has a special meaning in Markdown.)</p>
+<p>After <code><a href="reference/roxygen2md.html">roxygen2md(scope = "none")</a></code>, interpretation of Markdown elements is enabled. Running <code><a href="https://devtools.r-lib.org//reference/document.html">devtools::document()</a></code> should ideally lead to whitespace-only changes in the <code>.Rd</code> files, this can be verified with <code>git diff -w -- man</code> or with a visual diff tool like Meld or diffuse. Make sure that enabling of Markdown doesn’t add unwanted artifacts. (The second commit in the example PR was necessary due to such artifacts – the underscore has a special meaning in Markdown.)</p>
 </div>
 <div id="simple-conversion" class="section level3">
 <h3 class="hasAnchor">
 <a href="#simple-conversion" class="anchor"></a>Simple conversion</h3>
-<p>Running <code><a href="reference/roxygen2md.html">roxygen2md(scope = "simple")</a></code> after <code>"none"</code> (and running <code><a href="https://devtools.r-lib.org//reference/document.html">devtools::document()</a></code>) should lead to changes in R files mostly, only very few <code>.Rd</code> files should be changed. Again, make sure this doesnât add unwanted artifacts.</p>
+<p>Running <code><a href="reference/roxygen2md.html">roxygen2md(scope = "simple")</a></code> after <code>"none"</code> (and running <code><a href="https://devtools.r-lib.org//reference/document.html">devtools::document()</a></code>) should lead to changes in R files mostly, only very few <code>.Rd</code> files should be changed. Again, make sure this doesn’t add unwanted artifacts.</p>
 </div>
 <div id="removing-links" class="section level3">
 <h3 class="hasAnchor">
 <a href="#removing-links" class="anchor"></a>Removing links</h3>
-<p>Optionally, run <code><a href="reference/roxygen2md.html">roxygen2md(scope = "unlink")</a></code> after <code>"simple"</code> (and running <code><a href="https://devtools.r-lib.org//reference/document.html">devtools::document()</a></code>). This replaces all instances of <code>\link{...}</code> with <code>...</code>. This isnât a valid conversion, but a helper to split up complex instances of <code>\code{...\link{...}...}</code> for which no easy-to-read translation to Markdown exists. Use a visual diff tool like Meld or diffuse to quickly iterate through all changes and keep only those that are intended. Run <code><a href="https://devtools.r-lib.org//reference/document.html">devtools::document()</a></code> and commit if necessary.</p>
-<p>Consider inserting <code>@seealso</code> tags to link to functions instead. Render the documentation with <a href="https://pkgdown.r-lib.org/">pkgdown</a> to take advantage of its <a href="https://pkgdown.r-lib.org/articles/linking.html">auto-link feature</a> â all functions gain automatic links without the need for further markup.</p>
+<p>Optionally, run <code><a href="reference/roxygen2md.html">roxygen2md(scope = "unlink")</a></code> after <code>"simple"</code> (and running <code><a href="https://devtools.r-lib.org//reference/document.html">devtools::document()</a></code>). This replaces all instances of <code>\link{...}</code> with <code>...</code>. This isn’t a valid conversion, but a helper to split up complex instances of <code>\code{...\link{...}...}</code> for which no easy-to-read translation to Markdown exists. Use a visual diff tool like Meld or diffuse to quickly iterate through all changes and keep only those that are intended. Run <code><a href="https://devtools.r-lib.org//reference/document.html">devtools::document()</a></code> and commit if necessary.</p>
+<p>Consider inserting <code>@seealso</code> tags to link to functions instead. Render the documentation with <a href="https://pkgdown.r-lib.org/">pkgdown</a> to take advantage of its <a href="https://pkgdown.r-lib.org/articles/linking.html">auto-link feature</a> – all functions gain automatic links without the need for further markup.</p>
 </div>
 <div id="full-conversion" class="section level3">
 <h3 class="hasAnchor">
@@ -157,11 +157,11 @@
 <div id="limitations" class="section level2">
 <h2 class="hasAnchor">
 <a href="#limitations" class="anchor"></a>Limitations</h2>
-<p>The packageâs <code>DESCRIPTION</code> must have its <code>Encoding</code> field set to <code>UTF-8</code> or <code>ASCII</code>:</p>
+<p>The package’s <code>DESCRIPTION</code> must have its <code>Encoding</code> field set to <code>UTF-8</code> or <code>ASCII</code>:</p>
 <pre><code>Encoding: UTF-8</code></pre>
 <p>If you use a different encoding, please recode your files with <a href="http://manpages.ubuntu.com/manpages/xenial/man1/recode.1.html"><code>recode</code></a> or a similar tool and update the <code>Encoding</code> field before proceeding. Example:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="ex">recode</span> latin1..utf8 R/*</span></code></pre></div>
-<p>GPL-3 Â© Kirill MÃ¼ller</p>
+<p>GPL-3 © Kirill Müller</p>
 <hr>
 </div>
 <div id="code-of-conduct" class="section level2">
@@ -224,7 +224,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>
