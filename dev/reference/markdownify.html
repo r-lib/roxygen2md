@@ -162,7 +162,7 @@ The only effect is that Markdown is enabled for this package.</p>
 
     </div>
 
-    <pre class="usage"><span class='fu'>markdownify</span>(<span class='no'>text</span>, <span class='kw'>scope</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"full"</span>, <span class='st'>"simple"</span>, <span class='st'>"unlink"</span>, <span class='st'>"none"</span>))</pre>
+    <pre class="usage"><span class='fu'>markdownify</span>(<span class='kw'>text</span>, scope = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"full"</span>, <span class='st'>"simple"</span>, <span class='st'>"unlink"</span>, <span class='st'>"none"</span>))</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -186,13 +186,15 @@ the changes, and then run <code>"simple"</code> and then <code>"full"</code>.</p
 style annotations.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>text</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(
+    <pre class="examples"><div class='input'><span class='kw'>text</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(
   <span class='st'>"Both \\emph{italics} and \\bold{bold} text."</span>,
   <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span>(<span class='st'>"We can also convert code: \\"</span>, <span class='st'>"code{\\"</span>, <span class='st'>"link{identity}}."</span>)
 )
 
-<span class='no'>text</span></div><div class='output co'>#&gt; [1] "Both \\emph{italics} and \\bold{bold} text."        
-#&gt; [2] "We can also convert code: \\code{\\link{identity}}."</div><div class='input'><span class='fu'>markdownify</span>(<span class='no'>text</span>)</div><div class='output co'>#&gt; [1] "Both *italics* and **bold** text."      
+<span class='kw'>text</span>
+</div><div class='output co'>#&gt; [1] "Both \\emph{italics} and \\bold{bold} text."        
+#&gt; [2] "We can also convert code: \\code{\\link{identity}}."</div><div class='input'><span class='fu'>markdownify</span>(<span class='kw'>text</span>)
+</div><div class='output co'>#&gt; [1] "Both *italics* and **bold** text."      
 #&gt; [2] "We can also convert code: [identity()]."</div><div class='input'>
 </div></pre>
   </div>
@@ -210,7 +212,7 @@ style annotations.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
 
       </footer>

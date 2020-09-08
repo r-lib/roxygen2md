@@ -132,7 +132,7 @@ Also attempts to enable Markdown support in <code>roxygen2</code> by adding a fi
 Carefully examine the results after running this function!</p>
     </div>
 
-    <pre class="usage"><span class='fu'>roxygen2md</span>(<span class='kw'>scope</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"full"</span>, <span class='st'>"simple"</span>, <span class='st'>"unlink"</span>, <span class='st'>"none"</span>))</pre>
+    <pre class="usage"><span class='fu'>roxygen2md</span>(scope = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"full"</span>, <span class='st'>"simple"</span>, <span class='st'>"unlink"</span>, <span class='st'>"none"</span>))</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -151,13 +151,13 @@ the changes, and then run <code>"simple"</code> and then <code>"full"</code>.</p
     <p>List of changed files, invisibly</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
+    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
   <span class='co'># Convert roxygen to Markdown in one run</span>
   <span class='fu'>roxygen2md</span>()
 }
 
 <span class='co'># Alternatively, convert in three steps:</span>
-<span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
+<span class='co'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
   <span class='co'># 1. Enable Markdown processing</span>
   <span class='fu'>roxygen2md</span>(<span class='st'>"none"</span>)
 
@@ -175,7 +175,8 @@ the changes, and then run <code>"simple"</code> and then <code>"full"</code>.</p
 
   <span class='co'># 4. Convert everything, including links</span>
   <span class='fu'>roxygen2md</span>(<span class='st'>"full"</span>)
-}</div></pre>
+}
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -191,7 +192,7 @@ the changes, and then run <code>"simple"</code> and then <code>"full"</code>.</p
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
 
       </footer>
