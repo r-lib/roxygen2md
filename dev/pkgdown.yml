@@ -2,7 +2,7 @@ pandoc: 2.7.3
 pkgdown: 1.6.1
 pkgdown_sha: ~
 articles: {}
-last_built: 2020-09-22T03:24Z
+last_built: 2020-09-23T03:24Z
 urls:
   reference: https://roxygen2md.r-lib.org/reference
   article: https://roxygen2md.r-lib.org/articles
