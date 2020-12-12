@@ -65,6 +65,10 @@ jobs:
           done < <(Rscript -e 'writeLines(remotes::system_requirements("ubuntu", "16.04"))')
 
       # Begin custom: before install
+      - name: Install libgit2
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get install -y libgit2-dev
       # End custom: before install
 
       - name: Install dependencies
