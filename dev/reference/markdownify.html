@@ -50,7 +50,7 @@ With scope = "unlink", only the following elements are translated:
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul><ul class="nav navbar-nav navbar-right"><li>
-  <a href="https://github.com/r-lib/roxygen2md/">
+  <a href="https://github.com/r-lib/roxygen2md/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -65,7 +65,7 @@ With scope = "unlink", only the following elements are translated:
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Convert text to Markdown</h1>
-    <small class="dont-index">Source: <a href="https://github.com/r-lib/roxygen2md/blob/master/R/rules.R"><code>R/rules.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/r-lib/roxygen2md/blob/master/R/rules.R" class="external-link"><code>R/rules.R</code></a></small>
     <div class="hidden name"><code>markdownify.Rd</code></div>
     </div>
 
@@ -85,30 +85,31 @@ The only effect is that Markdown is enabled for this package.</p>
 </ul><p>With <code>scope = "unlink"</code>, <em>only</em> the following elements are translated:</p><ul><li><p><code>\\link{...}</code> to <code>...</code></p></li>
 </ul></div>
 
-    <div class="ref-usage sourceCode"><pre class="sourceCode r"><code><span class="fu">markdownify</span><span class="op">(</span><span class="va">text</span>, scope <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"full"</span>, <span class="st">"simple"</span>, <span class="st">"unlink"</span>, <span class="st">"none"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+    <div class="ref-usage sourceCode"><pre class="sourceCode r"><code><span class="fu">markdownify</span><span class="op">(</span><span class="va">text</span>, scope <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"full"</span>, <span class="st">"simple"</span>, <span class="st">"unlink"</span>, <span class="st">"none"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 
+    <div id="ref-sections">
     <div id="arguments">
-    <h2>Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
-    <table class="ref-arguments"><colgroup><col class="name"><col class="desc"></colgroup><tr><th>text</th>
-      <td><p>A character vector containing <code>.Rd</code> style annotations.</p></td>
-    </tr><tr><th>scope</th>
-      <td><p>The scope of transformations: <code>"simple"</code> runs only transformations
+    <h2>Arguments</h2>
+    
+
+<dl><dt>text</dt><dd><p>A character vector containing <code>.Rd</code> style annotations.</p></dd>
+</dl><dl><dt>scope</dt><dd><p>The scope of transformations: <code>"simple"</code> runs only transformations
 that shouldn't substantially change the resulting <code>.Rd</code> files, <code>"full"</code> runs
 all transformations. In larger packages, run <code>"none"</code>, double-check and track
-the changes, and then run <code>"simple"</code> and then <code>"full"</code>.</p></td>
-    </tr></table></div>
-
+the changes, and then run <code>"simple"</code> and then <code>"full"</code>.</p></dd>
+</dl></div>
     <div id="value">
-    <h2>Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
+    <h2>Value</h2>
     <p>The same vector with <code>.Rd</code> style annotations converted to Markdown
 style annotations.</p>
     </div>
+    </div>
 
     <div id="examples">
-    <h2>Examples<a class="anchor" aria-label="anchor" href="#examples"></a></h2>
-    <div class="ref-examples sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">text</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span></span>
+    <h2>Examples</h2>
+    <div class="ref-examples sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">text</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
 <span class="r-in">  <span class="st">"Both \\emph{italics} and \\bold{bold} text."</span>,</span>
-<span class="r-in">  <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"We can also convert code: \\"</span>, <span class="st">"code{\\"</span>, <span class="st">"link{identity}}."</span><span class="op">)</span></span>
+<span class="r-in">  <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"We can also convert code: \\"</span>, <span class="st">"code{\\"</span>, <span class="st">"link{identity}}."</span><span class="op">)</span></span>
 <span class="r-in"><span class="op">)</span></span>
 <span class="r-in"></span>
 <span class="r-in"><span class="va">text</span></span>
