@@ -65,7 +65,7 @@ With scope = "unlink", only the following elements are translated:
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Convert text to Markdown</h1>
-    <small class="dont-index">Source: <a href="https://github.com/r-lib/roxygen2md/blob/master/R/rules.R" class="external-link"><code>R/rules.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/r-lib/roxygen2md/blob/HEAD/R/rules.R" class="external-link"><code>R/rules.R</code></a></small>
     <div class="hidden name"><code>markdownify.Rd</code></div>
     </div>
 
@@ -90,10 +90,10 @@ The only effect is that Markdown is enabled for this package.</p>
     <div id="ref-sections">
     <div id="arguments">
     <h2>Arguments</h2>
-    
-
-<dl><dt>text</dt><dd><p>A character vector containing <code>.Rd</code> style annotations.</p></dd>
-</dl><dl><dt>scope</dt><dd><p>The scope of transformations: <code>"simple"</code> runs only transformations
+    <dl><dt>text</dt>
+<dd><p>A character vector containing <code>.Rd</code> style annotations.</p></dd>
+<dt>scope</dt>
+<dd><p>The scope of transformations: <code>"simple"</code> runs only transformations
 that shouldn't substantially change the resulting <code>.Rd</code> files, <code>"full"</code> runs
 all transformations. In larger packages, run <code>"none"</code>, double-check and track
 the changes, and then run <code>"simple"</code> and then <code>"full"</code>.</p></dd>
