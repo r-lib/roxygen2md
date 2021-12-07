@@ -95,7 +95,7 @@
 <p>Get the latest development version from GitHub with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># install.packages("devtools")</span>
-<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"r-lib/roxygen2md"</span><span class="op">)</span></code></pre></div>
+<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/remote-reexports.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"r-lib/roxygen2md"</span><span class="op">)</span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
@@ -129,23 +129,23 @@
 <div class="section level3">
 <h3 id="baseline">Baseline<a class="anchor" aria-label="anchor" href="#baseline"></a>
 </h3>
-<p>After <code>roxygen2md(scope = "none")</code>, interpretation of Markdown elements is enabled. Running <code><a href="https://devtools.r-lib.org//reference/document.html" class="external-link">devtools::document()</a></code> should ideally lead to whitespace-only changes in the <code>.Rd</code> files, this can be verified with <code>git diff -w -- man</code> or with a visual diff tool like Meld or diffuse. Make sure that enabling of Markdown doesn’t add unwanted artifacts. (The second commit in the example PR was necessary due to such artifacts – the underscore has a special meaning in Markdown.)</p>
+<p>After <code>roxygen2md(scope = "none")</code>, interpretation of Markdown elements is enabled. Running <code><a href="https://devtools.r-lib.org/reference/document.html" class="external-link">devtools::document()</a></code> should ideally lead to whitespace-only changes in the <code>.Rd</code> files, this can be verified with <code>git diff -w -- man</code> or with a visual diff tool like Meld or diffuse. Make sure that enabling of Markdown doesn’t add unwanted artifacts. (The second commit in the example PR was necessary due to such artifacts – the underscore has a special meaning in Markdown.)</p>
 </div>
 <div class="section level3">
 <h3 id="simple-conversion">Simple conversion<a class="anchor" aria-label="anchor" href="#simple-conversion"></a>
 </h3>
-<p>Running <code>roxygen2md(scope = "simple")</code> after <code>"none"</code> (and running <code><a href="https://devtools.r-lib.org//reference/document.html" class="external-link">devtools::document()</a></code>) should lead to changes in R files mostly, only very few <code>.Rd</code> files should be changed. Again, make sure this doesn’t add unwanted artifacts.</p>
+<p>Running <code>roxygen2md(scope = "simple")</code> after <code>"none"</code> (and running <code><a href="https://devtools.r-lib.org/reference/document.html" class="external-link">devtools::document()</a></code>) should lead to changes in R files mostly, only very few <code>.Rd</code> files should be changed. Again, make sure this doesn’t add unwanted artifacts.</p>
 </div>
 <div class="section level3">
 <h3 id="removing-links">Removing links<a class="anchor" aria-label="anchor" href="#removing-links"></a>
 </h3>
-<p>Optionally, run <code>roxygen2md(scope = "unlink")</code> after <code>"simple"</code> (and running <code><a href="https://devtools.r-lib.org//reference/document.html" class="external-link">devtools::document()</a></code>). This replaces all instances of <code>\link{...}</code> with <code>...</code>. This isn’t a valid conversion, but a helper to split up complex instances of <code>\code{...\link{...}...}</code> for which no easy-to-read translation to Markdown exists. Use a visual diff tool like Meld or diffuse to quickly iterate through all changes and keep only those that are intended. Run <code><a href="https://devtools.r-lib.org//reference/document.html" class="external-link">devtools::document()</a></code> and commit if necessary.</p>
+<p>Optionally, run <code>roxygen2md(scope = "unlink")</code> after <code>"simple"</code> (and running <code><a href="https://devtools.r-lib.org/reference/document.html" class="external-link">devtools::document()</a></code>). This replaces all instances of <code>\link{...}</code> with <code>...</code>. This isn’t a valid conversion, but a helper to split up complex instances of <code>\code{...\link{...}...}</code> for which no easy-to-read translation to Markdown exists. Use a visual diff tool like Meld or diffuse to quickly iterate through all changes and keep only those that are intended. Run <code><a href="https://devtools.r-lib.org/reference/document.html" class="external-link">devtools::document()</a></code> and commit if necessary.</p>
 <p>Consider inserting <code>@seealso</code> tags to link to functions instead. Render the documentation with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> to take advantage of its <a href="https://pkgdown.r-lib.org/articles/linking.html" class="external-link">auto-link feature</a> – all functions gain automatic links without the need for further markup.</p>
 </div>
 <div class="section level3">
 <h3 id="full-conversion">Full conversion<a class="anchor" aria-label="anchor" href="#full-conversion"></a>
 </h3>
-<p>Running <code><a href="reference/roxygen2md.html">roxygen2md()</a></code> after <code>scope = "simple"</code> (and running <code><a href="https://devtools.r-lib.org//reference/document.html" class="external-link">devtools::document()</a></code>) converts all <code>\link{}</code> expressions. This is the trickiest part of the entire conversion. Due to the staged approach, the changeset is reduced to a minimum. Review carefully, luckily <code>R CMD check</code> <a href="https://travis-ci.org/rstudio/rmarkdown/jobs/535140289#L1121" class="external-link">catches bad links introduced in this stage</a>.</p>
+<p>Running <code><a href="reference/roxygen2md.html">roxygen2md()</a></code> after <code>scope = "simple"</code> (and running <code><a href="https://devtools.r-lib.org/reference/document.html" class="external-link">devtools::document()</a></code>) converts all <code>\link{}</code> expressions. This is the trickiest part of the entire conversion. Due to the staged approach, the changeset is reduced to a minimum. Review carefully, luckily <code>R CMD check</code> <a href="https://travis-ci.org/rstudio/rmarkdown/jobs/535140289#L1121" class="external-link">catches bad links introduced in this stage</a>.</p>
 </div>
 <div class="section level3">
 <h3 id="manual-conversion">Manual conversion<a class="anchor" aria-label="anchor" href="#manual-conversion"></a>
@@ -195,12 +195,19 @@
 </ul>
 </div>
 
+<div class="citation">
+<h2 data-toc-skip>Citation</h2>
+<ul class="list-unstyled">
+<li><a href="authors.html#citation">Citing roxygen2md</a></li>
+</ul>
+</div>
+
 <div class="developers">
 <h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
 <li>
 <a href="https://krlmlr.info" class="external-link">Kirill Müller</a> <br><small class="roles"> Author, maintainer </small>  </li>
-<li><a href="authors.html">More on authors...</a></li>
+<li><a href="authors.html">More about authors...</a></li>
 </ul>
 </div>
 
@@ -225,7 +232,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.9000.9000.9000.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.9000.</p>
 </div>
 
       </footer>
