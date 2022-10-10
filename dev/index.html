@@ -90,18 +90,18 @@
 </h2>
 <p>Install from CRAN using</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"roxygen2md"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"roxygen2md"</span><span class="op">)</span></span></code></pre></div>
 <p>Get the latest development version from GitHub with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># install.packages("devtools")</span>
-<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/remote-reexports.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"r-lib/roxygen2md"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># install.packages("devtools")</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"r-lib/roxygen2md"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
 </h2>
 <p>In your package directory, run</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">roxygen2md</span><span class="fu">::</span><span class="fu"><a href="reference/roxygen2md.html">roxygen2md</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">roxygen2md</span><span class="fu">::</span><span class="fu"><a href="reference/roxygen2md.html">roxygen2md</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>If you are using RStudio, choose the item “Rd to Markdown” from your “Addins” menu.</p>
 <p>You will be guided through the process.</p>
 <p>At any time, choose the item “Find Rd” from your “Addins” menu, or run <code><a href="reference/find_rd.html">find_rd()</a></code>, to enumerate Rd elements in your R scripts.</p>
@@ -156,7 +156,7 @@
 <h2 id="limitations">Limitations<a class="anchor" aria-label="anchor" href="#limitations"></a>
 </h2>
 <p>The package’s <code>DESCRIPTION</code> must have its <code>Encoding</code> field set to <code>UTF-8</code> or <code>ASCII</code>:</p>
-<pre><code><span class="va">Encoding</span><span class="op">:</span> <span class="va">UTF</span><span class="op">-</span><span class="fl">8</span></code></pre>
+<pre><code><span><span class="va">Encoding</span><span class="op">:</span> <span class="va">UTF</span><span class="op">-</span><span class="fl">8</span></span></code></pre>
 <p>If you use a different encoding, please recode your files with <a href="http://manpages.ubuntu.com/manpages/xenial/man1/recode.1.html" class="external-link"><code>recode</code></a> or a similar tool and update the <code>Encoding</code> field before proceeding. Example:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">recode</span> latin1..utf8 R/<span class="pp">*</span></span></code></pre></div>
 <p>GPL-3 © Kirill Müller</p>
@@ -231,7 +231,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.9000.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.9000.</p>
 </div>
 
       </footer>

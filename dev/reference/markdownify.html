@@ -86,39 +86,44 @@ The only effect is that Markdown is enabled for this package.</p>
 </ul></div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">markdownify</span><span class="op">(</span><span class="va">text</span>, scope <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"full"</span>, <span class="st">"simple"</span>, <span class="st">"unlink"</span>, <span class="st">"none"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">markdownify</span><span class="op">(</span><span class="va">text</span>, scope <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"full"</span>, <span class="st">"simple"</span>, <span class="st">"unlink"</span>, <span class="st">"none"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>text</dt>
 <dd><p>A character vector containing <code>.Rd</code> style annotations.</p></dd>
+
+
 <dt>scope</dt>
 <dd><p>The scope of transformations: <code>"simple"</code> runs only transformations
 that shouldn't substantially change the resulting <code>.Rd</code> files, <code>"full"</code> runs
 all transformations. In larger packages, run <code>"none"</code>, double-check and track
 the changes, and then run <code>"simple"</code> and then <code>"full"</code>.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>The same vector with <code>.Rd</code> style annotations converted to Markdown
+    
+
+<p>The same vector with <code>.Rd</code> style annotations converted to Markdown
 style annotations.</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">text</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
-<span class="r-in">  <span class="st">"Both \\emph{italics} and \\bold{bold} text."</span>,</span>
-<span class="r-in">  <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"We can also convert code: \\"</span>, <span class="st">"code{\\"</span>, <span class="st">"link{identity}}."</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">text</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">text</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="st">"Both \\emph{italics} and \\bold{bold} text."</span>,</span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"We can also convert code: \\"</span>, <span class="st">"code{\\"</span>, <span class="st">"link{identity}}."</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">text</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Both \\emph{italics} and \\bold{bold} text."        </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [2] "We can also convert code: \\code{\\link{identity}}."</span>
-<span class="r-in"><span class="fu">markdownify</span><span class="op">(</span><span class="va">text</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">markdownify</span><span class="op">(</span><span class="va">text</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Both *italics* and **bold** text."      </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [2] "We can also convert code: [identity()]."</span>
-<span class="r-in"></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -133,7 +138,7 @@ style annotations.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.9000.</p>
 </div>
 
       </footer></div>
