@@ -1,3 +1,24 @@
+<!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
+
+# roxygen2md 1.0.0.9002
+
+- Harmonize yaml formatting.
+
+- Revert changes to matrix section.
+
+- Reduce parallelism.
+
+- Also check dev on cran-* branches.
+
+- Update hash key for dev.
+
+- Remove R 3.3.
+
+- Merge pull request #15 from r-lib/b-gha.
+
+
+
+
 # roxygen2md 1.0.0.9001
 
 - New `scope = "unlink"` to help hunt down unwanted `\link{...}` elements.
