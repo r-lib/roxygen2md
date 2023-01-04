@@ -20,7 +20,9 @@ With scope = "full", the following elements are converted in addition:
 With scope = "unlink", only the following elements are translated:
 \\link{...} to ...
 
-'><meta name="robots" content="noindex"><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
+
+With scope = "indent", @param and @return tags spanning multiple lines
+are indented with two spaces.'><meta name="robots" content="noindex"><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]--></head><body data-spy="scroll" data-target="#toc">
@@ -38,7 +40,7 @@ With scope = "unlink", only the following elements are translated:
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">roxygen2md</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">1.0.0.9002</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">1.0.0.9003</span>
       </span>
     </div>
 
@@ -83,10 +85,12 @@ The only effect is that Markdown is enabled for this package.</p>
 <ul><li><p><code>\\code{\link{}}</code> and <code>\\link{}</code>, with <code>[]</code> options</p></li>
 <li><p><code>\\linkS4class{}</code></p></li>
 </ul><p>With <code>scope = "unlink"</code>, <em>only</em> the following elements are translated:</p><ul><li><p><code>\\link{...}</code> to <code>...</code></p></li>
-</ul></div>
+</ul><p>With <code>scope = "indent"</code>, <code>@param</code> and <code>@return</code> tags spanning multiple lines
+are indented with two spaces.</p>
+    </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">markdownify</span><span class="op">(</span><span class="va">text</span>, scope <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"full"</span>, <span class="st">"simple"</span>, <span class="st">"unlink"</span>, <span class="st">"none"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">markdownify</span><span class="op">(</span><span class="va">text</span>, scope <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"full"</span>, <span class="st">"simple"</span>, <span class="st">"unlink"</span>, <span class="st">"indent"</span>, <span class="st">"none"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
