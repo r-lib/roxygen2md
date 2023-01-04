@@ -38,7 +38,7 @@ get_roxy_lines <- function(text) {
     rex(
       start,
       any_blanks,
-      some_of("#"),
+      one_or_more("#"),
       "'"
     )
   )
