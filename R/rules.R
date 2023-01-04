@@ -19,7 +19,7 @@
 #' text
 #' markdownify(text)
 #'
-markdownify <- function(text, scope = c("full", "simple", "unlink", "none")) {
+markdownify <- function(text, scope = c("full", "simple", "unlink", "indent", "none")) {
   scope <- match.arg(scope)
 
   #' @description
@@ -76,7 +76,17 @@ markdownify <- function(text, scope = c("full", "simple", "unlink", "none")) {
   unlink_transformers <- c(
     #'
     #' - `\\link{...}` to `...`
-    remove_link
+    remove_link,
+    NULL
+  )
+
+  #'
+  #' With `scope = "indent"`, `@param` and `@return` tags spanning multiple lines
+  #' are indented with two spaces.
+  #'
+  indent_transformers <- c(
+    indent_param_return,
+    NULL
   )
 
   if (scope == "full") {
@@ -85,6 +95,8 @@ markdownify <- function(text, scope = c("full", "simple", "unlink", "none")) {
     transformers <- c(simple_transformers)
   } else if (scope == "unlink") {
     transformers <- c(unlink_transformers)
+  } else if (scope == "indent") {
+    transformers <- c(indent_transformers)
   } else {
     transformers <- list()
   }
@@ -385,4 +397,56 @@ remove_link <- function(text) {
     ),
     "\\1"
   )
+}
+
+indent_param_return <- function(text) {
+  for (i in 1:100) {
+    new_text <- re_substitutes(
+      global = TRUE,
+      text,
+      rex(
+        capture(
+          any_blanks,
+          one_or_more("#"),
+          "'",
+          any_blanks,
+          "@",
+          or("param", "return"),
+          or(
+            group(" ", zero_or_more(any)),
+            ""
+          ),
+          newline,
+          zero_or_more(
+            any_blanks,
+            one_or_more("#"),
+            "'",
+            or(
+              group(
+                "   ",
+                none_of("@"),
+                zero_or_more(any)
+              ),
+              ""
+            ),
+            newline
+          ),
+          any_blanks,
+          one_or_more("#"),
+          "' "
+        ),
+        capture(none_of("@", " "))
+      ),
+      "\\1  \\2"
+    )
+
+    if (new_text == text) {
+      return(text)
+    }
+
+    text <- new_text
+  }
+
+  # Should never be reached
+  return(text)
 }

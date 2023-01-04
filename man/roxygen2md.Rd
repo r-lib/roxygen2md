@@ -4,7 +4,7 @@
 \alias{roxygen2md}
 \title{Convert from Rd to Markdown in roxygen2 comments}
 \usage{
-roxygen2md(scope = c("full", "simple", "unlink", "none"))
+roxygen2md(scope = c("full", "simple", "unlink", "indent", "none"))
 }
 \arguments{
 \item{scope}{The scope of transformations: \code{"simple"} runs only transformations

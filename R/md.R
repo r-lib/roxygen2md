@@ -45,7 +45,7 @@
 #'   # 4. Convert everything, including links
 #'   roxygen2md("full")
 #' }
-roxygen2md <- function(scope = c("full", "simple", "unlink", "none")) {
+roxygen2md <- function(scope = c("full", "simple", "unlink", "indent", "none")) {
   scope <- match.arg(scope)
   with_project(code = roxygen2md_local(scope))
 }

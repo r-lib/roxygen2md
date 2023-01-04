@@ -4,7 +4,7 @@
 \alias{markdownify}
 \title{Convert text to Markdown}
 \usage{
-markdownify(text, scope = c("full", "simple", "unlink", "none"))
+markdownify(text, scope = c("full", "simple", "unlink", "indent", "none"))
 }
 \arguments{
 \item{text}{A character vector containing \code{.Rd} style annotations.}
@@ -46,6 +46,9 @@ With \code{scope = "unlink"}, \emph{only} the following elements are translated:
 \itemize{
 \item \verb{\\\link{...}} to \code{...}
 }
+
+With \code{scope = "indent"}, \verb{@param} and \verb{@return} tags spanning multiple lines
+are indented with two spaces.
 }
 \examples{
 text <- c(

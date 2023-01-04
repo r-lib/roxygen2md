@@ -94,3 +94,8 @@ test_that("remove_link", {
   # This conversion is bad, use `scope = "unlink"` to detect
   expect_convert(remove_link("\\code{...\\link{x}...}"), "\\code{...x...}", "`...[x]...`")
 })
+
+test_that("indent_param_return", {
+  expect_equal(indent_param_return("#' @param a b\n#' c"), "#' @param a b\n#'   c")
+  expect_equal(indent_param_return("#' @return a b\n#' c\n#' d"), "#' @return a b\n#'   c\n#'   d")
+})
