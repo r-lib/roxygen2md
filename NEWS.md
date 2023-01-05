@@ -1,5 +1,16 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# roxygen2md 1.0.0.9004
+
+## Bug fixes
+
+- Refine regular expression for matching roxygen2 blocks.
+
+## Features
+
+- New `"indent"` scope for adding indent to `@param` and `@return` tags.
+
+
 # roxygen2md 1.0.0.9003
 
 - Internal changes only.
