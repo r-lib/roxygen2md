@@ -1,7 +1,7 @@
 Package: roxygen2md
 Title: 'Roxygen' to 'Markdown'
-Version: 1.0.0.9006
-Date: 2023-03-24
+Version: 1.0.0.9007
+Date: 2023-10-09
 Authors@R: 
     c(person(given = "Kirill",
              family = "Müller",
