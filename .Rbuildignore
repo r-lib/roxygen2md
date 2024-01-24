@@ -13,3 +13,4 @@
 ^clang-\.*$
 ^CODE_OF_CONDUCT\.md$
 ^README\.Rmd$
+^\.aviator/config\.yml$
