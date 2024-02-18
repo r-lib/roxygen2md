@@ -66,7 +66,9 @@ check_utf8 <- function() {
 
 add_roxygen_field <- function() {
   roxygen_field <- desc::desc_get("Roxygen")
-  if (is_roxygen_field_markdown(roxygen_field)) return()
+  if (is_roxygen_field_markdown(roxygen_field)) {
+    return()
+  }
 
   roxygen_field_new <- "list(markdown = TRUE)"
   if (is.na(roxygen_field)) {
@@ -80,9 +82,13 @@ add_roxygen_field <- function() {
 }
 
 is_roxygen_field_markdown <- function(roxygen_field = desc::desc_get("Roxygen")) {
-  if (is.na(roxygen_field)) return(FALSE)
+  if (is.na(roxygen_field)) {
+    return(FALSE)
+  }
   roxygen_field_new <- "list(markdown = TRUE)"
-  if (identical(unname(roxygen_field), roxygen_field_new)) return(TRUE)
+  if (identical(unname(roxygen_field), roxygen_field_new)) {
+    return(TRUE)
+  }
 
   roxygen_field_val <- try_eval_text(roxygen_field)
   isTRUE(roxygen_field_val$markdown)
