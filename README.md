@@ -7,7 +7,7 @@
 
 [![rcc](https://github.com/r-lib/roxygen2md/workflows/rcc/badge.svg)](https://github.com/r-lib/roxygen2md/actions)
 [![Codecov test
-coverage](https://codecov.io/gh/r-lib/roxygen2md/branch/main/graph/badge.svg)](https://codecov.io/gh/r-lib/roxygen2md?branch=main)
+coverage](https://codecov.io/gh/r-lib/roxygen2md/branch/main/graph/badge.svg)](https://app.codecov.io/gh/r-lib/roxygen2md?branch=main)
 [![Lifecycle:
 stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![CRAN
@@ -124,8 +124,7 @@ Running `roxygen2md()` after `scope = "simple"` (and running
 `devtools::document()`) converts all `\link{}` expressions. This is the
 trickiest part of the entire conversion. Due to the staged approach, the
 changeset is reduced to a minimum. Review carefully, luckily
-`R CMD check` [catches bad links introduced in this
-stage](https://travis-ci.org/rstudio/rmarkdown/jobs/535140289#L1121).
+`R CMD check` catches bad links introduced in this stage.
 
 ### Manual conversion
 
@@ -140,7 +139,7 @@ The package’s `DESCRIPTION` must have its `Encoding` field set to
     Encoding: UTF-8
 
 If you use a different encoding, please recode your files with
-[`recode`](http://manpages.ubuntu.com/manpages/xenial/man1/recode.1.html)
+[`recode`](https://manpages.ubuntu.com/manpages/noble/man1/recode.1.html)
 or a similar tool and update the `Encoding` field before proceeding.
 Example:
 
