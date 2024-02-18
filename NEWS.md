@@ -11,20 +11,6 @@
 - Prefer brio over enc (#16, #21).
 - New `"indent"` scope for adding indent to `@param` and `@return` tags.
 
-## Chore
-
-- Single file.
-- Rename standalone file.
-- Use `rlang::abort()`.
-- Use blanket rlang import.
-- Update purrr standalone.
-- Move blanket imports.
-- Tidy description.
-- Style.
-- `usethis::use_pkgdown_github_pages()`.
-- Add Aviator configuration.
-- `usethis::use_readme_rmd()`.
-
 ## Documentation
 
 - Prefer pak.
