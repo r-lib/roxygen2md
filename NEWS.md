@@ -1,5 +1,50 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# roxygen2md 1.0.0.9008
+
+## Features
+
+- Prefer brio over enc (#16, #21).
+
+## Chore
+
+- Rename standalone file.
+
+- Use `rlang::abort()`.
+
+- Use blanket rlang import.
+
+- Update purrr standalone.
+
+- Move blanket imports.
+
+- Tidy description.
+
+- Style.
+
+- `usethis::use_pkgdown_github_pages()`.
+
+- Add Aviator configuration.
+
+- `usethis::use_readme_rmd()`.
+
+## Documentation
+
+- Prefer pak.
+
+- Update code of conduct.
+
+- Use tidytemplate.
+
+- Package documentation.
+
+- Fix URLs.
+
+## Testing
+
+- Use testthat edition 3.
+
+
 # roxygen2md 1.0.0.9007
 
 - Internal changes only.
