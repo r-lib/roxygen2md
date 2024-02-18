@@ -11,9 +11,10 @@ License: GPL-3
 URL: https://roxygen2md.r-lib.org/, https://github.com/r-lib/roxygen2md
 BugReports: https://github.com/r-lib/roxygen2md/issues
 Imports:
+    brio,
+    cli,
     desc,
     devtools,
-    enc,
     rex,
     rlang,
     tibble,
