@@ -1,27 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://roxygen2md.r-lib.org/CODE_OF_CONDUCT.html</loc>
+    <loc>https://roxygen2md.r-lib.org/dev/CODE_OF_CONDUCT.html</loc>
   </url>
   <url>
-    <loc>https://roxygen2md.r-lib.org/authors.html</loc>
+    <loc>https://roxygen2md.r-lib.org/dev/authors.html</loc>
   </url>
   <url>
-    <loc>https://roxygen2md.r-lib.org/index.html</loc>
+    <loc>https://roxygen2md.r-lib.org/dev/index.html</loc>
   </url>
   <url>
-    <loc>https://roxygen2md.r-lib.org/news/index.html</loc>
+    <loc>https://roxygen2md.r-lib.org/dev/news/index.html</loc>
   </url>
   <url>
-    <loc>https://roxygen2md.r-lib.org/reference/find_rd.html</loc>
+    <loc>https://roxygen2md.r-lib.org/dev/reference/find_rd.html</loc>
   </url>
   <url>
-    <loc>https://roxygen2md.r-lib.org/reference/index.html</loc>
+    <loc>https://roxygen2md.r-lib.org/dev/reference/index.html</loc>
   </url>
   <url>
-    <loc>https://roxygen2md.r-lib.org/reference/markdownify.html</loc>
+    <loc>https://roxygen2md.r-lib.org/dev/reference/markdownify.html</loc>
   </url>
   <url>
-    <loc>https://roxygen2md.r-lib.org/reference/roxygen2md.html</loc>
+    <loc>https://roxygen2md.r-lib.org/dev/reference/roxygen2md-package.html</loc>
+  </url>
+  <url>
+    <loc>https://roxygen2md.r-lib.org/dev/reference/roxygen2md.html</loc>
   </url>
 </urlset>
