@@ -1,73 +1,6 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
-# roxygen2md 1.0.0.9009
-
-## Chore
-
-- Single file.
-
-
-# roxygen2md 1.0.0.9008
-
-## Features
-
-- Prefer brio over enc (#16, #21).
-
-## Chore
-
-- Rename standalone file.
-
-- Use `rlang::abort()`.
-
-- Use blanket rlang import.
-
-- Update purrr standalone.
-
-- Move blanket imports.
-
-- Tidy description.
-
-- Style.
-
-- `usethis::use_pkgdown_github_pages()`.
-
-- Add Aviator configuration.
-
-- `usethis::use_readme_rmd()`.
-
-## Documentation
-
-- Prefer pak.
-
-- Update code of conduct.
-
-- Use tidytemplate.
-
-- Package documentation.
-
-- Fix URLs.
-
-## Testing
-
-- Use testthat edition 3.
-
-
-# roxygen2md 1.0.0.9007
-
-- Internal changes only.
-
-
-# roxygen2md 1.0.0.9006
-
-- Internal changes only.
-
-
-# roxygen2md 1.0.0.9005
-
-- Internal changes only.
-
-
-# roxygen2md 1.0.0.9004
+# roxygen2md 1.0.1
 
 ## Bug fixes
 
@@ -75,40 +8,46 @@
 
 ## Features
 
+- Prefer brio over enc (#16, #21).
 - New `"indent"` scope for adding indent to `@param` and `@return` tags.
 
+## Chore
 
-# roxygen2md 1.0.0.9003
+- Single file.
+- Rename standalone file.
+- Use `rlang::abort()`.
+- Use blanket rlang import.
+- Update purrr standalone.
+- Move blanket imports.
+- Tidy description.
+- Style.
+- `usethis::use_pkgdown_github_pages()`.
+- Add Aviator configuration.
+- `usethis::use_readme_rmd()`.
+
+## Documentation
+
+- Prefer pak.
+- Update code of conduct.
+- Use tidytemplate.
+- Package documentation.
+- Fix URLs.
+
+## Testing
+
+- Use testthat edition 3.
+
+## Uncategorized
 
 - Internal changes only.
-
-
-# roxygen2md 1.0.0.9002
-
 - Harmonize yaml formatting.
-
 - Revert changes to matrix section.
-
 - Reduce parallelism.
-
-- Also check dev on cran-* branches.
-
+- Also check dev on cran-\* branches.
 - Update hash key for dev.
-
 - Remove R 3.3.
-
 - Merge pull request #15 from r-lib/b-gha.
-
-
-
-
-# roxygen2md 1.0.0.9001
-
 - New `scope = "unlink"` to help hunt down unwanted `\link{...}` elements.
-
-
-# roxygen2md 1.0.0.9000
-
 - Same as previous version.
 
 
