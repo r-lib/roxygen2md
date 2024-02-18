@@ -1,5 +1,12 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# roxygen2md 1.0.0.9009
+
+## Chore
+
+- Single file.
+
+
 # roxygen2md 1.0.0.9008
 
 ## Features
