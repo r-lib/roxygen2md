@@ -1,10 +1,10 @@
 expect_convert <- function(expr, output, final_output = output) {
-  quo <- rlang::enquo(expr)
+  quo <- enquo(expr)
   expect_equal(force(expr), !!output)
 
-  quo_name <- rlang::as_name(rlang::quo_get_expr(quo)[[1]])
-  markdownify_override <- rlang::list2(!!quo_name := markdownify)
-  expect_equal(rlang::eval_tidy(quo, data = markdownify_override), !!final_output)
+  quo_name <- as_name(quo_get_expr(quo)[[1]])
+  markdownify_override <- list2(!!quo_name := markdownify)
+  expect_equal(eval_tidy(quo, data = markdownify_override), !!final_output)
 }
 
 test_that("convert_local_links", {
