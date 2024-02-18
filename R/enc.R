@@ -24,9 +24,12 @@ transform_lines <- function(path, fun, write_back = TRUE, verbose = is_interacti
 
   if (verbose) {
     if (!any(ret, na.rm = TRUE)) {
-      message("No files changed.")
+      ui_info("No files changed.")
     } else {
-      message("Files changed: ", names(ret)[which(ret)])
+      cli::cli_inform(c(
+        "v" = "Files changed:",
+        "*" = "{.file {names(ret)[which(ret)]}}"
+      ))
     }
     invisible(ret)
   } else {
