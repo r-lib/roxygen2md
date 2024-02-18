@@ -1,60 +1,71 @@
-# nocov start - compat-purrr (last updated: rlang 0.3.2.9000)
-
-# This file serves as a reference for compatibility functions for
-# purrr. They are not drop-in replacements but allow a similar style
-# of programming. This is useful in cases where purrr is too heavy a
-# package to depend on. Please find the most recent version in rlang's
-# repository.
+# Standalone file: do not edit by hand
+# ----------------------------------------------------------------------
+#
+# ---
+# repo: r-lib/rlang
+# file: standalone-purrr.R
+# last-updated: 2023-02-23
+# license: https://unlicense.org
+# imports: rlang
+# ---
+#
+# This file provides a minimal shim to provide a purrr-like API on top of
+# base R functions. They are not drop-in replacements but allow a similar style
+# of programming.
+#
+# ## Changelog
+#
+# 2023-02-23:
+# * Added `list_c()`
+#
+# 2022-06-07:
+# * `transpose()` is now more consistent with purrr when inner names
+#   are not congruent (#1346).
+#
+# 2021-12-15:
+# * `transpose()` now supports empty lists.
+#
+# 2021-05-21:
+# * Fixed "object `x` not found" error in `imap()` (@mgirlich)
+#
+# 2020-04-14:
+# * Removed `pluck*()` functions
+# * Removed `*_cpl()` functions
+# * Used `as_function()` to allow use of `~`
+# * Used `.` prefix for helpers
+#
+# nocov start
 
 map <- function(.x, .f, ...) {
+  .f <- as_function(.f, env = global_env())
   lapply(.x, .f, ...)
 }
-map_mold <- function(.x, .f, .mold, ...) {
-  out <- vapply(.x, .f, .mold, ..., USE.NAMES = FALSE)
-  names(out) <- names(.x)
-  out
-}
-map_lgl <- function(.x, .f, ...) {
-  map_mold(.x, .f, logical(1), ...)
-}
-map_int <- function(.x, .f, ...) {
-  map_mold(.x, .f, integer(1), ...)
-}
-map_dbl <- function(.x, .f, ...) {
-  map_mold(.x, .f, double(1), ...)
-}
-map_chr <- function(.x, .f, ...) {
-  map_mold(.x, .f, character(1), ...)
-}
-map_cpl <- function(.x, .f, ...) {
-  map_mold(.x, .f, complex(1), ...)
-}
-
 walk <- function(.x, .f, ...) {
   map(.x, .f, ...)
   invisible(.x)
 }
 
-pluck <- function(.x, .f) {
-  map(.x, `[[`, .f)
+map_lgl <- function(.x, .f, ...) {
+  .rlang_purrr_map_mold(.x, .f, logical(1), ...)
 }
-pluck_lgl <- function(.x, .f) {
-  map_lgl(.x, `[[`, .f)
+map_int <- function(.x, .f, ...) {
+  .rlang_purrr_map_mold(.x, .f, integer(1), ...)
 }
-pluck_int <- function(.x, .f) {
-  map_int(.x, `[[`, .f)
+map_dbl <- function(.x, .f, ...) {
+  .rlang_purrr_map_mold(.x, .f, double(1), ...)
 }
-pluck_dbl <- function(.x, .f) {
-  map_dbl(.x, `[[`, .f)
+map_chr <- function(.x, .f, ...) {
+  .rlang_purrr_map_mold(.x, .f, character(1), ...)
 }
-pluck_chr <- function(.x, .f) {
-  map_chr(.x, `[[`, .f)
-}
-pluck_cpl <- function(.x, .f) {
-  map_cpl(.x, `[[`, .f)
+.rlang_purrr_map_mold <- function(.x, .f, .mold, ...) {
+  .f <- as_function(.f, env = global_env())
+  out <- vapply(.x, .f, .mold, ..., USE.NAMES = FALSE)
+  names(out) <- names(.x)
+  out
 }
 
 map2 <- function(.x, .y, .f, ...) {
+  .f <- as_function(.f, env = global_env())
   out <- mapply(.f, .x, .y, MoreArgs = list(...), SIMPLIFY = FALSE)
   if (length(out) == length(.x)) {
     set_names(out, names(.x))
@@ -74,11 +85,20 @@ map2_dbl <- function(.x, .y, .f, ...) {
 map2_chr <- function(.x, .y, .f, ...) {
   as.vector(map2(.x, .y, .f, ...), "character")
 }
-map2_cpl <- function(.x, .y, .f, ...) {
-  as.vector(map2(.x, .y, .f, ...), "complex")
+imap <- function(.x, .f, ...) {
+  map2(.x, names(.x) %||% seq_along(.x), .f, ...)
 }
 
-args_recycle <- function(args) {
+pmap <- function(.l, .f, ...) {
+  .f <- as.function(.f)
+  args <- .rlang_purrr_args_recycle(.l)
+  do.call("mapply", c(
+    FUN = list(quote(.f)),
+    args, MoreArgs = quote(list(...)),
+    SIMPLIFY = FALSE, USE.NAMES = FALSE
+  ))
+}
+.rlang_purrr_args_recycle <- function(args) {
   lengths <- map_int(args, length)
   n <- max(lengths)
 
@@ -88,35 +108,27 @@ args_recycle <- function(args) {
 
   args
 }
-pmap <- function(.l, .f, ...) {
-  args <- args_recycle(.l)
-  do.call("mapply", c(
-    FUN = list(quote(.f)),
-    args, MoreArgs = quote(list(...)),
-    SIMPLIFY = FALSE, USE.NAMES = FALSE
-  ))
-}
 
-probe <- function(.x, .p, ...) {
+keep <- function(.x, .f, ...) {
+  .x[.rlang_purrr_probe(.x, .f, ...)]
+}
+discard <- function(.x, .p, ...) {
+  sel <- .rlang_purrr_probe(.x, .p, ...)
+  .x[is.na(sel) | !sel]
+}
+map_if <- function(.x, .p, .f, ...) {
+  matches <- .rlang_purrr_probe(.x, .p)
+  .x[matches] <- map(.x[matches], .f, ...)
+  .x
+}
+.rlang_purrr_probe <- function(.x, .p, ...) {
   if (is_logical(.p)) {
     stopifnot(length(.p) == length(.x))
     .p
   } else {
+    .p <- as_function(.p, env = global_env())
     map_lgl(.x, .p, ...)
   }
-}
-
-keep <- function(.x, .f, ...) {
-  .x[probe(.x, .f, ...)]
-}
-discard <- function(.x, .p, ...) {
-  sel <- probe(.x, .p, ...)
-  .x[is.na(sel) | !sel]
-}
-map_if <- function(.x, .p, .f, ...) {
-  matches <- probe(.x, .p)
-  .x[matches] <- map(.x[matches], .f, ...)
-  .x
 }
 
 compact <- function(.x) {
@@ -124,12 +136,28 @@ compact <- function(.x) {
 }
 
 transpose <- function(.l) {
+  if (!length(.l)) {
+    return(.l)
+  }
+
   inner_names <- names(.l[[1]])
+
   if (is.null(inner_names)) {
     fields <- seq_along(.l[[1]])
   } else {
     fields <- set_names(inner_names)
+    .l <- map(.l, function(x) {
+      if (is.null(names(x))) {
+        set_names(x, inner_names)
+      } else {
+        x
+      }
+    })
   }
+
+  # This way missing fields are subsetted as `NULL` instead of causing
+  # an error
+  .l <- map(.l, as.list)
 
   map(fields, function(i) {
     map(.l, .subset2, i)
@@ -137,22 +165,23 @@ transpose <- function(.l) {
 }
 
 every <- function(.x, .p, ...) {
+  .p <- as_function(.p, env = global_env())
+
   for (i in seq_along(.x)) {
-    if (!rlang::is_true(.p(.x[[i]], ...))) {
-      return(FALSE)
-    }
+    if (!rlang::is_true(.p(.x[[i]], ...))) return(FALSE)
   }
   TRUE
 }
 some <- function(.x, .p, ...) {
+  .p <- as_function(.p, env = global_env())
+
   for (i in seq_along(.x)) {
-    if (rlang::is_true(.p(.x[[i]], ...))) {
-      return(TRUE)
-    }
+    if (rlang::is_true(.p(.x[[i]], ...))) return(TRUE)
   }
   FALSE
 }
 negate <- function(.p) {
+  .p <- as_function(.p, env = global_env())
   function(...) !.p(...)
 }
 
@@ -174,7 +203,10 @@ accumulate_right <- function(.x, .f, ..., .init) {
 }
 
 detect <- function(.x, .f, ..., .right = FALSE, .p = is_true) {
-  for (i in index(.x, .right)) {
+  .p <- as_function(.p, env = global_env())
+  .f <- as_function(.f, env = global_env())
+
+  for (i in .rlang_purrr_index(.x, .right)) {
     if (.p(.f(.x[[i]], ...))) {
       return(.x[[i]])
     }
@@ -182,14 +214,17 @@ detect <- function(.x, .f, ..., .right = FALSE, .p = is_true) {
   NULL
 }
 detect_index <- function(.x, .f, ..., .right = FALSE, .p = is_true) {
-  for (i in index(.x, .right)) {
+  .p <- as_function(.p, env = global_env())
+  .f <- as_function(.f, env = global_env())
+
+  for (i in .rlang_purrr_index(.x, .right)) {
     if (.p(.f(.x[[i]], ...))) {
       return(i)
     }
   }
   0L
 }
-index <- function(x, right = FALSE) {
+.rlang_purrr_index <- function(x, right = FALSE) {
   idx <- seq_along(x)
   if (right) {
     idx <- rev(idx)
@@ -197,12 +232,8 @@ index <- function(x, right = FALSE) {
   idx
 }
 
-imap <- function(.x, .f, ...) {
-  map2(.x, vec_index(.x), .f, ...)
+list_c <- function(x) {
+  inject(c(!!!x))
 }
-vec_index <- function(x) {
-  names(x) %||% seq_along(x)
-}
-
 
 # nocov end
