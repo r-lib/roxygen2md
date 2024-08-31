@@ -1,5 +1,52 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# roxygen2md 1.0.1.9001
+
+## Chore
+
+  - Auto-update from GitHub Actions.
+    
+    Run: https://github.com/r-lib/roxygen2md/actions/runs/10425485750
+
+  - Auto-update from GitHub Actions.
+    
+    Run: https://github.com/r-lib/roxygen2md/actions/runs/10208520603
+
+  - Auto-update from GitHub Actions.
+    
+    Run: https://github.com/r-lib/roxygen2md/actions/runs/9728439771
+
+  - Auto-update from GitHub Actions.
+    
+    Run: https://github.com/r-lib/roxygen2md/actions/runs/9691616200
+
+## Continuous integration
+
+  - Install local package for pkgdown builds.
+
+  - Improve support for protected branches with fledge.
+
+  - Improve support for protected branches, without fledge.
+
+  - Sync with latest developments.
+
+  - Use v2 instead of master.
+
+  - Inline action.
+
+  - Use dev roxygen2 and decor.
+
+  - Fix on Windows, tweak lock workflow.
+
+  - Avoid checking bashisms on Windows.
+
+  - Better commit message.
+
+  - Bump versions, better default, consume custom matrix.
+
+  - Recent updates.
+
+
 # roxygen2md 1.0.1.9000
 
 - Merge branch 'cran-1.0.1'.
