@@ -1,5 +1,16 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# roxygen2md 1.0.1.9002
+
+## Continuous integration
+
+  - Install via R CMD INSTALL ., not pak (#23).
+    
+      - ci: Install via R CMD INSTALL ., not pak
+    
+      - ci: Bump version of upload-artifact action
+
+
 # roxygen2md 1.0.1.9001
 
 ## Chore
