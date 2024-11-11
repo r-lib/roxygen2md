@@ -1,5 +1,16 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# roxygen2md 1.0.1.9004
+
+## Continuous integration
+
+  - Trigger run (#25).
+    
+      - ci: Trigger run
+    
+      - ci: Latest changes
+
+
 # roxygen2md 1.0.1.9003
 
 ## Continuous integration
