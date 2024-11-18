@@ -1,5 +1,12 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# roxygen2md 1.0.1.9005
+
+## Continuous integration
+
+  - Use stable pak (#26).
+
+
 # roxygen2md 1.0.1.9004
 
 ## Continuous integration
