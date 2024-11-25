@@ -1,5 +1,18 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# roxygen2md 1.0.1.9007
+
+## Continuous integration
+
+- Need to install R on Ubuntu 24.04 (#30).
+
+- Use Ubuntu 24.04 and styler PR (#28).
+
+## Uncategorized
+
+- PLACEHOLDER https://github.com/r-lib/roxygen2md/pull/16 (#16).
+
+
 # roxygen2md 1.0.1.9006
 
 ## Continuous integration
