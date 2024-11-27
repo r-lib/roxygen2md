@@ -1,5 +1,12 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# roxygen2md 1.0.1.9009
+
+## Continuous integration
+
+- Explicit permissions (#32).
+
+
 # roxygen2md 1.0.1.9008
 
 ## Continuous integration
