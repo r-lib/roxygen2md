@@ -1,5 +1,12 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# roxygen2md 1.0.1.9010
+
+## Continuous integration
+
+- Ignore errors when removing pkg-config on macOS (#33).
+
+
 # roxygen2md 1.0.1.9009
 
 ## Continuous integration
