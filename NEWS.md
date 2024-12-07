@@ -1,5 +1,12 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# roxygen2md 1.0.1.9011
+
+## Continuous integration
+
+- Use larger retry count for lock-threads workflow (#34).
+
+
 # roxygen2md 1.0.1.9010
 
 ## Continuous integration
