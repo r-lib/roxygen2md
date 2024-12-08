@@ -1,5 +1,12 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# roxygen2md 1.0.1.9012
+
+## Continuous integration
+
+- Fetch tags for fledge workflow to avoid unnecessary NEWS entries (#35).
+
+
 # roxygen2md 1.0.1.9011
 
 ## Continuous integration
