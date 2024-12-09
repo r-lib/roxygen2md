@@ -1,5 +1,12 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# roxygen2md 1.0.1.9013
+
+## Continuous integration
+
+- Avoid failure in fledge workflow if no changes (#36).
+
+
 # roxygen2md 1.0.1.9012
 
 ## Continuous integration
