@@ -1,5 +1,48 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# roxygen2md 1.0.1.9014
+
+## Chore
+
+- Auto-update from GitHub Actions.
+
+  Run: https://github.com/r-lib/roxygen2md/actions/runs/17451400696
+
+- Auto-update from GitHub Actions.
+
+  Run: https://github.com/r-lib/roxygen2md/actions/runs/14636195570
+
+## Continuous integration
+
+- Use workflows for fledge (#52).
+
+- Sync (#51).
+
+- Use reviewdog for external PRs (#49).
+
+- Cleanup and fix macOS (#48).
+
+- Format with air, check detritus, better handling of `extra-packages` (#47).
+
+- Enhance permissions for workflow (#45).
+
+- Permissions, better tests for missing suggests, lints (#44).
+
+- Only fail covr builds if token is given (#43).
+
+- Always use `_R_CHECK_FORCE_SUGGESTS_=false` (#42).
+
+- Correct installation of xml2 (#41).
+
+- Explain (#40).
+
+- Add xml2 for covr, print testthat results (#39).
+
+- Fix (#38).
+
+- Sync (#37).
+
+
 # roxygen2md 1.0.1.9013
 
 ## Continuous integration
