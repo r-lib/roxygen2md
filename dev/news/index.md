@@ -1,5 +1,12 @@
 # Changelog
 
+## roxygen2md 1.0.1.9015
+
+### Continuous integration
+
+- Fix reviewdog and add commenting workflow
+  ([\#53](https://github.com/r-lib/roxygen2md/issues/53)).
+
 ## roxygen2md 1.0.1.9014
 
 ### Chore
