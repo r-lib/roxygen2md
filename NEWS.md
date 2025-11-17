@@ -1,5 +1,12 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# roxygen2md 1.0.1.9016
+
+## Continuous integration
+
+- Install binaries from r-universe for dev workflow (#54).
+
+
 # roxygen2md 1.0.1.9015
 
 ## Continuous integration
