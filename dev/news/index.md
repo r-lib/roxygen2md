@@ -1,5 +1,12 @@
 # Changelog
 
+## roxygen2md 1.0.1.9016
+
+### Continuous integration
+
+- Install binaries from r-universe for dev workflow
+  ([\#54](https://github.com/r-lib/roxygen2md/issues/54)).
+
 ## roxygen2md 1.0.1.9015
 
 ### Continuous integration
