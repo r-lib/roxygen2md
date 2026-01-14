@@ -1,5 +1,16 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# roxygen2md 1.0.1.9017
+
+## Continuous integration
+
+- Fix comment (#57).
+
+- Tweaks (#56).
+
+- Test all R versions on branches that start with cran- (#55).
+
+
 # roxygen2md 1.0.1.9016
 
 ## Continuous integration
