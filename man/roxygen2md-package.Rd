@@ -19,6 +19,11 @@ Useful links:
 \author{
 \strong{Maintainer}: Kirill Müller \email{kirill@cynkra.com}
 
+Authors:
+\itemize{
+  \item Kirill Müller \email{kirill@cynkra.com}
+}
+
 Other contributors:
 \itemize{
   \item Heather Turner [contributor]
