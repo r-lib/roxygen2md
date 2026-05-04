@@ -1,5 +1,14 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# roxygen2md 1.0.1.9019
+
+## Chore
+
+- Auto-update from GitHub Actions.
+
+  Run: https://github.com/r-lib/roxygen2md/actions/runs/25270173379
+
+
 # roxygen2md 1.0.1.9018
 
 ## Chore
