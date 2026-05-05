@@ -16,6 +16,10 @@ Useful links:
 
 **Maintainer**: Kirill Müller <kirill@cynkra.com>
 
+Authors:
+
+- Kirill Müller <kirill@cynkra.com>
+
 Other contributors:
 
 - Heather Turner \[contributor\]

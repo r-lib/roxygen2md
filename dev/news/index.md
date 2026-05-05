@@ -1,5 +1,32 @@
 # Changelog
 
+## roxygen2md 1.0.1.9019
+
+### Chore
+
+- Auto-update from GitHub Actions.
+
+  Run: <https://github.com/r-lib/roxygen2md/actions/runs/25270173379>
+
+## roxygen2md 1.0.1.9018
+
+### Chore
+
+- Auto-update from GitHub Actions.
+
+  Run: <https://github.com/r-lib/roxygen2md/actions/runs/22790999033>
+
+## roxygen2md 1.0.1.9017
+
+### Continuous integration
+
+- Fix comment ([\#57](https://github.com/r-lib/roxygen2md/issues/57)).
+
+- Tweaks ([\#56](https://github.com/r-lib/roxygen2md/issues/56)).
+
+- Test all R versions on branches that start with cran-
+  ([\#55](https://github.com/r-lib/roxygen2md/issues/55)).
+
 ## roxygen2md 1.0.1.9016
 
 ### Continuous integration

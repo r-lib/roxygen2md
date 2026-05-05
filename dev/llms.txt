@@ -28,12 +28,14 @@ results!
 Install from CRAN using
 
 ``` r
+
 install.packages("roxygen2md")
 ```
 
 Get the latest development version from GitHub with:
 
 ``` r
+
 # install.packages("pak", repos = sprintf("https://r-lib.github.io/p/pak/stable/%s/%s/%s", .Platform$pkgType, R.Version()$os, R.Version()$arch))
 pak::pak("r-lib/roxygen2md")
 ```
@@ -43,6 +45,7 @@ pak::pak("r-lib/roxygen2md")
 In your package directory, run
 
 ``` r
+
 roxygen2md::roxygen2md()
 ```
 
