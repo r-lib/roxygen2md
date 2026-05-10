@@ -1,5 +1,12 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# roxygen2md 1.0.1.9021
+
+## Continuous integration
+
+- Tweak fledge workflow and ccache action.
+
+
 # roxygen2md 1.0.1.9020
 
 ## Continuous integration
