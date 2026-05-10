@@ -1,5 +1,12 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# roxygen2md 1.0.1.9022
+
+## Continuous integration
+
+- Only run fledge on pushes to main.
+
+
 # roxygen2md 1.0.1.9021
 
 ## Continuous integration
