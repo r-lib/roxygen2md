@@ -1,5 +1,11 @@
 # Changelog
 
+## roxygen2md 1.0.1.9022
+
+### Continuous integration
+
+- Only run fledge on pushes to main.
+
 ## roxygen2md 1.0.1.9021
 
 ### Continuous integration
