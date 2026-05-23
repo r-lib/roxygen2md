@@ -1,5 +1,10 @@
 # Changelog
 
+## roxygen2md 1.0.1.9024
+
+- Ci: Unify fledge.yaml across cynkratemplate and fledge
+  ([\#86](https://github.com/r-lib/roxygen2md/issues/86)).
+
 ## roxygen2md 1.0.1.9023
 
 ### Chore
