@@ -1,5 +1,13 @@
 # Changelog
 
+## roxygen2md 1.0.1.9025
+
+### Continuous integration
+
+- Update ccache-action reference.
+
+- Bump action version.
+
 ## roxygen2md 1.0.1.9024
 
 - Ci: Unify fledge.yaml across cynkratemplate and fledge
