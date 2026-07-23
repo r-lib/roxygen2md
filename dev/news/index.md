@@ -1,5 +1,13 @@
 # Changelog
 
+## roxygen2md 1.0.1.9026
+
+### Continuous integration
+
+- Run on Ubuntu 26.04.
+
+- Align workflows with template.
+
 ## roxygen2md 1.0.1.9025
 
 ### Continuous integration
