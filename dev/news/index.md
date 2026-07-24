@@ -1,5 +1,18 @@
 # Changelog
 
+## roxygen2md 1.0.1.9027
+
+### Bug fixes
+
+#### ci
+
+- Emit empty package matrix when there are no (rev)deps.
+
+### Uncategorized
+
+- Ci: Harden `format-suggest` against `pull_request_target` pwn requests
+  ([\#93](https://github.com/r-lib/roxygen2md/issues/93)).
+
 ## roxygen2md 1.0.1.9026
 
 ### Continuous integration
