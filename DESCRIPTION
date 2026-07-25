@@ -1,7 +1,7 @@
 Package: roxygen2md
 Title: 'Roxygen' to 'Markdown'
-Version: 1.0.1.9027
-Date: 2026-07-24
+Version: 1.0.1.9028
+Date: 2026-07-25
 Authors@R: c(
     person("Kirill", "Müller", , "kirill@cynkra.com", role = c("aut", "cre")),
     person("Heather", "Turner", role = "ctb")
