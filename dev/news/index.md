@@ -1,5 +1,11 @@
 # Changelog
 
+## roxygen2md 1.0.1.9028
+
+### Continuous integration
+
+- Lock down `format-suggest` egress (audit → block).
+
 ## roxygen2md 1.0.1.9027
 
 ### Bug fixes
