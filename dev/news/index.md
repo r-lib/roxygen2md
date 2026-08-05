@@ -1,5 +1,16 @@
 # Changelog
 
+## roxygen2md 1.0.1.9029
+
+- Ci: Run all smoke-test checks even when one fails
+  ([\#97](https://github.com/r-lib/roxygen2md/issues/97)).
+
+- Ci: Apply matrix `env` vars in the workflow, not in custom actions
+  ([\#95](https://github.com/r-lib/roxygen2md/issues/95)).
+
+- Ci: Link the responsible workflow run in snapshot update PRs
+  ([\#96](https://github.com/r-lib/roxygen2md/issues/96)).
+
 ## roxygen2md 1.0.1.9028
 
 ### Continuous integration
