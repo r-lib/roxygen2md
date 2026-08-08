@@ -1,5 +1,16 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# roxygen2md 1.0.1.9032
+
+## Continuous integration
+
+- Wrap the commit status update into an action.
+
+- Route ccache through one-word compiler wrappers on Unix.
+
+- Name every step and restore the log entry `setup-pandoc` swallows.
+
+
 # roxygen2md 1.0.1.9031
 
 ## Continuous integration
