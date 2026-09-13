@@ -1,5 +1,22 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# roxygen2md 1.0.1.9034
+
+## Features
+
+### ci
+
+- Align the `revdep2`, `revdep4` and `revdepx` subsystems with `rigraph`.
+
+## Continuous integration
+
+- Survive an archived CRAN package, cache revdep compiles (@krlmlr, #58).
+
+## Uncategorized
+
+- Ci: Fail the roxygenize step on roxygen2 warnings (#111).
+
+
 # roxygen2md 1.0.1.9033
 
 ## Bug fixes
