@@ -1,7 +1,7 @@
 #' Transform a text file
 #'
 #' Reads a file from disk, applies a function on the contents, and optionally writes the file back if different.
-#'  The line ending separator of the input file is used if it can be read and contains at least one, otherwise [native_eol()] is used.
+#' The line ending separator of the input file is used if it can be read and contains at least one, otherwise [native_eol()] is used.
 #'
 #' @family file functions
 #' @param path A vector of file paths.
@@ -9,7 +9,7 @@
 #' @param write_back Should the results of the transformation be written back to the file?
 #' @param verbose Should the function show a message with a list of changed files?
 #' @return A named logical vector of the same length as `path`
-#'  that indicates if a file has changed (`TRUE` or `FALSE`), or if an error occurred (`NA`)
+#'   that indicates if a file has changed (`TRUE` or `FALSE`), or if an error occurred (`NA`)
 #' @inheritParams base::readLines
 #' @inheritParams read_lines_enc
 #' @inheritParams write_lines_enc
