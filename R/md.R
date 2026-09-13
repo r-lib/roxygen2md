@@ -1,14 +1,14 @@
 #' Convert from Rd to Markdown in roxygen2 comments
 #'
 #' Performs various substitutions in all `.R` files in a package to make use of the Markdown functionality in `roxygen2`.
-#' This function is designed for interactive use, see [markdownify()] for details on the transformations.
-#' Also attempts to enable Markdown support in `roxygen2` by adding a field to `DESCRIPTION`.
-#' Carefully examine the results after running this function!
+#'  This function is designed for interactive use, see [markdownify()] for details on the transformations.
+#'  Also attempts to enable Markdown support in `roxygen2` by adding a field to `DESCRIPTION`.
+#'  Carefully examine the results after running this function!
 #'
 #' @param scope The scope of transformations:
-#'   `"simple"` runs only transformations that shouldn't substantially change the resulting `.Rd` files,
-#'   `"full"` runs all transformations.
-#'   In larger packages, run `"none"`, double-check and track the changes, and then run `"simple"` and then `"full"`.
+#'  `"simple"` runs only transformations that shouldn't substantially change the resulting `.Rd` files,
+#'  `"full"` runs all transformations.
+#'  In larger packages, run `"none"`, double-check and track the changes, and then run `"simple"` and then `"full"`.
 #'
 #' @return List of changed files, invisibly
 #'
