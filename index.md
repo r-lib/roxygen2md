@@ -31,6 +31,29 @@ Call `roxygen2md::roxygen2md()` in your package's directory, or navigate to "Too
 
 The substitutions are not completely safe, please carefully examine the results!
 
+## Goals and non-goals
+
+roxygen2md aims to:
+
+- Replace Rd syntax with its Markdown equivalent throughout a package's roxygen2 comments,
+  covering `\emph{}`, `\bold{}` and `\strong{}`, `\href{}`, `\url{}`, `\code{}` and the `\link{}` variants.
+- Enable Markdown in roxygen blocks by editing `DESCRIPTION` if necessary.
+- Let you convert in stages through the `scope` argument,
+  which helps isolating mostly automated changes from changes that require review.
+- Point at what is left: `find_rd()` enumerates the Rd elements in your R scripts that the conversion did not handle,
+  in a markers pane when you are in RStudio.
+
+It is explicitly not trying to:
+
+- Run unattended:
+  both functions are designed for interactive use, the substitutions are not completely safe,
+  and you should carefully examine the results.
+- Find a Markdown translation for every nested construct:
+  `scope = "unlink"` splits up complex instances of `\code{...\link{...}...}` instead,
+  and `@seealso` tags or pkgdown's auto-link feature can take over from there.
+- Convert sources in other encodings:
+  the package's `DESCRIPTION` must declare `UTF-8` or `ASCII`, so recode your files first if it does not.
+
 ## Installation
 
 Install from CRAN using
