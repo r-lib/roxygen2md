@@ -1,5 +1,25 @@
 # Changelog
 
+## roxygen2md 1.0.1.9034
+
+### Features
+
+#### ci
+
+- Align the `revdep2`, `revdep4` and `revdepx` subsystems with
+  `rigraph`.
+
+### Continuous integration
+
+- Survive an archived CRAN package, cache revdep compiles
+  ([@krlmlr](https://github.com/krlmlr),
+  [\#58](https://github.com/r-lib/roxygen2md/issues/58)).
+
+### Uncategorized
+
+- Ci: Fail the roxygenize step on roxygen2 warnings
+  ([\#111](https://github.com/r-lib/roxygen2md/issues/111)).
+
 ## roxygen2md 1.0.1.9033
 
 ### Bug fixes
