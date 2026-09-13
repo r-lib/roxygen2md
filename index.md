@@ -15,8 +15,7 @@
 [![CRAN status](https://www.r-pkg.org/badges/version/roxygen2md)](https://cran.r-project.org/package=roxygen2md)
 <!-- badges: end -->
 
-The goal of roxygen2md is to replace Rd syntax with Markdown
-in your package's `roxygen2` documentation.
+The goal of roxygen2md is to replace Rd syntax with Markdown in your package's `roxygen2` documentation.
 The following Rd code is converted to the Markdown equivalent:
 
 - `\emph{}`
@@ -64,7 +63,8 @@ At any time, choose the item "Find Rd" from your "Addins" menu, or run `find_rd(
 
 ## Converting large packages
 
-For larger existing packages, a three-stage workflow is recommended, using `roxygen2md(scope = "none")`, `"simple"` and `"full"` in sequence:
+For larger existing packages, a three-stage workflow is recommended,
+using `roxygen2md(scope = "none")`, `"simple"` and `"full"` in sequence:
 
 - `"none"` only adds `list(markdown = TRUE)` to the `Roxygen` field in `DESCRIPTION`
 - `"simple"` only converts elements like `\code{}` and `\emph{}`
@@ -79,20 +79,23 @@ See <https://github.com/rstudio/rmarkdown/pull/1583> for an example conversion.
 ### Baseline
 
 After `roxygen2md(scope = "none")`, interpretation of Markdown elements is enabled.
-Running `devtools::document()` should ideally lead to whitespace-only changes in the `.Rd` files, this can be verified with `git diff -w -- man` or with a visual diff tool like Meld or diffuse.
+Running `devtools::document()` should ideally lead to whitespace-only changes in the `.Rd` files,
+this can be verified with `git diff -w -- man` or with a visual diff tool like Meld or diffuse.
 Make sure that enabling of Markdown doesn't add unwanted artifacts.
 (The second commit in the example PR was necessary due to such artifacts -- the underscore has a special meaning in Markdown.)
 
 ### Simple conversion
 
-Running `roxygen2md(scope = "simple")` after `"none"` (and running `devtools::document()`) should lead to changes in R files mostly, only very few `.Rd` files should be changed.
+Running `roxygen2md(scope = "simple")` after `"none"` (and running `devtools::document()`) should lead to changes in R files mostly,
+only very few `.Rd` files should be changed.
 Again, make sure this doesn't add unwanted artifacts.
 
 ### Removing links
 
 Optionally, run `roxygen2md(scope = "unlink")` after `"simple"` (and running `devtools::document()`).
 This replaces all instances of `\link{...}` with `...`.
-This isn't a valid conversion, but a helper to split up complex instances of `\code{...\link{...}...}` for which no easy-to-read translation to Markdown exists.
+This isn't a valid conversion,
+but a helper to split up complex instances of `\code{...\link{...}...}` for which no easy-to-read translation to Markdown exists.
 Use a visual diff tool like Meld or diffuse to quickly iterate through all changes and keep only those that are intended.
 Run `devtools::document()` and commit if necessary.
 
@@ -108,7 +111,8 @@ Review carefully, luckily `R CMD check` catches bad links introduced in this sta
 
 ### Manual conversion
 
-The `find_rd()` functions shows positions of Rd-like comments that were not handled by the conversion. In RStudio, a markers pane will open.
+The `find_rd()` functions shows positions of Rd-like comments that were not handled by the conversion.
+In RStudio, a markers pane will open.
 
 ## Limitations
 
@@ -116,7 +120,8 @@ The package's `DESCRIPTION` must have its `Encoding` field set to `UTF-8` or `AS
 
     Encoding: UTF-8
 
-If you use a different encoding, please recode your files with [`recode`](https://manpages.ubuntu.com/manpages/noble/man1/recode.1.html) or a similar tool and update the `Encoding` field before proceeding. Example:
+If you use a different encoding, please recode your files with [`recode`](https://manpages.ubuntu.com/manpages/noble/man1/recode.1.html) or a similar tool and update the `Encoding` field before proceeding.
+Example:
 
 ``` sh
 recode latin1..utf8 R/*

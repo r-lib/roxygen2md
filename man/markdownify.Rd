@@ -9,14 +9,13 @@ markdownify(text, scope = c("full", "simple", "unlink", "indent", "none"))
 \arguments{
 \item{text}{A character vector containing \code{.Rd} style annotations.}
 
-\item{scope}{The scope of transformations: \code{"simple"} runs only transformations
-that shouldn't substantially change the resulting \code{.Rd} files, \code{"full"} runs
-all transformations. In larger packages, run \code{"none"}, double-check and track
-the changes, and then run \code{"simple"} and then \code{"full"}.}
+\item{scope}{The scope of transformations:
+\code{"simple"} runs only transformations that shouldn't substantially change the resulting \code{.Rd} files,
+\code{"full"} runs all transformations.
+In larger packages, run \code{"none"}, double-check and track the changes, and then run \code{"simple"} and then \code{"full"}.}
 }
 \value{
-The same vector with \code{.Rd} style annotations converted to Markdown
-style annotations.
+The same vector with \code{.Rd} style annotations converted to Markdown style annotations.
 }
 \description{
 Converts a character vector from Rd to Markdown.
@@ -47,8 +46,7 @@ With \code{scope = "unlink"}, \emph{only} the following elements are translated:
 \item \verb{\\\link{...}} to \code{...}
 }
 
-With \code{scope = "indent"}, \verb{@param} and \verb{@return} tags spanning multiple lines
-are indented with two spaces.
+With \code{scope = "indent"}, \verb{@param} and \verb{@return} tags spanning multiple lines are indented with two spaces.
 }
 \examples{
 text <- c(
