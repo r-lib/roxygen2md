@@ -1,5 +1,12 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# roxygen2md 1.0.1.9036
+
+## Documentation
+
+- Add "Supported By Posit" badge to roxygen2md website (@jeroenjanssens, #50).
+
+
 # roxygen2md 1.0.1.9035
 
 ## Chore
