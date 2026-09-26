@@ -7,12 +7,10 @@
 find_rd()
 }
 \value{
-A tidy data frame that has a \code{\link[=print]{print()}} method
-that also interacts with the RStudio API.
+A tidy data frame that has a \code{\link[=print]{print()}} method that also interacts with the RStudio API.
 }
 \description{
-Looks for Rd-like code in roxygen2 comments, especially useful after running
-\code{\link[=roxygen2md]{roxygen2md()}}.
+Looks for Rd-like code in roxygen2 comments, especially useful after running \code{\link[=roxygen2md]{roxygen2md()}}.
 This function is designed for interactive use.
 }
 \examples{

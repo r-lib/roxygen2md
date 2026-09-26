@@ -6,8 +6,7 @@
 #' @param text A character vector containing `.Rd` style annotations.
 #' @inheritParams roxygen2md
 #'
-#' @return The same vector with `.Rd` style annotations converted to Markdown
-#'   style annotations.
+#' @return The same vector with `.Rd` style annotations converted to Markdown style annotations.
 #' @export
 #'
 #' @examples
@@ -81,8 +80,7 @@ markdownify <- function(text, scope = c("full", "simple", "unlink", "indent", "n
   )
 
   #'
-  #' With `scope = "indent"`, `@param` and `@return` tags spanning multiple lines
-  #' are indented with two spaces.
+  #' With `scope = "indent"`, `@param` and `@return` tags spanning multiple lines are indented with two spaces.
   #'
   indent_transformers <- c(
     indent_param_return,
