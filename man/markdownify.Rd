@@ -12,7 +12,7 @@ markdownify(text, scope = c("full", "simple", "unlink", "indent", "none"))
 \item{scope}{The scope of transformations:
 \code{"simple"} runs only transformations that shouldn't substantially change the resulting \code{.Rd} files,
 \code{"full"} runs all transformations.
-In larger packages, run \code{"none"}, double-check and track the changes, and then run \code{"simple"} and then \code{"full"}.}
+ In larger packages, run \code{"none"}, double-check and track the changes, and then run \code{"simple"} and then \code{"full"}.}
 }
 \value{
 The same vector with \code{.Rd} style annotations converted to Markdown style annotations.
@@ -23,7 +23,7 @@ Converts a character vector from Rd to Markdown.
 The \code{scope} argument controls the depth of the transformation.
 
 With \code{scope = "none"}, no transformations are carried out.
-The only effect is that Markdown is enabled for this package.
+ The only effect is that Markdown is enabled for this package.
 
 With \code{scope = "simple"}, the following elements are converted:
 \itemize{

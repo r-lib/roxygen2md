@@ -10,16 +10,16 @@ roxygen2md(scope = c("full", "simple", "unlink", "indent", "none"))
 \item{scope}{The scope of transformations:
 \code{"simple"} runs only transformations that shouldn't substantially change the resulting \code{.Rd} files,
 \code{"full"} runs all transformations.
-In larger packages, run \code{"none"}, double-check and track the changes, and then run \code{"simple"} and then \code{"full"}.}
+ In larger packages, run \code{"none"}, double-check and track the changes, and then run \code{"simple"} and then \code{"full"}.}
 }
 \value{
 List of changed files, invisibly
 }
 \description{
 Performs various substitutions in all \code{.R} files in a package to make use of the Markdown functionality in \code{roxygen2}.
-This function is designed for interactive use, see \code{\link[=markdownify]{markdownify()}} for details on the transformations.
-Also attempts to enable Markdown support in \code{roxygen2} by adding a field to \code{DESCRIPTION}.
-Carefully examine the results after running this function!
+ This function is designed for interactive use, see \code{\link[=markdownify]{markdownify()}} for details on the transformations.
+ Also attempts to enable Markdown support in \code{roxygen2} by adding a field to \code{DESCRIPTION}.
+ Carefully examine the results after running this function!
 }
 \examples{
 if (interactive()) {
