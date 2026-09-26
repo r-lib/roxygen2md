@@ -10,7 +10,7 @@
 <!-- badges: start -->
 
 [![rcc](https://github.com/r-lib/roxygen2md/workflows/rcc/badge.svg)](https://github.com/r-lib/roxygen2md/actions)
-[![Codecov test coverage](https://codecov.io/gh/r-lib/roxygen2md/branch/main/graph/badge.svg)](https://app.codecov.io/gh/r-lib/roxygen2md?branch=main)
+[![Codecov test coverage](https://codecov.io/gh/r-lib/roxygen2md/graph/badge.svg)](https://app.codecov.io/gh/r-lib/roxygen2md/tree/main)
 [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![CRAN status](https://www.r-pkg.org/badges/version/roxygen2md)](https://cran.r-project.org/package=roxygen2md)
 <!-- badges: end -->
