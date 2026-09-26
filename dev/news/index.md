@@ -1,5 +1,13 @@
 # Changelog
 
+## roxygen2md 1.0.1.9036
+
+### Documentation
+
+- Add “Supported By Posit” badge to roxygen2md website
+  ([@jeroenjanssens](https://github.com/jeroenjanssens),
+  [\#50](https://github.com/r-lib/roxygen2md/issues/50)).
+
 ## roxygen2md 1.0.1.9035
 
 ### Chore
