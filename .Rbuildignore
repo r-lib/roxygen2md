@@ -16,3 +16,4 @@
 ^\.aviator/config\.yml$
 ^docs$
 ^pkgdown$
+^index\.md$
